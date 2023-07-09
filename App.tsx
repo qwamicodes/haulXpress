@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Navigation from "./navigation";
 
-import { AppLoading } from "./components/AppLoading";
+import { AppLoading } from "./AppLoading";
 
 export default function App() {
   return (
