@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../types";
 import SplashScreen from "../screens/splash";
+import Walkthrough from "../features/Walkthrough";
 
 const MainNavigator = () => {
   const { Navigator, Group, Screen } =
@@ -10,7 +11,7 @@ const MainNavigator = () => {
 
   return (
     <Navigator
-      initialRouteName="SplashScreen"
+      initialRouteName="Walkthrough"
       screenOptions={{
         headerShown: false,
       }}
@@ -21,7 +22,8 @@ const MainNavigator = () => {
           headerShown: false,
         }}
       >
-        <Screen name="SplashScreen" component={SplashScreen} />
+        {/* <Screen name="SplashScreen" component={SplashScreen} /> */}
+        <Screen name="Walkthrough" component={Walkthrough} />
       </Group>
     </Navigator>
   );
