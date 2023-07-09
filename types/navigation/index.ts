@@ -3,5 +3,6 @@ export type RootStackParamList = {
   //authenticated
   //unauthenticated
   //others
-  SplashScreen: undefined;
+  // SplashScreen: undefined;
+  Walkthrough: undefined;
 };
