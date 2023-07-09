@@ -4,16 +4,16 @@
     "slug": "haulXpress",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash/logo.png",
+    "icon": "./assets/splash/icon.png",
     "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "splash": {
       "image": "./assets/splash/logo.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F9FAFB"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
       "supportsTablet": true
     },
