@@ -6,9 +6,12 @@
     "orientation": "portrait",
     "icon": "./assets/splash/icon.png",
     "userInterfaceStyle": "light",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/2a691fc6-637a-43f5-aa75-d9ac3607c078"
     },
     "splash": {
       "image": "./assets/splash/logo.png",
@@ -25,6 +28,14 @@
     },
     "web": {
       "favicon": "./assets/splash/logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2a691fc6-637a-43f5-aa75-d9ac3607c078"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }
