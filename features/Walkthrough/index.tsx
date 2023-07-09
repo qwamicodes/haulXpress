@@ -12,17 +12,18 @@ import {
 } from "../../constants";
 import { IWalkThroughItem } from "../../types";
 import Button from "../../components/Button";
-
-// const WIDTH = Dimensions.get("screen").width - 48;
+import { useNavigationParams } from "../../hooks";
 
 const Walkthrough = () => {
+  const navigate = useNavigationParams();
+
   const renderItem = ({
     item,
     index,
   }: {
     item: IWalkThroughItem;
     index: number;
-  }) => <WalkthroughItem key={index} index={index} {...item} />;
+  }) => <WalkthroughItem key={index} {...item} />;
 
   return (
     <SafeAreaView
@@ -45,24 +46,19 @@ const Walkthrough = () => {
                           styles.dots,
                           i === activeIndex && styles.activeDot,
                         ]}
-                        // onPress={() =>
-                        //   AppIntroSlider?.prototype.goToSlide(i, true)
-                        // }
                       />
                     ))}
                 </View>
                 <View>
-                  <Button buttonText="get started" icon={false} />
+                  <Button
+                    onPress={() => navigate("Login")}
+                    buttonText="get started"
+                    icon={false}
+                  />
                 </View>
               </View>
             );
           }}
-          renderNextButton={() => <Button buttonText="next" icon={false} />}
-          renderDoneButton={() => (
-            <Button buttonText="get started" icon={false} />
-          )}
-          showDoneButton={false}
-          showNextButton={false}
           data={walkthroughItems}
           renderItem={renderItem}
           keyExtractor={(item) => item.title}
