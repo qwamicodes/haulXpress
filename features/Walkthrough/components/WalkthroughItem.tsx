@@ -26,19 +26,24 @@ const WalkthroughItem = ({
             <Text style={[styles.walkthroughTitle]}>{title}</Text>
           </View>
         </View>
-        <View style={[centeringStyle, styles.dotsContainer]}>
+        {/* <View style={[centeringStyle, styles.dotsContainer]}>
           <View style={[styles.dots, index === 0 && styles.activeDot]} />
           <View style={[styles.dots, index === 1 && styles.activeDot]} />
           <View style={[styles.dots, index === 2 && styles.activeDot]} />
-        </View>
+        </View> */}
       </View>
-      <View style={{ flex: 1, justifyContent: "space-between" }}>
+      <View
+        style={{
+          flexBasis: "30%",
+          justifyContent: "space-between",
+        }}
+      >
         <View>
           <Text style={[styles.walkthroughDescription]}>{description}</Text>
         </View>
-        <View>
+        {/* <View>
           <Button icon={false} buttonText={buttonText} />
-        </View>
+        </View> */}
       </View>
     </View>
   );
@@ -51,6 +56,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 0.85,
     justifyContent: "space-between",
+    paddingHorizontal: 24,
   },
   imageContainer: {
     width: "100%",
