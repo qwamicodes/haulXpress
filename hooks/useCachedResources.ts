@@ -8,7 +8,11 @@ const useCachedResources = (): boolean => {
     async function loadResourcesAndDataAsync() {
       try {
         await Font.loadAsync({
-          //   "Excon-Bold": require("../assets/fonts/excon/Excon-Bold.ttf"),
+          "NotoSans-Bold": require("../assets/fonts/NotoSans/NotoSans-Bold.ttf"),
+          "NotoSans-SemiBold": require("../assets/fonts/NotoSans/NotoSans-SemiBold.ttf"),
+          "NotoSans-Medium": require("../assets/fonts/NotoSans/NotoSans-Medium.ttf"),
+          "NotoSans-Regular": require("../assets/fonts/NotoSans/NotoSans-Regular.ttf"),
+          "NotoSans-Light": require("../assets/fonts/NotoSans/NotoSans-Light.ttf"),
         });
       } catch (e) {
         console.warn(e);
