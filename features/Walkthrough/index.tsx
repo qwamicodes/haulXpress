@@ -51,7 +51,7 @@ const Walkthrough = () => {
                 </View>
                 <View>
                   <Button
-                    onPress={() => navigate("Login")}
+                    onPress={() => navigate.navigate("Login")}
                     buttonText="get started"
                     icon={false}
                   />
