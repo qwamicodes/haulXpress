@@ -100,7 +100,7 @@ export const centeringStyle: ViewStyle = {
   alignItems: "center",
 };
 
-export const authInputContainer = {
+export const authInputContainer: ViewStyle = {
   ...omit(screenStyle, "backgroundColor"),
   gap: 24,
   paddingTop: 24,
