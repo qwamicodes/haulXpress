@@ -2,20 +2,11 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
 import { IWalkThroughItem } from "../../../types";
-import Button from "../../../components/Button";
 import { DEFAULT_COLORS, centeringStyle, textStyles } from "../../../constants";
 
-interface Props extends IWalkThroughItem {
-  index: number;
-}
+interface Props extends IWalkThroughItem {}
 
-const WalkthroughItem = ({
-  buttonText,
-  description,
-  image,
-  title,
-  index,
-}: Props) => {
+const WalkthroughItem = ({ description, image, title }: Props) => {
   return (
     <View style={styles.walkthroughContainer}>
       <View style={{ flexBasis: "70%" }}>
@@ -26,11 +17,6 @@ const WalkthroughItem = ({
             <Text style={[styles.walkthroughTitle]}>{title}</Text>
           </View>
         </View>
-        {/* <View style={[centeringStyle, styles.dotsContainer]}>
-          <View style={[styles.dots, index === 0 && styles.activeDot]} />
-          <View style={[styles.dots, index === 1 && styles.activeDot]} />
-          <View style={[styles.dots, index === 2 && styles.activeDot]} />
-        </View> */}
       </View>
       <View
         style={{
@@ -41,9 +27,6 @@ const WalkthroughItem = ({
         <View>
           <Text style={[styles.walkthroughDescription]}>{description}</Text>
         </View>
-        {/* <View>
-          <Button icon={false} buttonText={buttonText} />
-        </View> */}
       </View>
     </View>
   );
@@ -88,14 +71,6 @@ const styles = StyleSheet.create({
     color: DEFAULT_COLORS.white,
     ...textStyles["3xl"].medium,
   },
-  dotsContainer: { flex: 1, flexDirection: "row", gap: 10 },
-  dots: {
-    backgroundColor: DEFAULT_COLORS.gray[200],
-    width: 10,
-    height: 10,
-    borderRadius: 100,
-  },
-  activeDot: { width: 40, backgroundColor: DEFAULT_COLORS.gray[700] },
   descriptionContainer: {},
   walkthroughDescription: {
     color: DEFAULT_COLORS.gray[600],

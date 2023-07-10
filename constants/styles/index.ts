@@ -1,4 +1,5 @@
 import { ViewStyle } from "react-native";
+import { omit } from "lodash";
 import { DEFAULT_COLORS } from "../colors";
 
 const notoSansRegular = "NotoSans-Regular";
@@ -97,4 +98,10 @@ export const screenStyle: ViewStyle = {
 export const centeringStyle: ViewStyle = {
   justifyContent: "center",
   alignItems: "center",
+};
+
+export const authInputContainer: ViewStyle = {
+  ...omit(screenStyle, "backgroundColor"),
+  gap: 24,
+  paddingTop: 24,
 };

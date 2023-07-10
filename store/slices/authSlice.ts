@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { IAuth } from "../../types";
 
-const initialState = {};
+const initialState: IAuth = { pending: false };
 
 const authSlice = createSlice({
   name: "auth",
@@ -11,7 +12,9 @@ const authSlice = createSlice({
     addSecureStore: (state, action) => {},
     updateUserDataInState: (state, action) => {},
     renewStateToken: (state, action) => {},
-    togglePending: (state) => {},
+    togglePending: (state) => {
+      state.pending = !state.pending;
+    },
   },
 });
 

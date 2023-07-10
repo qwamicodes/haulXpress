@@ -16,9 +16,11 @@ export type iconType =
   | "route"
   | "destination"
   | "edit"
-  | "password"
+  | "security"
   | "notification"
   | "book"
   | "help"
   | "openLink"
-  | "logout";
+  | "logout"
+  | "google"
+  | "chevronRight";

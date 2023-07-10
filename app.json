@@ -6,9 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/splash/icon.png",
     "userInterfaceStyle": "light",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "updates": {
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/2a691fc6-637a-43f5-aa75-d9ac3607c078"
