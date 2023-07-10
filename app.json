@@ -16,16 +16,13 @@
       "backgroundColor": "#F9FAFB"
     },
     "ios": {
-      "supportsTablet": true,
-      "googleServicesFile": "./GoogleService-Info.plist"
-      // "useFrameworks": "static"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/splash/logo.png",
         "backgroundColor": "#ffffff"
-      },
-      "googleServicesFile": "./google-services.json"
+      }
     },
     "web": {
       "favicon": "./assets/splash/logo.png"
@@ -37,11 +34,6 @@
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
-    },
-    "plugins": [
-      "@react-native-firebase/app",
-      "@react-native-firebase/perf",
-      "@react-native-firebase/crashlytics"
-    ]
+    }
   }
 }
