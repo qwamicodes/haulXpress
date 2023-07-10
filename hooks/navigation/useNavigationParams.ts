@@ -7,7 +7,7 @@ const useNavigationParams = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  return navigation.navigate;
+  return navigation;
 };
 
 export default useNavigationParams;
