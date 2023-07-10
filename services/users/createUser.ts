@@ -1,7 +1,7 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-import { auth } from "../../confg/firebase";
+import { auth } from "../../config/firebase";
 import { AppDispatch } from "../../store";
 import { RootStackParamList } from "../../types";
 import { togglePending } from "../../store/slices/authSlice";
