@@ -7,4 +7,6 @@ export interface IAuthentiation {
   inputs: IAuthInput[];
 }
 
-export interface IAuth {}
+export interface IAuth {
+  pending: boolean;
+}
