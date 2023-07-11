@@ -8,10 +8,9 @@ import Walkthrough from "../features/Walkthrough";
 import Login from "../features/Authentication/Login";
 import Register from "../features/Authentication/Register";
 import Onboarding from "../features/Authentication/Onboarding";
-import Home from "../screens/Authenticated/Home";
-import Hauler from "../features/Hauler";
+import TabsNavigator from "./TabsNavigator";
 
-const MainNavigator = () => {
+const RootNavigator = () => {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
 
   const { Navigator, Group, Screen } =
@@ -19,7 +18,7 @@ const MainNavigator = () => {
 
   return (
     <Navigator
-      initialRouteName={isAuthenticated ? "Hauler" : "Walkthrough"}
+      initialRouteName={isAuthenticated ? "TabsStack" : "Walkthrough"}
       screenOptions={{
         headerShown: false,
       }}
@@ -31,9 +30,8 @@ const MainNavigator = () => {
             headerShown: false,
           }}
         >
+          <Screen name="TabsStack" component={TabsNavigator} />
           <Screen name="Onboarding" component={Onboarding} />
-          <Screen name="Home" component={Home} />
-          <Screen name="Hauler" component={Hauler} />
         </Group>
       ) : (
         <Group
@@ -58,4 +56,4 @@ const MainNavigator = () => {
   );
 };
 
-export default MainNavigator;
+export default RootNavigator;

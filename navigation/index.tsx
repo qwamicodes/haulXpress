@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
-import MainNavigator from "./MainNavigator";
+import RootNavigator from "./RootNavigator";
 
 const Navigation = () => {
   return (
@@ -13,7 +13,7 @@ const Navigation = () => {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <BottomSheetModalProvider>
           <NavigationContainer>
-            <MainNavigator />
+            <RootNavigator />
           </NavigationContainer>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>

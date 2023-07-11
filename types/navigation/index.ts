@@ -1,9 +1,10 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
+
 //screen param lists
 export type RootStackParamList = {
   //authenticated
   Onboarding: undefined;
-  Home: undefined;
-  Hauler: undefined;
+  TabsStack: NavigatorScreenParams<TabsParamList>;
 
   //unauthenticated
   Login: undefined;
@@ -12,4 +13,11 @@ export type RootStackParamList = {
   //others
   // SplashScreen: undefined;
   Walkthrough: undefined;
+};
+
+//bottom tabs param lists
+export type TabsParamList = {
+  Map: undefined;
+  Journey: undefined;
+  Hauler: undefined;
 };
