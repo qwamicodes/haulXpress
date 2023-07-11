@@ -1,19 +1,45 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IAuth } from "../../types";
 
-const initialState: IAuth = { pending: false };
+import { IAuth, UserData } from "../../types";
+
+const initialState: IAuth = {
+  pending: false,
+  isAuthenticated: false,
+  user: {
+    displayName: "",
+    email: "",
+    photoURL: "",
+    emailVerified: false,
+    userId: "",
+    phoneNumber: "",
+    occupation: "",
+  },
+};
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    loginUserToState: (state, action) => {},
+    loginUserToState: (state, action: PayloadAction<Partial<UserData>>) => {
+      const { payload } = action;
+
+      state.isAuthenticated = true;
+      state.user = { ...state.user, ...payload };
+    },
     logoutUserFromState: (state) => {},
     addSecureStore: (state, action) => {},
-    updateUserDataInState: (state, action) => {},
+    updateUserDataInState: (
+      state,
+      action: PayloadAction<Partial<UserData>>
+    ) => {
+      const { payload } = action;
+
+      state.user = { ...state.user, ...payload };
+    },
     renewStateToken: (state, action) => {},
-    togglePending: (state) => {
-      state.pending = !state.pending;
+    togglePending: (state, action: PayloadAction<boolean>) => {
+      const { payload } = action;
+      state.pending = payload;
     },
   },
 });
