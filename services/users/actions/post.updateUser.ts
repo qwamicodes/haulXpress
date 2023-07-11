@@ -9,9 +9,9 @@ import {
   updateUserDataInState,
 } from "../../../store/slices/authSlice";
 import { STRINGS } from "../../../constants";
+import { db } from "../../../config/firebase";
 
 import ErrorHandler from "../../../features/ErrorHandler";
-import { db } from "../../../config/firebase";
 
 const updateUser =
   (
