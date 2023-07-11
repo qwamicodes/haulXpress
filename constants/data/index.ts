@@ -63,3 +63,32 @@ export const registerAuth: IAuthentiation = {
     "Get started with a new experience with getting your goods from your comfort homes.",
   inputs: registerInput,
 };
+
+//onboarding dummy data
+const onboardingInput: IAuthInput[] = [
+  {
+    label: "fullname",
+    placeholder: "enter your fullname",
+    name: "displayName",
+  },
+  {
+    label: "phonenumber",
+    name: "phoneNumber",
+    placeholder: "enter your phone number",
+    maxLength: 10,
+  },
+  {
+    name: "occupation",
+    placeholder: "enter your occupation",
+    label: "occupation",
+  },
+];
+
+export const onboardingAuth: IAuthentiation = {
+  image:
+    "https://images.unsplash.com/photo-1541747277704-ef7fb8e1a31c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRydWNrJTIwZHJpdmVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+  title: "Let’s get to know you better",
+  description:
+    "Enter your information to get you sign up and ready in a second.",
+  inputs: onboardingInput,
+};
