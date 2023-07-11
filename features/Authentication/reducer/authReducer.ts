@@ -1,4 +1,4 @@
-export type authProps = {
+type authProps = {
   email: string;
   password: string;
 };

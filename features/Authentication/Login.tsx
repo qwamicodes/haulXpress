@@ -1,8 +1,9 @@
 import { View } from "react-native";
 import React, { useReducer } from "react";
+import { omit } from "lodash";
 import { KeyboardAwareScrollView } from "@pietile-native-kit/keyboard-aware-scrollview";
 
-import { useNavigationParams } from "../../hooks";
+import { useAppDispatch, useNavigationParams } from "../../hooks";
 import { DEFAULT_COLORS, loginAuth, authInputContainer } from "../../constants";
 import { authReducer, initialAuthState } from "./reducer";
 
@@ -12,12 +13,26 @@ import AuthHeader from "./components/AuthHeader";
 import Button from "../../components/Button";
 import AuthLink from "./components/AuthLink";
 import ThirdPartyButton from "./components/ThirdPartyButton";
+import { checkAuthValues } from "../../utils/helpers";
+import signinUser from "../../services/users/actions/post.signinUser";
 
 const Login = () => {
   const navigate = useNavigationParams();
-  const [_, authDispatch] = useReducer(authReducer, initialAuthState);
+  const dispatch = useAppDispatch();
+  const [authValues, authDispatch] = useReducer(authReducer, initialAuthState);
 
   const { inputs, ...rest } = loginAuth;
+
+  const handleSubmitLogin = () => {
+    const { email, password } = authValues;
+    const { message, valid } = checkAuthValues(omit(authValues, "password"));
+
+    if (valid) {
+      dispatch(signinUser(email, password, navigate));
+    } else {
+      alert(message);
+    }
+  };
 
   return (
     <ScreenTemplate styles={{ paddingHorizontal: 0 }}>
@@ -60,7 +75,11 @@ const Login = () => {
             <ThirdPartyButton buttonText="continue with google" />
           </View>
           <View>
-            <Button icon={false} buttonText="sign in" />
+            <Button
+              icon={false}
+              buttonText="sign in"
+              onPress={handleSubmitLogin}
+            />
           </View>
         </View>
       </KeyboardAwareScrollView>
