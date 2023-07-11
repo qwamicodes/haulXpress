@@ -34,6 +34,17 @@
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "HaulXpress app requires photo library access",
+          "cameraPermission": "HaulXpress app requires camera access",
+
+          "microphonePermission": false
+        }
+      ]
+    ]
   }
 }

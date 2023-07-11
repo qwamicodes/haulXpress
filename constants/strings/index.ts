@@ -16,9 +16,11 @@ export const STRINGS = {
   successUpdatePassword: "Update password successful",
   successDeleteUser: "Delete user successful",
   successProfileUpdate: "Profile update successful",
+  successProfileUpload: "Profile picture upload successful",
   wrongPassword: "Wrong password",
   somethingHappened: "Something unexpectedly happened",
   userDisabled: "User is disabled",
   fillfields: "Fill in all the fields",
   userDataNotFound: "User data not found",
+  permissionDenied: "Permission denied",
 };

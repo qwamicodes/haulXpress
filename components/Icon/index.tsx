@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "react-native";
+import { Image, View, ViewProps } from "react-native";
 import Svg, { SvgProps, Path, Defs, Circle, Rect } from "react-native-svg";
 
 import { iconType } from "../../types";
@@ -9,9 +9,17 @@ type props = {
   iconType: iconType;
   light: boolean;
   color?: string;
+  width?: number;
+  height?: number;
 };
 
-const IconRenderer = ({ iconType, light, color }: props) => {
+const IconRenderer = ({
+  iconType,
+  light,
+  color,
+  height = 24,
+  width = 24,
+}: props) => {
   const svgColor = color
     ? color
     : light
@@ -21,7 +29,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
   switch (iconType) {
     case "map":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeWidth={1.5}
@@ -41,7 +49,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "mapBold":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             fill={svgColor}
             d="M17.25 11.652v10.74c1.692-.457 3.539-1.724 4.528-2.472a1.86 1.86 0 0 0 .722-1.495v-9.67c0-.853-1.028-1.347-1.736-.871-.688.462-1.516.96-2.362 1.332l-.055.162c-.27.767-.643 1.552-1.097 2.274ZM9.25 12.475v6.86c1.278.107 2.264.857 3.25 1.607.986.75 1.972 1.5 3.25 1.607v-9.072c-.746.673-1.694 1.217-2.788 1.217-.98 0-1.836-.441-2.505-.976a7.442 7.442 0 0 1-1.207-1.243ZM7.09 6.948c-1.495.56-3.006 1.606-3.868 2.257A1.86 1.86 0 0 0 2.5 10.7v9.67c0 .852 1.028 1.347 1.736.871 1-.672 2.297-1.42 3.514-1.747V9.837c-.392-.974-.64-1.986-.66-2.89Z"
@@ -56,7 +64,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "journey":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeWidth={1.5}
@@ -72,7 +80,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "journeyBold":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             fill={svgColor}
             fillRule="evenodd"
@@ -83,7 +91,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "hauler":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Circle
             cx={3}
             cy={3}
@@ -102,7 +110,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "haulerBold":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             fill={svgColor}
             fillRule="evenodd"
@@ -113,7 +121,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "filter":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"
@@ -124,7 +132,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "location":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeWidth={1.5}
@@ -145,7 +153,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "arrorBack":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"
@@ -157,7 +165,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "arrorUp":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"
@@ -169,7 +177,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "arrorDown":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"
@@ -181,7 +189,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "truck":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeWidth={1.5}
@@ -198,7 +206,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "driver":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinejoin="round"
@@ -218,7 +226,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "payment":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Rect
             width={18}
             height={20}
@@ -241,7 +249,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "route":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeWidth={1.5}
@@ -257,7 +265,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "destination":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Circle
             cx={14.039}
             cy={5.268}
@@ -285,7 +293,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "edit":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"
@@ -296,7 +304,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "security":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinejoin="round"
@@ -314,7 +322,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "notification":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinejoin="round"
@@ -331,7 +339,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "book":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"
@@ -342,7 +350,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "help":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             fill={svgColor}
             d="m13.683 10.08.63.407-.63-.406ZM9.25 9a.75.75 0 0 0 1.5 0h-1.5Zm2 4.5a.75.75 0 0 0 1.5 0h-1.5Zm1.5 2.5a.75.75 0 0 0-1.5 0h1.5Zm-1.5 1a.75.75 0 0 0 1.5 0h-1.5Zm10-5A9.25 9.25 0 0 1 12 21.25v1.5c5.937 0 10.75-4.813 10.75-10.75h-1.5ZM12 21.25A9.25 9.25 0 0 1 2.75 12h-1.5c0 5.937 4.813 10.75 10.75 10.75v-1.5ZM2.75 12A9.25 9.25 0 0 1 12 2.75v-1.5C6.063 1.25 1.25 6.063 1.25 12h1.5ZM12 2.75A9.25 9.25 0 0 1 21.25 12h1.5c0-5.937-4.813-10.75-10.75-10.75v1.5ZM13.25 9c0 .25-.073.48-.198.675l1.262.812A2.74 2.74 0 0 0 14.75 9h-1.5Zm-2.5 0c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0 0 9.25 9h1.5ZM12 7.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 12 6.25v1.5ZM11.25 13v.5h1.5V13h-1.5Zm1.802-3.325a7.594 7.594 0 0 1-.468.628c-.178.22-.386.473-.573.73-.369.507-.761 1.168-.761 1.967h1.5c0-.305.15-.64.474-1.084.159-.219.334-.43.528-.672.187-.232.389-.489.562-.757l-1.262-.812ZM11.25 16v1h1.5v-1h-1.5Z"
@@ -351,7 +359,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "openLink":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"
@@ -363,7 +371,7 @@ const IconRenderer = ({ iconType, light, color }: props) => {
       );
     case "logout":
       return (
-        <Svg fill="none">
+        <Svg fill="none" width={width} height={height}>
           <Path
             stroke={svgColor}
             strokeLinecap="round"

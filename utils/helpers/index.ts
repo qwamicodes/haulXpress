@@ -1,3 +1,5 @@
+import * as ImagePicker from "expo-image-picker";
+
 import {
   STRINGS,
   authPasswordLength,
@@ -5,6 +7,7 @@ import {
   phoneNumberRegex,
 } from "../../constants";
 import { UserData, validationType } from "../../types";
+import { Dispatch, SetStateAction } from "react";
 
 export const checkAuthValues = ({
   email,
@@ -45,4 +48,23 @@ export const checkOnboardingValues = ({
     return { valid: false, message: STRINGS.invalidPhoneNumber };
 
   return { message: "", valid: true };
+};
+
+export const pickImage = async (setImage: (image: string) => void) => {
+  let galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+  if (galleryStatus.status === "granted") {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  } else {
+    alert(STRINGS.permissionDenied);
+  }
 };
