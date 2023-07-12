@@ -32,7 +32,12 @@ export const walkthroughItems: IWalkThroughItem[] = [
 
 //login dummy data
 const loginInput: IAuthInput[] = [
-  { label: "email", placeholder: "enter your email", name: "email" },
+  {
+    label: "email",
+    placeholder: "enter your email",
+    name: "email",
+    keyboardType: "email-address",
+  },
   {
     label: "password",
     name: "password",
@@ -50,7 +55,12 @@ export const loginAuth: IAuthentiation = {
 
 //register dummy data
 const registerInput: IAuthInput[] = [
-  { label: "email", placeholder: "enter your email", name: "email" },
+  {
+    label: "email",
+    placeholder: "enter your email",
+    name: "email",
+    keyboardType: "email-address",
+  },
   {
     label: "password",
     name: "password",

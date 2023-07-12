@@ -21,8 +21,8 @@ const deleteUserAccount = () => async (dispatch: AppDispatch) => {
 
     //clear user data
     await clearUserData(user?.uid as string);
-
     alert(STRINGS.successDeletion);
+
     dispatch(logoutUserFromState());
   } catch (error) {
     if (error instanceof FirebaseError) {

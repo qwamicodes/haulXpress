@@ -6,7 +6,9 @@
     "orientation": "portrait",
     "icon": "./assets/app/icon.png",
     "userInterfaceStyle": "light",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "updates": {
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/2a691fc6-637a-43f5-aa75-d9ac3607c078"
@@ -16,7 +18,8 @@
       "backgroundColor": "#F9FAFB"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.qwamicodes.haulXpress"
     },
     "android": {
       "adaptiveIcon": {
