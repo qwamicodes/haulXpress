@@ -10,7 +10,7 @@ import { STRINGS } from "../../../constants";
 import ErrorHandler from "../../../features/ErrorHandler";
 import clearUserData from "./post.clearUserData";
 
-const user = getAuth().currentUser;
+const user = getAuth()?.currentUser;
 
 const deleteUserAccount = () => async (dispatch: AppDispatch) => {
   dispatch(togglePending(true));
