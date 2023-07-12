@@ -30,15 +30,11 @@ const { width, height } = Dimensions.get("screen");
 
 const styles = StyleSheet.create({
   loaderContainer: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
+    ...StyleSheet.absoluteFillObject,
     backgroundColor: "#1f2937f2",
     justifyContent: "center",
     alignItems: "center",
-    zIndex: 50,
+    zIndex: 100,
     width,
     height,
   },

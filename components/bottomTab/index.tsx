@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+
 import Tab from "./component/Tab";
 import { DEFAULT_COLORS } from "../../constants";
 
 const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View style={styles.tabBar}>
-      {state.routes.map((route, index) => {
+      {state.routes.slice(0, 3).map((route, index) => {
         const { options } = descriptors[route.key];
 
         const isFocused = state.index === index;
