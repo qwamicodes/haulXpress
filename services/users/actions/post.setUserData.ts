@@ -1,5 +1,5 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 import { RootStackParamList, UserData } from "../../../types";
 import { AppDispatch } from "../../../store";
@@ -12,7 +12,7 @@ import { db } from "../../../config/firebase";
 
 import ErrorHandler from "../../../features/ErrorHandler";
 
-const updateUser =
+const setUserData =
   (
     {
       userId,
@@ -23,7 +23,7 @@ const updateUser =
   async (dispatch: AppDispatch) => {
     dispatch(togglePending(true));
 
-    await updateDoc(doc(db, "users", userId), { ...rest })
+    await setDoc(doc(db, "users", userId), { ...rest })
       .then(() => {
         alert(STRINGS.successProfileUpdate);
 
@@ -35,4 +35,4 @@ const updateUser =
       .finally(() => dispatch(togglePending(false)));
   };
 
-export default updateUser;
+export default setUserData;
