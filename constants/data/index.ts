@@ -1,4 +1,9 @@
-import { IAuthInput, IAuthentiation, IWalkThroughItem } from "../../types";
+import {
+  IAuthInput,
+  IAuthentiation,
+  IHaulerLinks,
+  IWalkThroughItem,
+} from "../../types";
 
 //walkthrough dummy data
 export const walkthroughItems: IWalkThroughItem[] = [
@@ -27,7 +32,12 @@ export const walkthroughItems: IWalkThroughItem[] = [
 
 //login dummy data
 const loginInput: IAuthInput[] = [
-  { label: "email", placeholder: "enter your email", name: "email" },
+  {
+    label: "email",
+    placeholder: "enter your email",
+    name: "email",
+    keyboardType: "email-address",
+  },
   {
     label: "password",
     name: "password",
@@ -35,7 +45,6 @@ const loginInput: IAuthInput[] = [
     secureTextEntry: true,
   },
 ];
-
 export const loginAuth: IAuthentiation = {
   image:
     "https://images.unsplash.com/photo-1600320254374-ce2d293c324e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJ1Y2slMjBkcml2ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
@@ -46,7 +55,12 @@ export const loginAuth: IAuthentiation = {
 
 //register dummy data
 const registerInput: IAuthInput[] = [
-  { label: "email", placeholder: "enter your email", name: "email" },
+  {
+    label: "email",
+    placeholder: "enter your email",
+    name: "email",
+    keyboardType: "email-address",
+  },
   {
     label: "password",
     name: "password",
@@ -54,7 +68,6 @@ const registerInput: IAuthInput[] = [
     secureTextEntry: true,
   },
 ];
-
 export const registerAuth: IAuthentiation = {
   image:
     "https://images.unsplash.com/photo-1541747277704-ef7fb8e1a31c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRydWNrJTIwZHJpdmVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
@@ -83,7 +96,6 @@ const onboardingInput: IAuthInput[] = [
     label: "occupation",
   },
 ];
-
 export const onboardingAuth: IAuthentiation = {
   image:
     "https://images.unsplash.com/photo-1541747277704-ef7fb8e1a31c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRydWNrJTIwZHJpdmVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
@@ -92,3 +104,50 @@ export const onboardingAuth: IAuthentiation = {
     "Enter your information to get you sign up and ready in a second.",
   inputs: onboardingInput,
 };
+
+const haulerAccountLinks: IHaulerLinks = {
+  header: "Account manangement",
+  links: [
+    {
+      iconType: "editBox",
+      name: "Edit profile",
+      path: "EditProfile",
+      link: false,
+    },
+    {
+      iconType: "security",
+      name: "Change password",
+      path: "ChangePassword",
+      link: false,
+    },
+    {
+      iconType: "notification",
+      name: "Notifications",
+      path: "NotificationSettings",
+      link: false,
+    },
+  ],
+};
+
+const haulerHelpsLinks: IHaulerLinks = {
+  header: "Help",
+  links: [
+    {
+      iconType: "book",
+      name: "Terms of service",
+      path: "terms_of_service",
+      link: true,
+    },
+    {
+      iconType: "help",
+      name: "Privacy policy",
+      path: "privacy_policy",
+      link: true,
+    },
+  ],
+};
+
+export const haulerLinks: IHaulerLinks[] = [
+  haulerAccountLinks,
+  haulerHelpsLinks,
+];

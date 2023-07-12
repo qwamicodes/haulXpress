@@ -1,4 +1,4 @@
-import { getAuth, Auth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import { AppDispatch } from "../../../store";
 import { updateUserDataInState } from "../../../store/slices/authSlice";

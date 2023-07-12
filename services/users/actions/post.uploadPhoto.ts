@@ -1,4 +1,4 @@
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { FirebaseError } from "firebase/app";
 
@@ -6,7 +6,10 @@ import { AppDispatch } from "../../../store";
 import { db, storage } from "../../../config/firebase";
 import ErrorHandler from "../../../features/ErrorHandler";
 import { STRINGS } from "../../../constants";
-import { togglePending } from "../../../store/slices/authSlice";
+import {
+  loginUserToState,
+  togglePending,
+} from "../../../store/slices/authSlice";
 
 const uploadPhoto =
   (userId: string, photoFile: string) => async (dispatch: AppDispatch) => {
@@ -29,6 +32,16 @@ const uploadPhoto =
       await updateDoc(userDocRef, {
         photoURL: photoURL,
       });
+
+      // Retrieve the updated document after the update
+      const updatedDocSnapshot = await getDoc(userDocRef);
+      const userCredential = updatedDocSnapshot.data();
+
+      const user = {
+        photoURL: userCredential?.photoURL,
+      };
+
+      dispatch(loginUserToState(user));
 
       alert(STRINGS.successProfileUpload);
     } catch (error) {

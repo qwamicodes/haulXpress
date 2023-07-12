@@ -11,10 +11,15 @@ const Button = ({
   iconType,
   iconColor,
   lightIcon,
+  style,
   ...rest
 }: IButton) => {
   return (
-    <TouchableOpacity {...rest} activeOpacity={0.9} style={styles.button}>
+    <TouchableOpacity
+      {...rest}
+      activeOpacity={0.9}
+      style={[styles.button, style]}
+    >
       <Text style={[styles.buttonText]}>{buttonText}</Text>
       {icon && lightIcon && iconType ? (
         <IconRenderer iconType={iconType} light={lightIcon} color={iconColor} />
@@ -32,6 +37,8 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: DEFAULT_COLORS.gray[800],
     paddingVertical: 16,
+    flexDirection: "row",
+    gap: 16,
     ...centeringStyle,
   },
   buttonText: {
