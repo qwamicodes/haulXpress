@@ -21,3 +21,10 @@ export type TabsParamList = {
   Journey: undefined;
   Hauler: undefined;
 };
+
+export type HaulerParamList = {
+  Profile: undefined;
+  EditProfile: undefined;
+  ChangePassword: undefined;
+  NotificationSettings: undefined;
+};
