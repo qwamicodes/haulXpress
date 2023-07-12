@@ -1,6 +1,7 @@
 import { STRINGS } from "../../constants";
 
 const ErrorHandler = (code: string) => {
+  console.log(code);
   switch (code) {
     case "auth/user-not-found":
       alert(STRINGS.userNotFound);
