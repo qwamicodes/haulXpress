@@ -26,7 +26,10 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
       state.user = { ...state.user, ...payload };
     },
-    logoutUserFromState: (state) => {},
+    logoutUserFromState: (state) => {
+      state.isAuthenticated = initialState.isAuthenticated;
+      state.user = initialState.user;
+    },
     addSecureStore: (state, action) => {},
     updateUserDataInState: (
       state,
