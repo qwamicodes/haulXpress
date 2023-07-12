@@ -394,6 +394,29 @@ const IconRenderer = ({
           source={require("../../assets/images/google.png")}
         />
       );
+    case "chevronRight":
+      return (
+        <Svg width={width} height={height} fill="none">
+          <Path
+            stroke={svgColor}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="m10 7 4 5-4 5"
+          />
+        </Svg>
+      );
+    case "editBox":
+      return (
+        <Svg width={width} height={height} fill="none">
+          <Path
+            stroke={svgColor}
+            strokeLinecap="round"
+            strokeWidth={1.5}
+            d="M22 12v6a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4h6m3.686 2.023s0 1.43 1.43 2.86c1.431 1.43 2.861 1.43 2.861 1.43M9.155 15.99l3.003-.43a2.023 2.023 0 0 0 1.145-.572l8.105-8.105c.79-.79.79-2.07 0-2.86l-1.43-1.43c-.79-.79-2.071-.79-2.861 0l-8.105 8.104c-.31.31-.51.711-.572 1.145l-.43 3.003a1.011 1.011 0 0 0 1.145 1.145Z"
+          />
+        </Svg>
+      );
   }
 };
 

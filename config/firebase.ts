@@ -2,6 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import {
+  API_KEY,
+  APP_ID,
+  AUTH_DOMAIN,
+  MEASUREMENT_ID,
+  MESSAGING_SENDER_ID,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+} from "@env";
 // Optionally import the services that you want to use
 // import {...} from "firebase/auth";
 // import {...} from "firebase/database";
@@ -10,24 +19,15 @@ import { getStorage } from "firebase/storage";
 // import {...} from "firebase/storage";
 
 // Initialize Firebase
-const {
-  RN_APP_API_KEY,
-  RN_APP_AUTH_DOMAIN,
-  RN_APP_PROJECT_ID,
-  RN_APP_STORAGE_BUCKET,
-  RN_APP_MESSAGING_SENDER_ID,
-  RN_APP_APP_ID,
-  RN_APP_MEASUREMENT_ID,
-} = process.env;
 
 const firebaseConfig = {
-  apiKey: RN_APP_API_KEY,
-  authDomain: RN_APP_AUTH_DOMAIN,
-  projectId: RN_APP_PROJECT_ID,
-  storageBucket: RN_APP_STORAGE_BUCKET,
-  messagingSenderId: RN_APP_MEASUREMENT_ID,
-  appId: RN_APP_APP_ID,
-  measurementId: RN_APP_MEASUREMENT_ID,
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
+  measurementId: MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);

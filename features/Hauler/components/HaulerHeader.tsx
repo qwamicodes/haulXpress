@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     gap: 16,
     ...centeringStyle,
-    flex: 0.35,
+    flex: 0.8,
     borderBottomWidth: 1.5,
     borderBottomColor: DEFAULT_COLORS.gray[200],
   },
@@ -94,6 +94,10 @@ const styles = StyleSheet.create({
     ...centeringStyle,
   },
   namesContainer: { gap: 4, ...centeringStyle },
-  displayName: { color: DEFAULT_COLORS.gray[700], ...textStyles["2xl"].medium },
+  displayName: {
+    color: DEFAULT_COLORS.gray[700],
+    ...textStyles["2xl"].medium,
+    textTransform: "capitalize",
+  },
   text: { color: DEFAULT_COLORS.gray[500], ...textStyles.base.regular },
 });

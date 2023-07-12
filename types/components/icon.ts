@@ -16,6 +16,7 @@ export type iconType =
   | "route"
   | "destination"
   | "edit"
+  | "editBox"
   | "security"
   | "notification"
   | "book"

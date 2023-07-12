@@ -7,7 +7,7 @@ import {
   useAppSelector,
   useNavigationParams,
 } from "../../hooks";
-import { updateUser } from "../../services";
+import { setUserData } from "../../services";
 import { authInputContainer, onboardingAuth } from "../../constants";
 import { initialOnboardState, onboardingReducer } from "./reducer";
 
@@ -33,7 +33,7 @@ const Onboarding = () => {
     const { userId } = user;
 
     if (valid) {
-      dispatch(updateUser({ ...onboardValues, userId }, navigate));
+      dispatch(setUserData({ ...onboardValues, userId }, navigate));
     } else {
       alert(message);
     }
