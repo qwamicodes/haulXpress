@@ -7,7 +7,6 @@ import {
   phoneNumberRegex,
 } from "../../constants";
 import { UserData, validationType } from "../../types";
-import { Dispatch, SetStateAction } from "react";
 
 export const checkAuthValues = ({
   email,
@@ -67,4 +66,20 @@ export const pickImage = async (setImage: (image: string) => void) => {
   } else {
     alert(STRINGS.permissionDenied);
   }
+};
+
+export const checkPassword = (
+  password: string,
+  confirmPassword: string
+): validationType => {
+  if (!(password && confirmPassword))
+    return { valid: false, message: STRINGS.fillfields };
+
+  if (!(password === confirmPassword))
+    return { valid: false, message: STRINGS.passwordNotMatch };
+
+  if (password.length <= authPasswordLength)
+    return { valid: false, message: STRINGS.invalidPasswordLength };
+
+  return { valid: true, message: "" };
 };
