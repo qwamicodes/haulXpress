@@ -1,14 +1,19 @@
 import React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../types";
 import { useAppSelector } from "../hooks";
 
+import TabsNavigator from "./TabsNavigator";
 import Walkthrough from "../features/Walkthrough";
 import Login from "../features/Authentication/Login";
 import Register from "../features/Authentication/Register";
 import Onboarding from "../features/Authentication/Onboarding";
-import TabsNavigator from "./TabsNavigator";
+import EditProfile from "../screens/Authenticated/EditProfile";
+import ChangePassword from "../screens/Authenticated/ChangePassword";
+import NotificationSettings from "../screens/Authenticated/NotificationSettings";
+import ScreenHeaderTitle from "../components/header/ScreenHeaderTitle";
 
 const RootNavigator = () => {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -20,18 +25,24 @@ const RootNavigator = () => {
     <Navigator
       initialRouteName={isAuthenticated ? "TabsStack" : "Walkthrough"}
       screenOptions={{
+        header: (props) => <ScreenHeaderTitle {...props} />,
         headerShown: false,
       }}
     >
       {isAuthenticated ? (
-        <Group
-          key="authenticated"
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
+        <Group key="authenticated">
           <Screen name="TabsStack" component={TabsNavigator} />
           <Screen name="Onboarding" component={Onboarding} />
+          {/* <Screen
+            name="EditProfile"
+            component={EditProfile}
+            options={{ headerTitle: "Edit profile", headerShown: true }}
+          />
+          <Screen name="ChangePassword" component={ChangePassword} />
+          <Screen
+            name="NotificationSettings"
+            component={NotificationSettings}
+          /> */}
         </Group>
       ) : (
         <Group
@@ -44,14 +55,16 @@ const RootNavigator = () => {
           <Screen name="Register" component={Register} />
         </Group>
       )}
-      <Group
-        key="others"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Screen name="Walkthrough" component={Walkthrough} />
-      </Group>
+      {!isAuthenticated && (
+        <Group
+          key="others"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Screen name="Walkthrough" component={Walkthrough} />
+        </Group>
+      )}
     </Navigator>
   );
 };
