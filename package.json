@@ -2,7 +2,7 @@
   "name": "haulxpress",
   "version": "1.0.0",
   "scripts": {
-    "start": "npx expo start",
+    "start": "expo start --dev-client",
     "start:cache": "npx expo start -c",
     "start:fast": "EXPO_USE_EXOTIC=1 expo start --clear",
     "android": "expo run:android",
@@ -23,6 +23,7 @@
     "build:ios": "eas build:ios",
     "build:android": "eas build:android",
     "build": "yarn build:ios && yarn build:android",
+    "prebuild": "npx expo prebuild",
     "build:preview": "eas build -p android --profile preview",
     "upload:ios": "expo upload:ios",
     "upload:android": "expo upload:android",
