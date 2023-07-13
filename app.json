@@ -2,13 +2,12 @@
   "expo": {
     "name": "haulXpress",
     "slug": "haulXpress",
+    "owner": "Kwaame Ofori-Adjekum",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/app/icon.png",
     "userInterfaceStyle": "light",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "updates": {
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/2a691fc6-637a-43f5-aa75-d9ac3607c078"
@@ -48,6 +47,7 @@
           "microphonePermission": false
         }
       ]
-    ]
+    ],
+    "scheme": "haulXpress"
   }
 }

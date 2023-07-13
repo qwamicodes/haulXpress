@@ -1,5 +1,4 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { RootStackParamList } from "../types";
@@ -10,9 +9,6 @@ import Walkthrough from "../features/Walkthrough";
 import Login from "../features/Authentication/Login";
 import Register from "../features/Authentication/Register";
 import Onboarding from "../features/Authentication/Onboarding";
-import EditProfile from "../screens/Authenticated/EditProfile";
-import ChangePassword from "../screens/Authenticated/ChangePassword";
-import NotificationSettings from "../screens/Authenticated/NotificationSettings";
 import ScreenHeaderTitle from "../components/header/ScreenHeaderTitle";
 
 const RootNavigator = () => {
@@ -33,16 +29,6 @@ const RootNavigator = () => {
         <Group key="authenticated">
           <Screen name="TabsStack" component={TabsNavigator} />
           <Screen name="Onboarding" component={Onboarding} />
-          {/* <Screen
-            name="EditProfile"
-            component={EditProfile}
-            options={{ headerTitle: "Edit profile", headerShown: true }}
-          />
-          <Screen name="ChangePassword" component={ChangePassword} />
-          <Screen
-            name="NotificationSettings"
-            component={NotificationSettings}
-          /> */}
         </Group>
       ) : (
         <Group

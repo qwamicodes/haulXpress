@@ -4,9 +4,7 @@ import { TabsParamList } from "../types/navigation";
 
 import Home from "../screens/Authenticated/Home";
 import Journey from "../features/Journey";
-import Hauler from "../features/Hauler";
 import BottomTab from "../components/bottomTab";
-import ScreenHeaderTitle from "../components/header/ScreenHeaderTitle";
 import HaulerNavigation from "./HaulerNavigation";
 
 const TabsNavigator = () => {
