@@ -13,7 +13,19 @@
       "channel": "preview"
     },
     "production": {
-      "channel": "production"
+      "channel": "production",
+      "env": {
+        "API_KEY": "AIzaSyBwijOiYr2D8jjoYRqDgJ8y1iUMvISXa3k",
+        "AUTH_DOMAIN": "haulxpress-c3ab7.firebaseapp.com",
+        "PROJECT_ID": "haulxpress-c3ab7",
+        "STORAGE_BUCKET": "haulxpress-c3ab7.appspot.com",
+        "MESSAGING_SENDER_ID": "977322094900",
+        "APP_ID": "1:977322094900:web:c78c8ad8cd46b74ab3f561",
+        "MEASUREMENT_ID": "G-L9G7C141E4",
+        "IOS_ID": "403955004716-cd04i5jh8jst2od57rraj5enfd2p5c2r.apps.googleusercontent.com",
+        "ANDROID_ID": "403955004716-qsfrau9e1nq5ibrmj81om9bfavo3mv8o.apps.googleusercontent.com",
+        "CLIENT_ID": "403955004716-kusddv40tn7808e7salttpe4entp3sm1.apps.googleusercontent.com"
+      }
     }
   },
   "submit": {
