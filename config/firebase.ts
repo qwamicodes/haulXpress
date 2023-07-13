@@ -40,3 +40,4 @@ export const storage = getStorage(app);
 
 //IOS = 403955004716-cd04i5jh8jst2od57rraj5enfd2p5c2r.apps.googleusercontent.com
 //Andriod = 403955004716-qsfrau9e1nq5ibrmj81om9bfavo3mv8o.apps.googleusercontent.com
+//clientID: 403955004716-kusddv40tn7808e7salttpe4entp3sm1.apps.googleusercontent.com

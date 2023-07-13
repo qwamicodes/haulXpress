@@ -43,7 +43,7 @@ const signinUser =
       if (userData) {
         dispatch(loginUserToState({ ...user, ...userData }));
 
-        navigate.navigate("TabsStack", { screen: "Hauler" });
+        navigate.navigate("TabsStack", { screen: "Haul" });
       } else {
         navigate.navigate("Onboarding");
       }

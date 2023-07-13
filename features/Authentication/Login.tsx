@@ -3,7 +3,11 @@ import React, { useReducer } from "react";
 import { omit } from "lodash";
 import { KeyboardAwareScrollView } from "@pietile-native-kit/keyboard-aware-scrollview";
 
-import { useAppDispatch, useNavigationParams } from "../../hooks";
+import {
+  useAppDispatch,
+  useNavigationParams,
+  useOauthentication,
+} from "../../hooks";
 import { DEFAULT_COLORS, loginAuth, authInputContainer } from "../../constants";
 import { authReducer, initialAuthState } from "./reducer";
 
@@ -19,6 +23,7 @@ import signinUser from "../../services/users/actions/post.signinUser";
 const Login = () => {
   const navigate = useNavigationParams();
   const dispatch = useAppDispatch();
+  const [promptAsync] = useOauthentication();
   const [authValues, authDispatch] = useReducer(authReducer, initialAuthState);
 
   const { inputs, ...rest } = loginAuth;
@@ -72,7 +77,10 @@ const Login = () => {
             />
           </View>
           <View>
-            <ThirdPartyButton buttonText="continue with google" />
+            <ThirdPartyButton
+              onPress={() => promptAsync()}
+              buttonText="continue with google"
+            />
           </View>
           <View>
             <Button
