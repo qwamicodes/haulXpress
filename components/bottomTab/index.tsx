@@ -22,6 +22,7 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps) => {
 
           if (!isFocused && !event.defaultPrevented) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
+            //@ts-ignore
             navigation.navigate({ name: route.name, merge: true });
           }
         };

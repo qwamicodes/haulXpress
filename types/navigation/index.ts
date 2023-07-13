@@ -17,9 +17,22 @@ export type RootStackParamList = {
 
 //bottom tabs param lists
 export type TabsParamList = {
-  Map: undefined;
+  Haul: undefined;
   Journey: undefined;
   Hauler: undefined;
+};
+
+export type HomeParamList = {
+  Start: undefined;
+  AvailableTrucks: undefined;
+  HaulInformation: {};
+  ConfirmHauling: undefined;
+  ConfirmedHauling: undefined;
+};
+
+export type JourneyParamList = {
+  Journeys: undefined;
+  JourneyDetails: {};
 };
 
 export type HaulerParamList = {

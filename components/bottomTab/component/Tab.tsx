@@ -17,7 +17,7 @@ const Tab = ({ isFocused, options, onPress, onLongPress, name }: props) => {
   const renderIcon = () => {
     if (isFocused) {
       switch (name.toLocaleLowerCase()) {
-        case "map":
+        case "haul":
           return (
             <View>
               <IconRenderer iconType="mapBold" light={false} />
@@ -39,7 +39,7 @@ const Tab = ({ isFocused, options, onPress, onLongPress, name }: props) => {
       }
     } else {
       switch (name.toLocaleLowerCase()) {
-        case "map":
+        case "haul":
           return (
             <View>
               <IconRenderer iconType="map" light={false} />

@@ -1,19 +1,23 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-import ScreenTemplate from "../template/ScreenTemplate";
 import { useAppSelector } from "../../hooks";
 
-const Home = () => {
+import ScreenTemplate from "../../screens/template/ScreenTemplate";
+import HaulHeader from "./components/HaulHeader";
+import HaulStart from "./components/HaulStart";
+
+const Haul = () => {
   const { user } = useAppSelector((state) => state.auth);
 
   return (
     <ScreenTemplate>
-      <Text>You're logged in </Text>
+      <HaulHeader />
+      <HaulStart />
     </ScreenTemplate>
   );
 };
 
-export default Home;
+export default Haul;
 
 const styles = StyleSheet.create({});

@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
+import ScreenTemplate from "../../screens/template/ScreenTemplate";
+
 const Journey = () => {
   return (
-    <View>
+    <ScreenTemplate>
       <Text>Journey</Text>
-    </View>
+    </ScreenTemplate>
   );
 };
 

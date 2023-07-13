@@ -2,20 +2,21 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { TabsParamList } from "../types/navigation";
 
-import Home from "../screens/Authenticated/Home";
-import Journey from "../features/Journey";
 import BottomTab from "../components/bottomTab";
 import HaulerNavigation from "./HaulerNavigation";
+import HaulNavigation from "./HaulNavigation";
+import JourneyNavigation from "./JourneyNavigation";
 
 const TabsNavigator = () => {
   const { Navigator, Screen } = createBottomTabNavigator<TabsParamList>();
   return (
     <Navigator
-      initialRouteName="Hauler"
+      initialRouteName="Haul"
       tabBar={(props) => <BottomTab {...props} />}
+      screenOptions={{ headerShown: false }}
     >
-      <Screen name="Map" component={Home} />
-      <Screen name="Journey" component={Journey} />
+      <Screen name="Haul" component={HaulNavigation} />
+      <Screen name="Journey" component={JourneyNavigation} />
       <Screen
         name="Hauler"
         component={HaulerNavigation}

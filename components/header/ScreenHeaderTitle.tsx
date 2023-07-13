@@ -13,22 +13,33 @@ import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import IconRenderer from "../Icon";
 
-type Props = NativeStackHeaderProps;
+interface Props extends NativeStackHeaderProps {
+  showBackButton?: boolean;
+}
 
-const ScreenHeaderTitle = ({ route, navigation, options }: Props) => {
+const ScreenHeaderTitle = ({
+  route,
+  navigation,
+  options,
+  showBackButton = true,
+}: Props) => {
   const title = getHeaderTitle(options, route.name);
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.buttonBackContainer}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={() => navigation.goBack()}
-          style={styles.buttonBack}
-        >
-          <IconRenderer iconType="arrorBack" light={false} />
-        </TouchableOpacity>
-      </View>
+      {showBackButton ? (
+        <View style={styles.buttonBackContainer}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.goBack()}
+            style={styles.buttonBack}
+          >
+            <IconRenderer iconType="arrorBack" light={false} />
+          </TouchableOpacity>
+        </View>
+      ) : (
+        false
+      )}
       <Text style={styles.title}>{title}</Text>
     </SafeAreaView>
   );
