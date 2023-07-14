@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./slices/authSlice";
+import haulSlice from "./slices/haulSlice";
 
 const store = configureStore({
   reducer: {
     auth: authSlice,
+    haul: haulSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

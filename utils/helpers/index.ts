@@ -7,6 +7,7 @@ import {
   phoneNumberRegex,
 } from "../../constants";
 import { UserData, validationType } from "../../types";
+import { IHaulType } from "../../types/features/haul";
 
 export const checkAuthValues = ({
   email,
@@ -82,4 +83,16 @@ export const checkPassword = (
     return { valid: false, message: STRINGS.invalidPasswordLength };
 
   return { valid: true, message: "" };
+};
+
+export const haulExistsInState = (collection: IHaulType[], item: IHaulType) => {
+  return (
+    collection.reduce((acc: number, { value }) => {
+      if (value === item.value) {
+        return acc + 1;
+      }
+
+      return acc;
+    }, 0) !== 0
+  );
 };
