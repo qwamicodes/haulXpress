@@ -4,7 +4,7 @@ import { IAuth, UserData } from "../../types";
 
 const initialState: IAuth = {
   pending: false,
-  isAuthenticated: true,
+  isAuthenticated: false,
   user: {
     displayName: "",
     email: "",
