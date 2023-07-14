@@ -4,6 +4,7 @@ import {
   IHaulerLinks,
   IWalkThroughItem,
 } from "../../types";
+import { IHaulType, haulSelection } from "../../types/features/haul";
 
 //walkthrough dummy data
 export const walkthroughItems: IWalkThroughItem[] = [
@@ -105,6 +106,7 @@ export const onboardingAuth: IAuthentiation = {
   inputs: onboardingInput,
 };
 
+//hauler links for profile
 const haulerAccountLinks: IHaulerLinks = {
   header: "Account manangement",
   links: [
@@ -128,7 +130,6 @@ const haulerAccountLinks: IHaulerLinks = {
     },
   ],
 };
-
 const haulerHelpsLinks: IHaulerLinks = {
   header: "Help",
   links: [
@@ -146,8 +147,47 @@ const haulerHelpsLinks: IHaulerLinks = {
     },
   ],
 };
-
 export const haulerLinks: IHaulerLinks[] = [
   haulerAccountLinks,
   haulerHelpsLinks,
+];
+
+//haul product type
+const productTypes: IHaulType[] = [
+  { name: "agriculture", value: "agriculture" },
+  { name: "construction", value: "construction" },
+  { name: "logistics", value: "logistics" },
+  { name: "waste management", value: "waste-management" },
+  { name: "others...", value: "others" },
+];
+
+//hault vehicle type
+const vehicleTypes: IHaulType[] = [
+  { name: "commercial", value: "commercial" },
+  { name: "truck", value: "truck" },
+  { name: "container", value: "container" },
+  { name: "construction", value: "construction" },
+  { name: "tow", value: "tow" },
+  { name: "dump", value: "dump" },
+  { name: "others...", value: "others" },
+];
+
+const haulProductSelectionData: haulSelection = {
+  buttonText: "select truck type",
+  data: productTypes,
+  subHeaderText: "Select product type",
+  type: "product",
+  percentage: 0.3 * 100,
+};
+const haulVehicleSelectionData: haulSelection = {
+  buttonText: "set location",
+  data: vehicleTypes,
+  subHeaderText: "Select vehicle type",
+  type: "vehicle",
+  percentage: 0.6 * 100,
+};
+
+export const haulSelectionData = [
+  haulProductSelectionData,
+  haulVehicleSelectionData,
 ];
