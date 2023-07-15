@@ -11,7 +11,6 @@ export type RootStackParamList = {
   Register: undefined;
 
   //others
-  // SplashScreen: undefined;
   Walkthrough: undefined;
 };
 
