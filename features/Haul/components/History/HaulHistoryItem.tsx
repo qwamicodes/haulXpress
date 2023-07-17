@@ -1,11 +1,15 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
 
-import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../../constants";
+import {
+  DEFAULT_COLORS,
+  textStyles,
+  centeringStyle,
+} from "../../../../constants";
 
-import { IHaulType } from "../../../types/features/haul";
+import { IHaulType } from "../../../../types/features/haul";
 
-const HaulHistory = ({ name }: IHaulType) => {
+const HaulHistoryItem = ({ name }: IHaulType) => {
   return (
     <TouchableOpacity activeOpacity={0.8} style={styles.container}>
       <Text style={styles.text}>{name}</Text>
@@ -13,7 +17,7 @@ const HaulHistory = ({ name }: IHaulType) => {
   );
 };
 
-export default HaulHistory;
+export default HaulHistoryItem;
 
 const styles = StyleSheet.create({
   container: {

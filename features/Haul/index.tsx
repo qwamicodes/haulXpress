@@ -1,33 +1,89 @@
 import { StyleSheet, View } from "react-native";
-import React, { useRef } from "react";
-import SwiperFlatList from "react-native-swiper-flatlist";
+import React, { useState } from "react";
 
-import { useAppSelector } from "../../hooks";
+import { useAppSelector, useNavigationParams } from "../../hooks";
+import { haulSelectionData } from "../../constants";
 
 import ScreenTemplate from "../../screens/template/ScreenTemplate";
 import HaulHeader from "./components/HaulHeader";
 import HaulStart from "./components/HaulStart";
-import { haulSelectionData } from "../../constants";
+import HaulDestination from "./components/HaulDestination";
+import { StackActions } from "@react-navigation/native";
 
 const Haul = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const navigation = useNavigationParams();
+
   const { user } = useAppSelector((state) => state.auth);
   const haulState = useAppSelector((state) => state.haul);
 
-  const scrollRef = useRef<SwiperFlatList>(null);
+  const handleCheckSelection = (): boolean => {
+    const { productType, vehicleType } = haulState;
 
-  const handleScrollToIndex = (index: number) => {
-    scrollRef.current?.scrollToIndex({ index });
+    if (currentIndex === 0 && productType.length > 0) {
+      return true;
+    }
+
+    if (currentIndex === 1 && vehicleType.length > 0) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const handleNavigateSelection = (type: "next" | "previous") => {
+    if (currentIndex === 2)
+      return navigation.navigate("TabsStack", {
+        screen: "Haul",
+        params: { screen: "AvailableTrucks" },
+      });
+    // return navigation.dispatch(
+    //   StackActions.push("Haul", { screen: "AvailableTrucks" })
+    // );
+
+    switch (type) {
+      case "next":
+        setCurrentIndex(currentIndex + 1);
+        break;
+      case "previous":
+        setCurrentIndex(currentIndex - 1);
+        break;
+    }
   };
 
   return (
     <ScreenTemplate>
       <HaulHeader />
+
       <View style={styles.startContainer}>
-        <SwiperFlatList ref={scrollRef}>
-          {haulSelectionData.map((props, index) => (
-            <HaulStart key={index} {...props} {...haulState} />
-          ))}
-        </SwiperFlatList>
+        {haulSelectionData.map((props, index) => {
+          if (currentIndex === index) {
+            return (
+              <HaulStart
+                check={handleCheckSelection()}
+                key={index}
+                index={index}
+                setCurrentIndex={setCurrentIndex}
+                handleNavigateSelection={handleNavigateSelection}
+                {...props}
+                {...haulState}
+              />
+            );
+          }
+          return false;
+        })}
+        {currentIndex === 2 ? (
+          <HaulDestination
+            index={currentIndex}
+            buttonText="search for truck"
+            percentage={100}
+            handleNavigateSelection={handleNavigateSelection}
+            {...haulState}
+          />
+        ) : (
+          false
+        )}
       </View>
     </ScreenTemplate>
   );

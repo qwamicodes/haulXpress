@@ -16,8 +16,8 @@ export type RootStackParamList = {
 
 //bottom tabs param lists
 export type TabsParamList = {
-  Haul: undefined;
-  Journey: undefined;
+  Haul: { screen: keyof HomeParamList };
+  Journey: { screen: keyof JourneyParamList };
   Hauler: undefined;
 };
 

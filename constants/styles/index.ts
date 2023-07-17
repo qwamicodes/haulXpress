@@ -2,6 +2,16 @@ import { ViewStyle } from "react-native";
 import { omit } from "lodash";
 import { DEFAULT_COLORS } from "../colors";
 
+type haulStylesProps = {
+  container: ViewStyle;
+  progress: ViewStyle;
+  backButton: ViewStyle;
+  holder: ViewStyle;
+  history: ViewStyle;
+  historyContainer: ViewStyle;
+  historyItem: ViewStyle;
+};
+
 const notoSansRegular = "NotoSans-Regular";
 const notoSansMedium = "NotoSans-Medium";
 const notoSansSemiBold = "NotoSans-SemiBold";
@@ -102,6 +112,24 @@ export const centeringStyle: ViewStyle = {
 
 export const authInputContainer: ViewStyle = {
   ...omit(screenStyle, "backgroundColor"),
+  paddingHorizontal: 24,
   gap: 24,
   paddingTop: 24,
+};
+
+export const haulStyles: haulStylesProps = {
+  container: {
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 32,
+  },
+  progress: { flexBasis: "5%", ...centeringStyle },
+  backButton: { paddingVertical: 8 },
+  holder: { flex: 1, gap: 32, width: "100%" },
+  historyContainer: { flexDirection: "row", gap: 16, overflow: "hidden" },
+  history: {
+    flex: 1,
+  },
+  historyItem: { flex: 1, gap: -16, flexDirection: "row" },
 };

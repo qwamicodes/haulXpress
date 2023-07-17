@@ -1,24 +1,22 @@
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
-import React from "react";
+import { View, ScrollView, Dimensions, TouchableOpacity } from "react-native";
+import React, { Dispatch, SetStateAction } from "react";
 
 import ProgressBar from "./ProgressBar";
-import { centeringStyle } from "../../../constants";
 import { IHaulType, haulSelection } from "../../../types/features/haul";
 
 import IconRenderer from "../../../components/Icon";
 import Button from "../../../components/Button";
 import HaulSelection from "./HaulSelection";
-import HaulHistory from "./HaulHistory";
+import HaulHistory from "./History";
+import { haulStyles } from "../../../constants";
 
 interface Props extends haulSelection {
+  index: number;
+  check: boolean;
   productType: IHaulType[];
   vehicleType: IHaulType[];
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
+  handleNavigateSelection: (type: "next" | "previous") => void;
 }
 
 const HaulStart = ({
@@ -28,51 +26,42 @@ const HaulStart = ({
   percentage,
   buttonText,
   type,
+  index,
+  setCurrentIndex,
+  handleNavigateSelection,
+  check,
   ...rest
 }: Props) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.progress}>
+    <View style={haulStyles.container}>
+      <View style={haulStyles.progress}>
         <ProgressBar percentage={percentage} />
       </View>
-      <View style={{ flex: 1, gap: 32 }}>
+      <View style={haulStyles.holder}>
         {productType.length > 0 || vehicleType.length > 0 ? (
-          <View style={styles.historyContainer}>
-            <TouchableOpacity style={styles.backButton}>
-              <IconRenderer light={false} iconType="arrorBack" />
-            </TouchableOpacity>
-            <ScrollView
-              contentContainerStyle={{
-                // justifyContent: "space-evenly",
-                alignItems: "center",
-                flexDirection: "row",
-              }}
-              style={styles.history}
-            >
-              <View style={[styles.historyItem, { flex: 0.5 }]}>
-                {productType.map((props, index) => (
-                  <HaulHistory {...props} key={index} />
-                ))}
-              </View>
-              <View style={styles.historyItem}>
-                {vehicleType.map((props, index) => (
-                  <HaulHistory {...props} key={index} />
-                ))}
-              </View>
-            </ScrollView>
-          </View>
+          <HaulHistory
+            productType={productType}
+            vehicleType={vehicleType}
+            index={index}
+            handleNavigateSelection={handleNavigateSelection}
+          />
         ) : (
           false
         )}
         <HaulSelection
           type={type}
-          {...rest}
           state={type === "product" ? productType : vehicleType}
           data={data}
+          {...rest}
         />
       </View>
       <View style={{ width: "100%" }}>
-        <Button buttonText={buttonText} icon={false} />
+        <Button
+          style={{ opacity: check ? 1 : 0.5 }}
+          onPress={check ? () => handleNavigateSelection("next") : undefined}
+          buttonText={buttonText}
+          icon={false}
+        />
       </View>
     </View>
   );
@@ -81,20 +70,3 @@ const HaulStart = ({
 export default HaulStart;
 
 const { width } = Dimensions.get("screen");
-
-const styles = StyleSheet.create({
-  container: {
-    width: width - 48,
-    flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center",
-    gap: 32,
-  },
-  progress: { flexBasis: "5%", ...centeringStyle },
-  backButton: { paddingVertical: 8 },
-  historyContainer: { flexDirection: "row", gap: 16, overflow: "hidden" },
-  history: {
-    flex: 1,
-  },
-  historyItem: { flex: 1, gap: -16, flexDirection: "row" },
-});
