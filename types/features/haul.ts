@@ -7,7 +7,7 @@ type productType =
   | "waste-management"
   | others;
 
-type vehicleType =
+export type vehicleType =
   | "commercial"
   | "truck"
   | "container"
@@ -32,4 +32,23 @@ export type haulSelection = {
   buttonText: string;
   type: "product" | "vehicle";
   data: IHaulType[];
+};
+
+export type locationType = "pickup" | "destination";
+
+export type ILocations = {
+  name: string;
+  lat: string;
+  long: string;
+};
+
+export type ILocationSlice = {
+  pickup: ILocations;
+  destination: ILocations;
+  distance: string;
+};
+
+export type locationComponentProp = {
+  type: locationType;
+  show: boolean;
 };

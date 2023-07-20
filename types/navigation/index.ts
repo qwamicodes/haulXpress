@@ -11,14 +11,13 @@ export type RootStackParamList = {
   Register: undefined;
 
   //others
-  // SplashScreen: undefined;
   Walkthrough: undefined;
 };
 
 //bottom tabs param lists
 export type TabsParamList = {
-  Haul: undefined;
-  Journey: undefined;
+  Haul: { screen: keyof HomeParamList };
+  Journey: { screen: keyof JourneyParamList };
   Hauler: undefined;
 };
 

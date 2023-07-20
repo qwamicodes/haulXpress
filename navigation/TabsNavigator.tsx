@@ -13,7 +13,7 @@ const TabsNavigator = () => {
     <Navigator
       initialRouteName="Haul"
       tabBar={(props) => <BottomTab {...props} />}
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false, tabBarHideOnKeyboard: true }}
     >
       <Screen name="Haul" component={HaulNavigation} />
       <Screen name="Journey" component={JourneyNavigation} />

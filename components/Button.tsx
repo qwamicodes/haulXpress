@@ -16,8 +16,8 @@ const Button = ({
 }: IButton) => {
   return (
     <TouchableOpacity
+      activeOpacity={1}
       {...rest}
-      activeOpacity={0.9}
       style={[styles.button, style]}
     >
       <Text style={[styles.buttonText]}>{buttonText}</Text>

@@ -96,3 +96,13 @@ export const haulExistsInState = (collection: IHaulType[], item: IHaulType) => {
     }, 0) !== 0
   );
 };
+
+export const convertMetresToKm = (meters: string | number) => {
+  if (typeof meters === "string") {
+    meters = parseInt(meters);
+  }
+
+  const km = meters / 1000;
+
+  return km;
+};
