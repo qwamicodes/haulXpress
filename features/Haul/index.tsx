@@ -8,14 +8,14 @@ import ScreenTemplate from "../../screens/template/ScreenTemplate";
 import HaulHeader from "./components/HaulHeader";
 import HaulStart from "./components/HaulStart";
 import HaulDestination from "./components/HaulDestination";
-import { StackActions } from "@react-navigation/native";
+import { locationComponentProp, locationType } from "../../types/features/haul";
 
 const Haul = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showLocationComponent, setShowLocationComponent] =
+    useState<locationComponentProp>({ show: false, type: "pickup" });
 
   const navigation = useNavigationParams();
-
-  const { user } = useAppSelector((state) => state.auth);
   const haulState = useAppSelector((state) => state.haul);
 
   const handleCheckSelection = (): boolean => {
@@ -33,17 +33,14 @@ const Haul = () => {
   };
 
   const handleNavigateSelection = (type: "next" | "previous") => {
-    if (currentIndex === 2)
-      return navigation.navigate("TabsStack", {
-        screen: "Haul",
-        params: { screen: "AvailableTrucks" },
-      });
-    // return navigation.dispatch(
-    //   StackActions.push("Haul", { screen: "AvailableTrucks" })
-    // );
-
     switch (type) {
       case "next":
+        if (currentIndex === 2)
+          return navigation.navigate("TabsStack", {
+            screen: "Haul",
+            params: { screen: "AvailableTrucks" },
+          });
+
         setCurrentIndex(currentIndex + 1);
         break;
       case "previous":
@@ -55,7 +52,6 @@ const Haul = () => {
   return (
     <ScreenTemplate>
       <HaulHeader />
-
       <View style={styles.startContainer}>
         {haulSelectionData.map((props, index) => {
           if (currentIndex === index) {
@@ -75,6 +71,8 @@ const Haul = () => {
         })}
         {currentIndex === 2 ? (
           <HaulDestination
+            showLocationComponent={showLocationComponent}
+            setShowLocationComponent={setShowLocationComponent}
             index={currentIndex}
             buttonText="search for truck"
             percentage={100}
@@ -92,5 +90,5 @@ const Haul = () => {
 export default Haul;
 
 const styles = StyleSheet.create({
-  startContainer: { flex: 1 },
+  startContainer: { flex: 1, position: "relative" },
 });

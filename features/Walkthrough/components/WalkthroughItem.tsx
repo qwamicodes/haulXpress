@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
 import { IWalkThroughItem } from "../../../types";
-import { DEFAULT_COLORS, centeringStyle, textStyles } from "../../../constants";
+import { DEFAULT_COLORS, textStyles } from "../../../constants";
 
 interface Props extends IWalkThroughItem {}
 

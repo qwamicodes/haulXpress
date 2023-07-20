@@ -9,6 +9,7 @@ import {
   MESSAGING_SENDER_ID,
   PROJECT_ID,
   STORAGE_BUCKET,
+  GOOGLE_MAP_API_KEY,
 } from "@env";
 
 interface Config {
@@ -22,6 +23,7 @@ interface Config {
   MESSAGING_SENDER_ID: string;
   PROJECT_ID: string;
   STORAGE_BUCKET: string;
+  GOOGLE_MAP_API_KEY: string;
 }
 
 const config: Config = {
@@ -35,6 +37,7 @@ const config: Config = {
   MESSAGING_SENDER_ID,
   PROJECT_ID,
   STORAGE_BUCKET,
+  GOOGLE_MAP_API_KEY,
 };
 
 export default config;

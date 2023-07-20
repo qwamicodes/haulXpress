@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import React, { useReducer } from "react";
-import { KeyboardAwareScrollView } from "@pietile-native-kit/keyboard-aware-scrollview";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import {
   useAppDispatch,

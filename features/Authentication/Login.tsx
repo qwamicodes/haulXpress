@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import React, { useReducer } from "react";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { omit } from "lodash";
-import { KeyboardAwareScrollView } from "@pietile-native-kit/keyboard-aware-scrollview";
 
 import {
   useAppDispatch,
@@ -40,7 +40,11 @@ const Login = () => {
   };
 
   return (
-    <ScreenTemplate styles={{ paddingHorizontal: 0 }}>
+    <ScreenTemplate
+      styles={{
+        paddingHorizontal: 0,
+      }}
+    >
       <AuthHeader {...rest} />
       <KeyboardAwareScrollView
         showsHorizontalScrollIndicator={false}

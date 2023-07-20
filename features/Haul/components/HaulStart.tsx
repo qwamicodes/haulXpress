@@ -1,14 +1,13 @@
-import { View, ScrollView, Dimensions, TouchableOpacity } from "react-native";
+import { View } from "react-native";
 import React, { Dispatch, SetStateAction } from "react";
 
-import ProgressBar from "./ProgressBar";
 import { IHaulType, haulSelection } from "../../../types/features/haul";
-
-import IconRenderer from "../../../components/Icon";
-import Button from "../../../components/Button";
-import HaulSelection from "./HaulSelection";
-import HaulHistory from "./History";
 import { haulStyles } from "../../../constants";
+
+import Button from "../../../components/Button";
+import HaulHistory from "./History";
+import ProgressBar from "./ProgressBar";
+import HaulSelection from "./HaulSelection";
 
 interface Props extends haulSelection {
   index: number;
@@ -57,6 +56,7 @@ const HaulStart = ({
       </View>
       <View style={{ width: "100%" }}>
         <Button
+          activeOpacity={check ? 1 : 0.5}
           style={{ opacity: check ? 1 : 0.5 }}
           onPress={check ? () => handleNavigateSelection("next") : undefined}
           buttonText={buttonText}
@@ -68,5 +68,3 @@ const HaulStart = ({
 };
 
 export default HaulStart;
-
-const { width } = Dimensions.get("screen");

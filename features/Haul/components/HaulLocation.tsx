@@ -1,22 +1,28 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import React, { Dispatch, SetStateAction } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 
 import { DEFAULT_COLORS, textStyles } from "../../../constants";
-import IconRenderer from "../../../components/Icon";
+import LocatonSearchInput from "./LocatonSearchInput";
+import { locationComponentProp } from "../../../types/features/haul";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { getMapDistance } from "../../../services/maps";
 
 type props = {
-  pickupLocation: string;
-  destinationLocation: string;
-  setPickupLocation: Dispatch<SetStateAction<string>>;
-  setDestinationLocation: Dispatch<SetStateAction<string>>;
+  setShowLocationComponent: Dispatch<SetStateAction<locationComponentProp>>;
 };
 
-const HaulLocation = ({
-  destinationLocation,
-  pickupLocation,
-  setDestinationLocation,
-  setPickupLocation,
-}: props) => {
+const HaulLocation = ({ ...rest }: props) => {
+  const dispatch = useAppDispatch();
+  const { destination, pickup, distance } = useAppSelector(
+    (state) => state.locations
+  );
+
+  useEffect(() => {
+    if (destination && pickup) {
+      dispatch(getMapDistance(pickup.name, destination.name));
+    }
+  }, [destination, pickup]);
+
   return (
     <View style={styles.container}>
       <View style={{ gap: 32, marginBottom: 16 }}>
@@ -29,42 +35,35 @@ const HaulLocation = ({
           <Text style={styles.selectionContainerHeaderText}>
             Where are you?
           </Text>
-          <View style={styles.inputContainer}>
-            <IconRenderer
-              iconType="location"
-              color={DEFAULT_COLORS.gray[500]}
-              light={false}
-            />
-            <TextInput
-              defaultValue={pickupLocation}
-              onChangeText={(e) => setPickupLocation(e)}
-              style={styles.input}
-              placeholder="Pickup location"
-            />
-          </View>
+          <LocatonSearchInput
+            value={pickup.name}
+            type="pickup"
+            placeholder="Pickup address"
+            {...rest}
+          />
         </View>
         <View style={styles.inputHolder}>
           <Text style={styles.selectionContainerHeaderText}>
             Where to drop of your goods?
           </Text>
-          <View style={styles.inputContainer}>
-            <IconRenderer
-              iconType="location"
-              color={DEFAULT_COLORS.gray[500]}
-              light={false}
-            />
-            <TextInput
-              defaultValue={destinationLocation}
-              onChangeText={(e) => setDestinationLocation(e)}
-              style={styles.input}
-              placeholder="Destination location"
-            />
+          <LocatonSearchInput
+            value={destination.name}
+            type="destination"
+            placeholder="Destination address"
+            {...rest}
+          />
+        </View>
+
+        {distance ? (
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            <Text style={styles.selectionContainerHeaderText}>Distance</Text>
+            <Text style={styles.distanceText}>{distance}</Text>
           </View>
-        </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Text style={styles.selectionContainerHeaderText}>Distance</Text>
-          <Text style={styles.distanceText}>0.88km</Text>
-        </View>
+        ) : (
+          false
+        )}
       </View>
     </View>
   );
@@ -86,16 +85,5 @@ const styles = StyleSheet.create({
     ...textStyles.sm.regular,
   },
   inputHolder: { gap: 16 },
-  inputContainer: {
-    flexDirection: "row",
-    gap: 12,
-    padding: 12,
-    borderRadius: 32,
-    backgroundColor: DEFAULT_COLORS.white,
-    shadowColor: DEFAULT_COLORS.gray[100],
-    shadowOffset: { width: 0, height: 5 },
-    alignItems: "center",
-  },
-  input: { width: "100%" },
   distanceText: { color: DEFAULT_COLORS.gray[700], ...textStyles["xl"].medium },
 });

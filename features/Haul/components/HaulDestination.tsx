@@ -1,14 +1,16 @@
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { KeyboardAwareScrollView } from "@pietile-native-kit/keyboard-aware-scrollview";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import { haulStyles } from "../../../constants";
-import { IHaulType } from "../../../types/features/haul";
+import { IHaulType, locationComponentProp } from "../../../types/features/haul";
 
 import ProgressBar from "./ProgressBar";
 import HaulHistory from "./History";
 import Button from "../../../components/Button";
 import HaulLocation from "./HaulLocation";
+import LocationSearchComponent from "./LocationSearchComponent";
+import { useAppSelector } from "../../../hooks";
 
 interface Props {
   index: number;
@@ -16,21 +18,24 @@ interface Props {
   percentage: number;
   productType: IHaulType[];
   vehicleType: IHaulType[];
+  showLocationComponent: locationComponentProp;
+  setShowLocationComponent: Dispatch<SetStateAction<locationComponentProp>>;
   handleNavigateSelection: (type: "next" | "previous") => void;
 }
 
 const HaulDestination = ({
-  handleNavigateSelection,
   index,
   productType,
   vehicleType,
   percentage,
   buttonText,
+  showLocationComponent,
+  setShowLocationComponent,
+  handleNavigateSelection,
 }: Props) => {
-  const [pickupLocation, setPickupLocation] = useState("");
-  const [destinationLocation, setDestinationLocation] = useState("");
+  const { destination, pickup } = useAppSelector((state) => state.locations);
 
-  const valid = pickupLocation && destinationLocation;
+  const valid = pickup.name && destination.name;
 
   return (
     <View style={haulStyles.container}>
@@ -54,14 +59,10 @@ const HaulDestination = ({
         showsVerticalScrollIndicator={false}
         style={{ flex: 1, width: "100%" }}
       >
-        <HaulLocation
-          destinationLocation={destinationLocation}
-          pickupLocation={pickupLocation}
-          setPickupLocation={setPickupLocation}
-          setDestinationLocation={setDestinationLocation}
-        />
+        <HaulLocation setShowLocationComponent={setShowLocationComponent} />
         <View style={{ width: "100%", marginTop: 16 }}>
           <Button
+            activeOpacity={valid ? 1 : 0.5}
             style={{ opacity: valid ? 1 : 0.5 }}
             onPress={valid ? () => handleNavigateSelection("next") : undefined}
             buttonText={buttonText}
@@ -69,10 +70,16 @@ const HaulDestination = ({
           />
         </View>
       </KeyboardAwareScrollView>
+      {showLocationComponent.show ? (
+        <LocationSearchComponent
+          locationComponent={showLocationComponent}
+          setShowLocationComponent={setShowLocationComponent}
+        />
+      ) : (
+        false
+      )}
     </View>
   );
 };
 
 export default HaulDestination;
-
-const styles = StyleSheet.create({});
