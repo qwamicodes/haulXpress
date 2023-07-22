@@ -22,9 +22,7 @@ const useOauthentication = () => {
         scheme: "haulXpress",
       }),
     },
-    {
-      projectNameForProxy: "@qwamicodes/haulXpress",
-    }
+    {}
   );
 
   useEffect(() => {
