@@ -106,3 +106,9 @@ export const convertMetresToKm = (meters: string | number) => {
 
   return km;
 };
+
+export const kmToMiles = (km: number): string => {
+  // 1 kilometer is approximately equal to 0.621371 miles
+  const miles = ((km / 1000) * 0.621371).toFixed(1);
+  return `${miles} mi`;
+};

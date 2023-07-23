@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-import { DEFAULT_COLORS, textStyles } from "../../constants";
-
-import ScreenTemplate from "../template/ScreenTemplate";
+import { DEFAULT_COLORS, screenStyle, textStyles } from "../../constants";
 
 const NotificationSettings = () => {
   const notificationSettings = [
@@ -13,7 +11,7 @@ const NotificationSettings = () => {
   ];
 
   return (
-    <ScreenTemplate>
+    <View style={[screenStyle]}>
       <View style={styles.container}>
         {notificationSettings.map(({ title }, index) => (
           <View style={styles.content} key={index}>
@@ -21,7 +19,7 @@ const NotificationSettings = () => {
           </View>
         ))}
       </View>
-    </ScreenTemplate>
+    </View>
   );
 };
 

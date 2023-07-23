@@ -2,14 +2,13 @@ import { View } from "react-native";
 import React, { useReducer } from "react";
 import { isMatch } from "lodash";
 
-import ScreenTemplate from "../template/ScreenTemplate";
 import {
   useAppDispatch,
   useAppSelector,
   useNavigationParams,
 } from "../../hooks";
 import { onboardingReducer } from "../../features/Authentication/reducer";
-import { onboardingAuth } from "../../constants";
+import { onboardingAuth, screenStyle } from "../../constants";
 import AuthInput from "../../features/Authentication/components/AuthInput";
 import Button from "../../components/Button";
 import { checkOnboardingValues } from "../../utils/helpers";
@@ -45,7 +44,7 @@ const EditProfile = () => {
   };
 
   return (
-    <ScreenTemplate>
+    <View style={[screenStyle]}>
       <View style={{ flex: 1, justifyContent: "space-between" }}>
         <View style={{ gap: 16 }}>
           {inputs.map(({ name, ...rest }, index) => {
@@ -77,7 +76,7 @@ const EditProfile = () => {
           />
         </View>
       </View>
-    </ScreenTemplate>
+    </View>
   );
 };
 

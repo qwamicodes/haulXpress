@@ -1,4 +1,5 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
+import { vehicleProps } from "..";
 
 //screen param lists
 export type RootStackParamList = {
@@ -24,7 +25,12 @@ export type TabsParamList = {
 export type HomeParamList = {
   Start: undefined;
   AvailableTrucks: undefined;
-  HaulInformation: {};
+  HaulInformation: {
+    vehicleDetails: vehicleProps & {
+      price: number;
+      departure: number | string;
+    };
+  };
   ConfirmHauling: undefined;
   ConfirmedHauling: undefined;
 };

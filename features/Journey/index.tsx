@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-import ScreenTemplate from "../../screens/template/ScreenTemplate";
+import { screenStyle } from "../../constants";
 
 const Journey = () => {
   return (
-    <ScreenTemplate>
+    <View style={[screenStyle]}>
       <Text>Journey</Text>
-    </ScreenTemplate>
+    </View>
   );
 };
 

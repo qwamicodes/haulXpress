@@ -6,8 +6,8 @@ import { useAppDispatch } from "../../hooks";
 import { changePassword } from "../../services";
 
 import Button from "../../components/Button";
-import ScreenTemplate from "../template/ScreenTemplate";
 import AuthInput from "../../features/Authentication/components/AuthInput";
+import { screenStyle } from "../../constants";
 
 const ChangePassword = () => {
   const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ const ChangePassword = () => {
   };
 
   return (
-    <ScreenTemplate>
+    <View style={[screenStyle]}>
       <View style={{ flex: 1, justifyContent: "space-between" }}>
         <View style={{ gap: 16 }}>
           <AuthInput
@@ -54,7 +54,7 @@ const ChangePassword = () => {
           />
         </View>
       </View>
-    </ScreenTemplate>
+    </View>
   );
 };
 
