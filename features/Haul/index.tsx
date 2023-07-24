@@ -1,22 +1,22 @@
 import { StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 
-import { useAppSelector, useNavigationParams } from "../../hooks";
+import { useAppSelector } from "../../hooks";
 import { haulSelectionData } from "../../constants";
 
 import ScreenTemplate from "../../screens/template/ScreenTemplate";
 import HaulHeader from "./components/HaulHeader";
 import HaulStart from "./components/HaulStart";
 import HaulDestination from "./components/HaulDestination";
-import { locationComponentProp, locationType } from "../../types/features/haul";
+import { locationComponentProp } from "../../types/features/haul";
 
 const Haul = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showLocationComponent, setShowLocationComponent] =
     useState<locationComponentProp>({ show: false, type: "pickup" });
 
-  const navigation = useNavigationParams();
   const haulState = useAppSelector((state) => state.haul);
+  const {} = useAppSelector((state) => state.vehicles);
 
   const handleCheckSelection = (): boolean => {
     const { productType, vehicleType } = haulState;
@@ -35,12 +35,6 @@ const Haul = () => {
   const handleNavigateSelection = (type: "next" | "previous") => {
     switch (type) {
       case "next":
-        if (currentIndex === 2)
-          return navigation.navigate("TabsStack", {
-            screen: "Haul",
-            params: { screen: "AvailableTrucks" },
-          });
-
         setCurrentIndex(currentIndex + 1);
         break;
       case "previous":

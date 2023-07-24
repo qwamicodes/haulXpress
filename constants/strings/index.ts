@@ -24,4 +24,5 @@ export const STRINGS = {
   userDataNotFound: "User data not found",
   permissionDenied: "Permission denied",
   passwordNotMatch: "Password do not match",
+  trucksNotFound: "No vehicle matching your description found near you!",
 };

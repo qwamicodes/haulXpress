@@ -6,6 +6,7 @@ import LocatonSearchInput from "./LocatonSearchInput";
 import { locationComponentProp } from "../../../types/features/haul";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { getMapDistance } from "../../../services/maps";
+import { kmToMiles } from "../../../utils/helpers";
 
 type props = {
   setShowLocationComponent: Dispatch<SetStateAction<locationComponentProp>>;

@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { GOOGLE_MAP_API_KEY } from "@env";
 import { pick } from "lodash";
@@ -13,6 +13,7 @@ import { DEFAULT_COLORS, textStyles } from "../../../constants";
 import { useAppDispatch } from "../../../hooks";
 import { locationComponentProp } from "../../../types/features/haul";
 import { addLocation } from "../../../store/slices/locationsSlice";
+import IconRenderer from "../../../components/Icon";
 
 type props = {
   locationComponent: locationComponentProp;
@@ -47,7 +48,15 @@ const LocationSearchComponent = ({
   }, []);
 
   return (
-    <View style={styles.contianer}>
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() =>
+          setShowLocationComponent({ show: false, type: "pickup" })
+        }
+        style={styles.button}
+      >
+        <IconRenderer iconType="arrorBack" light={false} />
+      </TouchableOpacity>
       <GooglePlacesAutocomplete
         ref={searchElement}
         placeholder="Search..."
@@ -65,16 +74,22 @@ const LocationSearchComponent = ({
 export default LocationSearchComponent;
 
 const styles = StyleSheet.create({
-  contianer: {
+  container: {
     ...StyleSheet.absoluteFillObject,
     zIndex: 10,
     flex: 1,
     backgroundColor: DEFAULT_COLORS.gray[50],
     paddingTop: 16,
+    flexDirection: "row",
+    gap: 8,
   },
   input: {
     width: "100%",
     ...textStyles.sm.regular,
     color: DEFAULT_COLORS.gray[600],
+  },
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 4,
   },
 });

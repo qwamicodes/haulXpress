@@ -2,6 +2,7 @@ import { GOOGLE_MAP_API_KEY } from "@env";
 
 import { AppDispatch } from "../../../store";
 import { addDistance } from "../../../store/slices/locationsSlice";
+import { kmToMiles } from "../../../utils/helpers";
 
 const getMapDistance =
   (origins: string, destinations: string) => async (dispatch: AppDispatch) => {
@@ -12,9 +13,9 @@ const getMapDistance =
       const data = await res.json();
 
       // Extract distance information from the response
-      const distanceText = data.rows[0].elements[0].distance.text;
+      const distanceText = data.rows[0].elements[0].distance.value;
 
-      dispatch(addDistance(distanceText)); // Distance in text format
+      dispatch(addDistance(kmToMiles(distanceText)));
     } catch (err) {}
   };
 

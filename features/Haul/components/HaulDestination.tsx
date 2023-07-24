@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import { haulStyles } from "../../../constants";
@@ -10,7 +10,7 @@ import HaulHistory from "./History";
 import Button from "../../../components/Button";
 import HaulLocation from "./HaulLocation";
 import LocationSearchComponent from "./LocationSearchComponent";
-import { useAppSelector } from "../../../hooks";
+import { useAppSelector, useNavigationParams } from "../../../hooks";
 
 interface Props {
   index: number;
@@ -33,6 +33,7 @@ const HaulDestination = ({
   setShowLocationComponent,
   handleNavigateSelection,
 }: Props) => {
+  const navigation = useNavigationParams();
   const { destination, pickup } = useAppSelector((state) => state.locations);
 
   const valid = pickup.name && destination.name;
@@ -64,7 +65,15 @@ const HaulDestination = ({
           <Button
             activeOpacity={valid ? 1 : 0.5}
             style={{ opacity: valid ? 1 : 0.5 }}
-            onPress={valid ? () => handleNavigateSelection("next") : undefined}
+            onPress={
+              valid
+                ? () =>
+                    navigation.navigate("TabsStack", {
+                      screen: "Haul",
+                      params: { screen: "AvailableTrucks" },
+                    })
+                : undefined
+            }
             buttonText={buttonText}
             icon={false}
           />
