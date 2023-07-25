@@ -17,18 +17,29 @@ import {
   centeringStyle,
 } from "../../../constants";
 import Trucks from "../components/Trucks";
-import { useAppSelector } from "../../../hooks";
+import { useAppSelector, useNavigationParams } from "../../../hooks";
 import Button from "../../../components/Button";
 
 type props = NativeStackScreenProps<HomeParamList, "HaulInformation">;
 
 const HaulInformation = ({ route }: props) => {
+  const navigation = useNavigationParams();
+
   const { distance } = useAppSelector((state) => state.locations);
 
   const { vehicleDetails } = route.params;
   const { departure, driver, price, vehicleCapacity, vehicleNo, vehicleType } =
     vehicleDetails;
   const { driverName, driverPhotoUrl, driverRating } = driver;
+
+  const handleConfirmHaul = () => {
+    navigation.navigate("TabsStack", {
+      screen: "Haul",
+      params: {
+        screen: "ConfirmHauling",
+      },
+    });
+  };
 
   return (
     <View style={[screenStyle]}>
@@ -126,7 +137,13 @@ const HaulInformation = ({ route }: props) => {
           </Text>
         </View>
         <View>
-          <Button iconType="truck" icon buttonText="Haul" lightIcon />
+          <Button
+            onPress={handleConfirmHaul}
+            iconType="truck"
+            icon
+            buttonText="Haul"
+            lightIcon
+          />
         </View>
       </View>
     </View>
