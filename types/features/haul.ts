@@ -4,8 +4,8 @@ type productType =
   | "agriculture"
   | "logistics"
   | "construction"
-  | "waste-management"
-  | others;
+  | "waste-management";
+// | others;
 
 export type vehicleType =
   | "commercial"
@@ -13,8 +13,8 @@ export type vehicleType =
   | "container"
   | "tow"
   | "dump"
-  | "construction"
-  | others;
+  | "construction";
+// | others;
 
 export type IHaulType = {
   name: string;
