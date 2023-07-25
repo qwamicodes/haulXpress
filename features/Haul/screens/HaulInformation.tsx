@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -19,6 +20,7 @@ import {
 import Trucks from "../components/Trucks";
 import { useAppSelector, useNavigationParams } from "../../../hooks";
 import Button from "../../../components/Button";
+import DriverBadge from "../components/DriverBadge";
 
 type props = NativeStackScreenProps<HomeParamList, "HaulInformation">;
 
@@ -37,6 +39,8 @@ const HaulInformation = ({ route }: props) => {
       screen: "Haul",
       params: {
         screen: "ConfirmHauling",
+        //@ts-ignore
+        params: { driver },
       },
     });
   };
@@ -47,6 +51,7 @@ const HaulInformation = ({ route }: props) => {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ gap: 32, alignItems: "center" }}
+        style={{ flex: 1 }}
       >
         <View style={[styles.vertically, { alignItems: "center" }]}>
           <View style={{ gap: 8 }}>
@@ -57,51 +62,45 @@ const HaulInformation = ({ route }: props) => {
             <Trucks size="large" type={vehicleType} />
           </View>
         </View>
-        <View style={[styles.vertically]}>
-          <View style={[centeringStyle, { gap: 8, flexDirection: "row" }]}>
-            <View>
-              <Image
-                style={{ width: 50, height: 50, borderRadius: 100 }}
-                source={{ uri: driverPhotoUrl }}
-              />
+        <DriverBadge driver={driver} showButton />
+        <View
+          style={{
+            width: "100%",
+            gap: 32,
+            borderTopColor: DEFAULT_COLORS.gray[200],
+            borderTopWidth: 1,
+            paddingVertical: 16,
+          }}
+        >
+          <View style={styles.detailHolder}>
+            <Text style={styles.header}>Vehicle details</Text>
+            <View style={styles.valuesHolder}>
+              <Text style={styles.value}>vehicle</Text>
+              <Text style={styles.value}>{vehicleType}</Text>
             </View>
-            <View style={{ gap: 4 }}>
-              <Text style={styles.profileName}>{driverName}</Text>
-              <Text style={styles.profileRating}>{driverRating} ratings</Text>
+            <View style={styles.valuesHolder}>
+              <Text style={styles.value}>capacity</Text>
+              <Text style={styles.value}>{vehicleCapacity}</Text>
             </View>
           </View>
-          <View>
-            <TouchableOpacity style={styles.profileButton}>
-              <Text style={styles.profileButtonText}>View profile</Text>
-            </TouchableOpacity>
+          <View style={styles.detailHolder}>
+            <Text style={styles.header}>Trip details</Text>
+            <View style={styles.valuesHolder}>
+              <Text style={styles.value}>pick availablity</Text>
+              <Text style={styles.value}>yes</Text>
+            </View>
+            <View style={styles.valuesHolder}>
+              <Text style={styles.value}>departure</Text>
+              <Text style={styles.value}>{departure} days</Text>
+            </View>
+            <View style={styles.valuesHolder}>
+              <Text style={styles.value}>distance</Text>
+              <Text style={styles.value}>{distance}</Text>
+            </View>
           </View>
         </View>
-        <View style={styles.detailHolder}>
-          <Text style={styles.header}>Vehicle details</Text>
-          <View style={styles.valuesHolder}>
-            <Text style={styles.value}>vehicle</Text>
-            <Text style={styles.value}>{vehicleType}</Text>
-          </View>
-          <View style={styles.valuesHolder}>
-            <Text style={styles.value}>capacity</Text>
-            <Text style={styles.value}>{vehicleCapacity}</Text>
-          </View>
-        </View>
-        <View style={styles.detailHolder}>
-          <Text style={styles.header}>Trip details</Text>
-          <View style={styles.valuesHolder}>
-            <Text style={styles.value}>pick availablity</Text>
-            <Text style={styles.value}>yes</Text>
-          </View>
-          <View style={styles.valuesHolder}>
-            <Text style={styles.value}>departure</Text>
-            <Text style={styles.value}>{departure} days</Text>
-          </View>
-          <View style={styles.valuesHolder}>
-            <Text style={styles.value}>distance</Text>
-            <Text style={styles.value}>{distance}</Text>
-          </View>
-        </View>
+      </ScrollView>
+      <View style={[centeringStyle, { gap: 8 }]}>
         <View>
           <Text
             style={[
@@ -116,34 +115,33 @@ const HaulInformation = ({ route }: props) => {
             </Text>
           </Text>
         </View>
-      </ScrollView>
-      <View
-        style={{
-          flex: 2,
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
-      >
-        <View style={[centeringStyle, { flex: 1 }]}>
-          <Text
-            style={{
-              textTransform: "uppercase",
-              color: DEFAULT_COLORS.gray[700],
-              ...textStyles["2xl"].medium,
-            }}
-          >
-            ghc {price}
-          </Text>
-        </View>
-        <View>
-          <Button
-            onPress={handleConfirmHaul}
-            iconType="truck"
-            icon
-            buttonText="Haul"
-            lightIcon
-          />
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+          }}
+        >
+          <View style={[centeringStyle, { flex: 1 }]}>
+            <Text
+              style={{
+                textTransform: "uppercase",
+                color: DEFAULT_COLORS.gray[700],
+                ...textStyles["2xl"].medium,
+              }}
+            >
+              ghc {price}
+            </Text>
+          </View>
+          <View>
+            <Button
+              onPress={handleConfirmHaul}
+              iconType="truck"
+              icon
+              buttonText="Haul"
+              lightIcon
+            />
+          </View>
         </View>
       </View>
     </View>
@@ -172,17 +170,5 @@ const styles = StyleSheet.create({
     color: DEFAULT_COLORS.gray[500],
     ...textStyles.xs.regular,
     textTransform: "capitalize",
-  },
-  profileName: { color: DEFAULT_COLORS.gray[700], ...textStyles.base.medium },
-  profileRating: { color: DEFAULT_COLORS.gray[500], ...textStyles.xs.regular },
-  profileButton: {
-    backgroundColor: DEFAULT_COLORS.teal[50],
-    padding: 16,
-    borderRadius: 4,
-    ...centeringStyle,
-  },
-  profileButtonText: {
-    ...textStyles.xs.regular,
-    color: DEFAULT_COLORS.teal[600],
   },
 });

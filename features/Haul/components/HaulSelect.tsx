@@ -15,13 +15,13 @@ interface Props extends Pick<haulSelection, "type"> {
 const HaulSelect = ({ select, state, type }: Props) => {
   const dispatch = useAppDispatch();
 
-  const { name, value } = select;
+  const { name } = select;
   const exists = haulExistsInState(state, select);
 
   const handleSelect = () => {
-    if (value === "others") {
-      return;
-    }
+    // if (value === "others") {
+    //   return;
+    // }
     dispatch(addHaulingData({ type, select }));
   };
 
