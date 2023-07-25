@@ -8,6 +8,8 @@ import ScreenHeaderTitle from "../components/header/ScreenHeaderTitle";
 import Haul from "../features/Haul";
 import AvailableTrucks from "../features/Haul/screens/AvailableTrucks";
 import HaulInformation from "../features/Haul/screens/HaulInformation";
+import ConfirmedHauling from "../features/Haul/screens/ConfirmedHauling";
+import ConfirmHauling from "../features/Haul/screens/ConfirmHauling";
 
 const HaulNavigation = () => {
   const { Navigator, Screen } = createNativeStackNavigator<HomeParamList>();
@@ -29,6 +31,16 @@ const HaulNavigation = () => {
         name="HaulInformation"
         options={{ headerTitle: "Haul information" }}
         component={HaulInformation}
+      />
+      <Screen
+        name="ConfirmHauling"
+        options={{ headerTitle: "Confirming hauling" }}
+        component={ConfirmHauling}
+      />
+      <Screen
+        name="ConfirmedHauling"
+        options={{ headerTitle: "Hauling confirmed" }}
+        component={ConfirmedHauling}
       />
     </Navigator>
   );
