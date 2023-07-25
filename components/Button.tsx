@@ -12,20 +12,44 @@ const Button = ({
   iconColor,
   lightIcon,
   style,
+  type = "primary",
   ...rest
 }: IButton) => {
+  const backgroundColor =
+    type === "secondary" ? DEFAULT_COLORS.gray[100] : DEFAULT_COLORS.green[100];
+  const color =
+    type === "secondary" ? DEFAULT_COLORS.gray[500] : DEFAULT_COLORS.green[500];
+
+  if (type === "primary") {
+    return (
+      <TouchableOpacity
+        activeOpacity={1}
+        {...rest}
+        style={[styles.button, style]}
+      >
+        <Text style={[styles.buttonText]}>{buttonText}</Text>
+        {icon && lightIcon && iconType ? (
+          <IconRenderer
+            iconType={iconType}
+            light={lightIcon}
+            color={iconColor}
+          />
+        ) : (
+          false
+        )}
+      </TouchableOpacity>
+    );
+  }
+
   return (
     <TouchableOpacity
       activeOpacity={1}
       {...rest}
-      style={[styles.button, style]}
+      style={[styles.button, style, { backgroundColor, borderRadius: 100 }]}
     >
-      <Text style={[styles.buttonText]}>{buttonText}</Text>
-      {icon && lightIcon && iconType ? (
-        <IconRenderer iconType={iconType} light={lightIcon} color={iconColor} />
-      ) : (
-        false
-      )}
+      <Text style={[styles.buttonText, textStyles.base.regular, { color }]}>
+        {buttonText}
+      </Text>
     </TouchableOpacity>
   );
 };
