@@ -43,8 +43,14 @@ const locationSlice = createSlice({
       const { payload } = action;
       state.distance = payload;
     },
+    resetLocation: (state) => {
+      state.destination = initialState.destination;
+      state.pickup = initialState.pickup;
+      state.distance = initialState.distance;
+    },
   },
 });
 
 export default locationSlice.reducer;
-export const { addLocation, addDistance } = locationSlice.actions;
+export const { addLocation, addDistance, resetLocation } =
+  locationSlice.actions;

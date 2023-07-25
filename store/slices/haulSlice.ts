@@ -33,11 +33,12 @@ const haulSlice = createSlice({
         state.productType = [payload.select];
       }
     },
-    resetVehicleSelection: (state) => {
+    resetSelection: (state) => {
       state.vehicleType.length = 0;
+      state.productType.length = 0;
     },
   },
 });
 
 export default haulSlice.reducer;
-export const { addHaulingData } = haulSlice.actions;
+export const { addHaulingData, resetSelection } = haulSlice.actions;

@@ -3,6 +3,7 @@ import {
   IAuthentiation,
   IHaulerLinks,
   IWalkThroughItem,
+  paymentMethod,
 } from "../../types";
 import { IHaulType, haulSelection } from "../../types/features/haul";
 
@@ -158,7 +159,6 @@ const productTypes: IHaulType[] = [
   { name: "construction", value: "construction" },
   { name: "logistics", value: "logistics" },
   { name: "waste management", value: "waste-management" },
-  { name: "others...", value: "others" },
 ];
 
 //hault vehicle type
@@ -169,7 +169,6 @@ const vehicleTypes: IHaulType[] = [
   { name: "construction", value: "construction" },
   { name: "tow", value: "tow" },
   { name: "dump", value: "dump" },
-  { name: "others...", value: "others" },
 ];
 
 const haulProductSelectionData: haulSelection = {
@@ -190,4 +189,9 @@ const haulVehicleSelectionData: haulSelection = {
 export const haulSelectionData = [
   haulProductSelectionData,
   haulVehicleSelectionData,
+];
+
+export const paymentMethods: paymentMethod[] = [
+  { name: "Cash", value: "cash" },
+  { name: "Mobile Money", value: "momo" },
 ];

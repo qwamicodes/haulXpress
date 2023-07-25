@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { useAppSelector } from "../../hooks";
 import { haulSelectionData } from "../../constants";
@@ -16,11 +16,9 @@ const Haul = () => {
     useState<locationComponentProp>({ show: false, type: "pickup" });
 
   const haulState = useAppSelector((state) => state.haul);
-  const {} = useAppSelector((state) => state.vehicles);
+  const { productType, vehicleType } = haulState;
 
   const handleCheckSelection = (): boolean => {
-    const { productType, vehicleType } = haulState;
-
     if (currentIndex === 0 && productType.length > 0) {
       return true;
     }
@@ -42,6 +40,13 @@ const Haul = () => {
         break;
     }
   };
+
+  useEffect(() => {
+    //making sure that when the state resets, the hauling begins from the first component
+    if (productType.length <= 0) {
+      setCurrentIndex(0);
+    }
+  }, [haulState]);
 
   return (
     <ScreenTemplate>

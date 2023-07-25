@@ -1,10 +1,38 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { vehicleProps } from "../../../types";
 import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../../constants";
 
-const DriverBadge = ({ driver }: Pick<vehicleProps, "driver">) => {
+interface Props extends Pick<vehicleProps, "driver"> {
+  showButton?: boolean;
+}
+
+const DriverBadge = ({ driver, showButton = false }: Props) => {
   const { driverName, driverPhotoUrl, driverRating } = driver;
+
+  if (showButton) {
+    return (
+      <View style={[styles.vertically]}>
+        <View style={[centeringStyle, { gap: 8, flexDirection: "row" }]}>
+          <View>
+            <Image
+              style={{ width: 50, height: 50, borderRadius: 100 }}
+              source={{ uri: driverPhotoUrl }}
+            />
+          </View>
+          <View style={{ gap: 4 }}>
+            <Text style={styles.profileName}>{driverName}</Text>
+            <Text style={styles.profileRating}>{driverRating} ratings</Text>
+          </View>
+        </View>
+        <View>
+          <TouchableOpacity style={styles.profileButton}>
+            <Text style={styles.profileButtonText}>View profile</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.badge}>
@@ -30,5 +58,23 @@ const styles = StyleSheet.create({
   ratings: {
     color: DEFAULT_COLORS.gray[500],
     ...textStyles.xs.regular,
+  },
+  vertically: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  profileName: { color: DEFAULT_COLORS.gray[700], ...textStyles.base.medium },
+  profileRating: { color: DEFAULT_COLORS.gray[500], ...textStyles.xs.regular },
+  profileButton: {
+    backgroundColor: DEFAULT_COLORS.teal[50],
+    padding: 16,
+    borderRadius: 4,
+    ...centeringStyle,
+  },
+  profileButtonText: {
+    ...textStyles.xs.regular,
+    color: DEFAULT_COLORS.teal[600],
   },
 });

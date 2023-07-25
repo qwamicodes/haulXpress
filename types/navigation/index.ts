@@ -1,5 +1,5 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
-import { vehicleProps } from "..";
+import { driversProps, vehicleProps } from "..";
 
 //screen param lists
 export type RootStackParamList = {
@@ -31,8 +31,18 @@ export type HomeParamList = {
       departure: number | string;
     };
   };
-  ConfirmHauling: undefined;
-  ConfirmedHauling: undefined;
+  ConfirmHauling: {
+    driver: Pick<
+      driversProps,
+      "driverName" | "driverPhotoUrl" | "driverRating"
+    >;
+  };
+  ConfirmedHauling: {
+    driver: Pick<
+      driversProps,
+      "driverName" | "driverPhotoUrl" | "driverRating"
+    >;
+  };
 };
 
 export type JourneyParamList = {
