@@ -1,4 +1,4 @@
-import { ViewStyle } from "react-native";
+import { Platform, ViewStyle } from "react-native";
 import { omit } from "lodash";
 import { DEFAULT_COLORS } from "../colors";
 
@@ -103,6 +103,7 @@ export const screenStyle: ViewStyle = {
   flex: 1,
   paddingHorizontal: 24,
   backgroundColor: DEFAULT_COLORS.gray[50],
+  paddingTop: Platform.OS === "android" ? 24 : undefined,
 };
 
 export const centeringStyle: ViewStyle = {
