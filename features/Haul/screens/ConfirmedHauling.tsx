@@ -20,15 +20,22 @@ const ConfirmedHauling = ({ route }: props) => {
 
   const { driver } = route.params;
 
-  const handleGoHome = () => {
+  const handleCompletedHauling = (type: "home" | "journey") => {
     //reset the state
     dispatch(resetSelection());
     dispatch(resetLocation());
 
-    //return to the start hauling screen
-    navigation.navigate("TabsStack", {
-      screen: "Haul",
-      params: { screen: "Start" },
+    if (type === "home") {
+      //return to the start hauling screen
+      return navigation.navigate("TabsStack", {
+        screen: "Haul",
+        params: { screen: "Start" },
+      });
+    }
+
+    return navigation.navigate("TabsStack", {
+      screen: "Journey",
+      params: { screen: "Journeys" },
     });
   };
 
@@ -77,7 +84,7 @@ const ConfirmedHauling = ({ route }: props) => {
       </View>
       <View style={{ gap: 8 }}>
         <Button
-          onPress={handleGoHome}
+          onPress={() => handleCompletedHauling("home")}
           buttonText="go home"
           icon
           type="secondary"
@@ -85,12 +92,7 @@ const ConfirmedHauling = ({ route }: props) => {
         <Button
           icon
           buttonText="view journeys"
-          onPress={() =>
-            navigation.navigate("TabsStack", {
-              screen: "Journey",
-              params: { screen: "Journeys" },
-            })
-          }
+          onPress={() => handleCompletedHauling("journey")}
         />
       </View>
     </View>
