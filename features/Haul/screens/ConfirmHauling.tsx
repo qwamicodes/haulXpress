@@ -56,11 +56,15 @@ const ConfirmHauling = ({ route }: props) => {
           <View style={{ gap: 8 }}>
             <View style={styles.valueContainer}>
               <Text style={styles.value}>pickup</Text>
-              <Text style={styles.value}>{pickup.name}</Text>
+              <Text style={[styles.value, styles.locationShorter]}>
+                {pickup.name}
+              </Text>
             </View>
             <View style={styles.valueContainer}>
               <Text style={styles.value}>destination</Text>
-              <Text style={styles.value}>{destination.name}</Text>
+              <Text style={[styles.value, styles.locationShorter]}>
+                {destination.name}
+              </Text>
             </View>
             <View style={styles.valueContainer}>
               <Text style={styles.value}>distance</Text>
@@ -113,10 +117,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    overflow: "hidden",
   },
   value: {
     color: DEFAULT_COLORS.gray[500],
     ...textStyles.xs.regular,
     textTransform: "capitalize",
+    textAlign: "right",
+  },
+  locationShorter: {
+    width: "40%",
   },
 });
