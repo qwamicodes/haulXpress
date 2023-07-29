@@ -43,6 +43,7 @@ export type HomeParamList = {
       "driverName" | "driverPhotoUrl" | "driverRating"
     >;
   };
+  MapView: undefined;
 };
 
 export type JourneyParamList = {
