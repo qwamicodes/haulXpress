@@ -4,8 +4,9 @@ import {
   IHaulerLinks,
   IWalkThroughItem,
   paymentMethod,
+  IHaulType,
+  haulSelection,
 } from "../../types";
-import { IHaulType, haulSelection } from "../../types/features/haul";
 
 //walkthrough dummy data
 export const walkthroughItems: IWalkThroughItem[] = [
