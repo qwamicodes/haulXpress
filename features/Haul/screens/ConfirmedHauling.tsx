@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import MapView, { Marker } from "react-native-maps";
 
 import { DEFAULT_COLORS, screenStyle, textStyles } from "../../../constants";
 import { HomeParamList } from "../../../types";
-import { useAppDispatch, useNavigationParams } from "../../../hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+  useNavigationParams,
+} from "../../../hooks";
 import { resetSelection } from "../../../store/slices/haulSlice";
 import { resetLocation } from "../../../store/slices/locationsSlice";
 
@@ -18,24 +23,23 @@ const ConfirmedHauling = ({ route }: props) => {
   const navigation = useNavigationParams();
   const dispatch = useAppDispatch();
 
+  const { destination, pickup, duration } = useAppSelector(
+    (state) => state.locations
+  );
+  const locationMarkers = [pickup, destination];
+
   const { driver } = route.params;
 
-  const handleCompletedHauling = (type: "home" | "journey") => {
+  const handleCompletedHauling = () => {
     //reset the state
     dispatch(resetSelection());
     dispatch(resetLocation());
 
-    if (type === "home") {
-      //return to the start hauling screen
-      return navigation.navigate("TabsStack", {
-        screen: "Haul",
-        params: { screen: "Start" },
-      });
-    }
+    navigation.reset({ routes: [{ name: "TabsStack" }] });
 
-    return navigation.navigate("TabsStack", {
-      screen: "Journey",
-      params: { screen: "Journeys" },
+    navigation.navigate("TabsStack", {
+      screen: "Haul",
+      params: { screen: "Start" },
     });
   };
 
@@ -75,16 +79,44 @@ const ConfirmedHauling = ({ route }: props) => {
                 ...textStyles["4xl"].bold,
               }}
             >
-              35mins
+              {duration}
             </Text>
           </View>
           <View></View>
         </View>
-        <View>{/* Map view with the coordinates */}</View>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("TabsStack", {
+              screen: "Haul",
+              params: { screen: "MapView" },
+            })
+          }
+          activeOpacity={0.8}
+          style={styles.mapContainer}
+        >
+          <MapView
+            provider="google"
+            region={{
+              latitude: pickup.lat,
+              longitude: destination.lng,
+              latitudeDelta: 0.3,
+              longitudeDelta: 0.3,
+            }}
+            style={styles.map}
+          >
+            {locationMarkers.map(({ lat, lng, name }, index) => (
+              <Marker
+                key={index}
+                coordinate={{ latitude: lat, longitude: lng }}
+                title={name}
+              />
+            ))}
+          </MapView>
+        </TouchableOpacity>
       </View>
       <View style={{ gap: 8 }}>
         <Button
-          onPress={() => handleCompletedHauling("home")}
+          onPress={handleCompletedHauling}
           buttonText="go home"
           icon
           type="secondary"
@@ -92,7 +124,12 @@ const ConfirmedHauling = ({ route }: props) => {
         <Button
           icon
           buttonText="view journeys"
-          onPress={() => handleCompletedHauling("journey")}
+          onPress={() =>
+            navigation.navigate("TabsStack", {
+              screen: "Journey",
+              params: { screen: "Journeys" },
+            })
+          }
         />
       </View>
     </View>
@@ -104,5 +141,12 @@ export default ConfirmedHauling;
 const styles = StyleSheet.create({
   header: { flexDirection: "row", alignItems: "center", gap: 16 },
   headerText: { color: DEFAULT_COLORS.gray[700], ...textStyles.base.regular },
-  divider: { paddingVertical: 24, gap: 24 },
+  divider: { paddingVertical: 24, gap: 16 },
+  mapContainer: {
+    width: "100%",
+    height: 200,
+    overflow: "hidden",
+    borderRadius: 24,
+  },
+  map: { width: "100%", height: "100%" },
 });

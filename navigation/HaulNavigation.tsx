@@ -10,6 +10,7 @@ import AvailableTrucks from "../features/Haul/screens/AvailableTrucks";
 import HaulInformation from "../features/Haul/screens/HaulInformation";
 import ConfirmedHauling from "../features/Haul/screens/ConfirmedHauling";
 import ConfirmHauling from "../features/Haul/screens/ConfirmHauling";
+import MapViewComponent from "../features/Map";
 
 const HaulNavigation = () => {
   const { Navigator, Screen } = createNativeStackNavigator<HomeParamList>();
@@ -41,6 +42,11 @@ const HaulNavigation = () => {
         name="ConfirmedHauling"
         options={{ headerTitle: "Hauling confirmed" }}
         component={ConfirmedHauling}
+      />
+      <Screen
+        name="MapView"
+        options={{ headerShown: false }}
+        component={MapViewComponent}
       />
     </Navigator>
   );

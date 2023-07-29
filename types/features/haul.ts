@@ -38,14 +38,16 @@ export type locationType = "pickup" | "destination";
 
 export type ILocations = {
   name: string;
-  lat: string;
-  long: string;
+  description: string;
+  lat: number;
+  lng: number;
 };
 
 export type ILocationSlice = {
   pickup: ILocations;
   destination: ILocations;
   distance: string;
+  duration: string;
 };
 
 export type locationComponentProp = {

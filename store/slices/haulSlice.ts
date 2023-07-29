@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { haulingStateProps, IHaulType } from "../../types/features/haul";
+import { haulingStateProps, IHaulType } from "../../types";
 import { haulExistsInState } from "../../utils/helpers";
 
 const initialState: haulingStateProps = {

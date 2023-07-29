@@ -11,9 +11,10 @@ import {
 
 import { DEFAULT_COLORS, textStyles } from "../../../constants";
 import { useAppDispatch } from "../../../hooks";
-import { locationComponentProp } from "../../../types/features/haul";
+import { ILocations, locationComponentProp } from "../../../types";
 import { addLocation } from "../../../store/slices/locationsSlice";
 import IconRenderer from "../../../components/Icon";
+import { getGeoCoordinates } from "../../../services";
 
 type props = {
   locationComponent: locationComponentProp;
@@ -32,9 +33,13 @@ const LocationSearchComponent = ({
     details: GooglePlaceDetail | null
   ) => {
     //add location to the store
-    const location = { name: data.description };
+    const location: Pick<ILocations, "description" | "name"> = {
+      name: data.structured_formatting.main_text,
+      description: data.description,
+    };
 
     dispatch(addLocation({ type: locationComponent.type, location }));
+    dispatch(getGeoCoordinates(data.place_id, locationComponent.type));
 
     //remove the component
     setShowLocationComponent({
