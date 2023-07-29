@@ -3,10 +3,7 @@ import React, { Dispatch, SetStateAction } from "react";
 
 import IconRenderer from "../../../components/Icon";
 import { DEFAULT_COLORS, textStyles } from "../../../constants";
-import {
-  locationComponentProp,
-  locationType,
-} from "../../../types/features/haul";
+import { locationComponentProp, locationType } from "../../../types";
 
 type props = {
   type: locationType;

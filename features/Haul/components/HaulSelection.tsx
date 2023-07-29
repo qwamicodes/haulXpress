@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-import { IHaulType, haulSelection } from "../../../types/features/haul";
+import { IHaulType, haulSelection } from "../../../types";
 
 import HaulSelect from "./HaulSelect";
 import { DEFAULT_COLORS, textStyles } from "../../../constants";

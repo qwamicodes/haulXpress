@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import React, { Dispatch, SetStateAction } from "react";
 
-import { IHaulType, haulSelection } from "../../../types/features/haul";
+import { IHaulType, haulSelection } from "../../../types";
 import { haulStyles } from "../../../constants";
 
 import Button from "../../../components/Button";

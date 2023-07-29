@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 
 import { useAppSelector } from "../../hooks";
 import { haulSelectionData } from "../../constants";
+import { locationComponentProp } from "../../types";
 
 import ScreenTemplate from "../../screens/template/ScreenTemplate";
 import HaulHeader from "./components/HaulHeader";
 import HaulStart from "./components/HaulStart";
 import HaulDestination from "./components/HaulDestination";
-import { locationComponentProp } from "../../types/features/haul";
 
 const Haul = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

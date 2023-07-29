@@ -49,7 +49,12 @@ export default MapViewComponent;
 const { width, height } = Dimensions.get("screen");
 
 const styles = StyleSheet.create({
-  mapContainer: { width, height },
+  mapContainer: {
+    ...StyleSheet.absoluteFillObject,
+    width,
+    height,
+    zIndex: 50,
+  },
   buttonContainer: {
     position: "absolute",
     top: 50,

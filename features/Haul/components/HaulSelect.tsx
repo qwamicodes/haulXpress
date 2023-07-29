@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
 
 import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../../constants";
-import { IHaulType, haulSelection } from "../../../types/features/haul";
+import { IHaulType, haulSelection } from "../../../types";
 import { useAppDispatch } from "../../../hooks";
 import { addHaulingData } from "../../../store/slices/haulSlice";
 import { haulExistsInState } from "../../../utils/helpers";

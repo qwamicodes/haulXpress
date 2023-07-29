@@ -3,9 +3,9 @@ import React, { Dispatch, SetStateAction, useEffect } from "react";
 
 import { DEFAULT_COLORS, textStyles } from "../../../constants";
 import LocatonSearchInput from "./LocatonSearchInput";
-import { locationComponentProp } from "../../../types/features/haul";
+import { locationComponentProp } from "../../../types";
 import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { getMapDistance } from "../../../services/maps";
+import { getMapDistance } from "../../../services";
 
 type props = {
   setShowLocationComponent: Dispatch<SetStateAction<locationComponentProp>>;
@@ -18,8 +18,8 @@ const HaulLocation = ({ ...rest }: props) => {
   );
 
   useEffect(() => {
-    if (destination && pickup) {
-      dispatch(getMapDistance(pickup.name, destination.name));
+    if (destination.name && pickup.name) {
+      dispatch(getMapDistance(pickup.description, destination.description));
     }
   }, [destination, pickup]);
 
