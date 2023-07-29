@@ -112,3 +112,11 @@ export const kmToMiles = (km: number): string => {
   const miles = ((km / 1000) * 0.621371).toFixed(1);
   return `${miles} mi`;
 };
+
+export const secondsToDuration = (seconds: number): string => {
+  const minutes = Math.round(seconds / 60);
+  if (minutes < 60) return `${minutes} mins`;
+
+  const hours = Math.round(minutes / 60);
+  return `${hours} hr(s)`;
+};
