@@ -43,7 +43,7 @@ export type ILocations = {
   lng: number;
 };
 
-export type ILocationSlice = {
+export type ILocation = {
   pickup: ILocations;
   destination: ILocations;
   distance: string;
