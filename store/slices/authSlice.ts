@@ -13,6 +13,7 @@ const initialState: IAuth = {
     userId: "",
     phoneNumber: "",
     occupation: "",
+    journey: [],
   },
 };
 
