@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
@@ -7,7 +7,6 @@ import {
   paymentMethods,
   screenStyle,
   textStyles,
-  centeringStyle,
 } from "../../../constants";
 import { useAppSelector, useNavigationParams } from "../../../hooks";
 import { HomeParamList, paymentType } from "../../../types";
@@ -42,11 +41,10 @@ const ConfirmHauling = ({ route }: props) => {
 
   return (
     <View style={[screenStyle, { justifyContent: "space-between" }]}>
-      <View
-        style={{
-          flex: 1,
-          gap: 24,
-        }}
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ gap: 8 }}
       >
         <View style={[styles.divider]}>
           <View style={styles.header}>
@@ -95,7 +93,7 @@ const ConfirmHauling = ({ route }: props) => {
             ))}
           </View>
         </View>
-      </View>
+      </ScrollView>
       <View>
         <Button onPress={handleConfirmHaul} buttonText="confirm haul" icon />
       </View>
