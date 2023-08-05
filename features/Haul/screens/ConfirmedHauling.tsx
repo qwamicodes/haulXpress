@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import MapView, { Marker } from "react-native-maps";
@@ -45,8 +51,19 @@ const ConfirmedHauling = ({ route }: props) => {
 
   return (
     <View style={[screenStyle, { flex: 1, justifyContent: "space-between" }]}>
-      <View>
-        <View style={[styles.divider]}>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <View
+          style={[
+            styles.divider,
+            {
+              borderBottomColor: DEFAULT_COLORS.gray[200],
+              borderBottomWidth: 1,
+            },
+          ]}
+        >
           <View style={styles.header}>
             <IconRenderer light={false} iconType="driver" />
             <Text style={styles.headerText}>Driver</Text>
@@ -113,7 +130,7 @@ const ConfirmedHauling = ({ route }: props) => {
             ))}
           </MapView>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
       <View style={{ gap: 8 }}>
         <Button
           onPress={handleCompletedHauling}
