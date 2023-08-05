@@ -8,35 +8,36 @@ import {
   screenStyle,
   textStyles,
 } from "../../../constants";
-import { useAppSelector, useNavigationParams } from "../../../hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+  useNavigationParams,
+} from "../../../hooks";
 import { HomeParamList, paymentType } from "../../../types";
 
 import Button from "../../../components/Button";
 import IconRenderer from "../../../components/Icon";
 import DriverBadge from "../components/DriverBadge";
 import PaymentSelector from "../components/PaymentSelector";
+import { createJourney } from "../../../services";
 
 type props = NativeStackScreenProps<HomeParamList, "ConfirmHauling">;
 
 const ConfirmHauling = ({ route }: props) => {
   const [paymentType, setPaymentType] = useState<paymentType>("cash");
+  const dispatch = useAppDispatch();
 
   const navigation = useNavigationParams();
   const { destination, distance, pickup } = useAppSelector(
     (state) => state.locations
   );
+  const { user } = useAppSelector((state) => state.auth);
 
-  const { driver } = route.params;
+  const { journey } = route.params;
+  const { vehicle } = journey;
 
   const handleConfirmHaul = () => {
-    navigation.navigate("TabsStack", {
-      screen: "Haul",
-      params: {
-        screen: "ConfirmedHauling",
-        //@ts-ignore
-        params: { driver },
-      },
-    });
+    dispatch(createJourney(journey, user.userId, navigation));
   };
 
   return (
@@ -75,7 +76,7 @@ const ConfirmHauling = ({ route }: props) => {
             <IconRenderer light={false} iconType="driver" />
             <Text style={styles.headerText}>Driver</Text>
           </View>
-          <DriverBadge showButton driver={driver} />
+          <DriverBadge showButton driver={vehicle.driver} />
         </View>
         <View style={[styles.divider, styles.dividerWithBorder]}>
           <View style={styles.header}>

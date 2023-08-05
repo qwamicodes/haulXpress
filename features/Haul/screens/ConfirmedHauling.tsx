@@ -34,7 +34,7 @@ const ConfirmedHauling = ({ route }: props) => {
   );
   const locationMarkers = [pickup, destination];
 
-  const { driver } = route.params;
+  const { journey } = route.params;
 
   const handleCompletedHauling = () => {
     //reset the state
@@ -68,7 +68,7 @@ const ConfirmedHauling = ({ route }: props) => {
             <IconRenderer light={false} iconType="driver" />
             <Text style={styles.headerText}>Driver</Text>
           </View>
-          <DriverBadge showButton driver={driver} />
+          <DriverBadge showButton driver={journey.vehicle.driver} />
         </View>
         <View style={[styles.divider]}>
           <View style={styles.header}>

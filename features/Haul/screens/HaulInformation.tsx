@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { HomeParamList } from "../../../types";
+import { HomeParamList, IJourney } from "../../../types";
 import {
   DEFAULT_COLORS,
   screenStyle,
@@ -27,20 +27,27 @@ type props = NativeStackScreenProps<HomeParamList, "HaulInformation">;
 const HaulInformation = ({ route }: props) => {
   const navigation = useNavigationParams();
 
-  const { distance } = useAppSelector((state) => state.locations);
+  const location = useAppSelector((state) => state.locations);
 
   const { vehicleDetails } = route.params;
   const { departure, driver, price, vehicleCapacity, vehicleNo, vehicleType } =
     vehicleDetails;
-  const { driverName, driverPhotoUrl, driverRating } = driver;
 
   const handleConfirmHaul = () => {
+    const journey: IJourney = {
+      location,
+      departure,
+      price,
+      vehicle: { driver, vehicleCapacity, vehicleNo, vehicleType },
+      status: "in-progress",
+    };
+
     navigation.navigate("TabsStack", {
       screen: "Haul",
       params: {
         screen: "ConfirmHauling",
         //@ts-ignore
-        params: { driver },
+        params: { journey },
       },
     });
   };
@@ -91,11 +98,11 @@ const HaulInformation = ({ route }: props) => {
             </View>
             <View style={styles.valuesHolder}>
               <Text style={styles.value}>departure</Text>
-              <Text style={styles.value}>{departure} days</Text>
+              <Text style={styles.value}>{departure}</Text>
             </View>
             <View style={styles.valuesHolder}>
               <Text style={styles.value}>distance</Text>
-              <Text style={styles.value}>{distance}</Text>
+              <Text style={styles.value}>{location.distance}</Text>
             </View>
           </View>
         </View>

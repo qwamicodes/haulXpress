@@ -15,7 +15,7 @@ import { useNavigationParams } from "../../../../hooks";
 const AvailableTruck = ({ vehicleNo, vehicleType, ...rest }: vehicleProps) => {
   const navigation = useNavigationParams();
   const price = 500;
-  const departure = 3;
+  const departure = "3 days";
 
   const handleGoToHaulDetails = () => {
     navigation.navigate("TabsStack", {
@@ -51,7 +51,7 @@ const AvailableTruck = ({ vehicleNo, vehicleType, ...rest }: vehicleProps) => {
           </Text>
           <Text style={styles.haulDetails}>
             Departure:&nbsp;
-            <Text style={styles.haulDetailsPrimary}>{departure} days</Text>
+            <Text style={styles.haulDetailsPrimary}>{departure}</Text>
           </Text>
         </View>
       </View>
