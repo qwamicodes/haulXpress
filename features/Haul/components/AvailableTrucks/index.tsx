@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 
-import { vehicleProps } from "../../../../types";
+import { IJourney, journeyStatus, vehicleProps } from "../../../../types";
 import {
   DEFAULT_COLORS,
   textStyles,
@@ -10,12 +10,19 @@ import {
 
 import DriverBadge from "../DriverBadge";
 import Trucks from "../Trucks";
-import { useNavigationParams } from "../../../../hooks";
+import { useAppSelector, useNavigationParams } from "../../../../hooks";
+import StatusBtn from "./StatusBtn";
 
-const AvailableTruck = ({ vehicleNo, vehicleType, ...rest }: vehicleProps) => {
+interface Props extends Omit<IJourney, "location" | "status"> {
+  status: "available" | journeyStatus;
+}
+
+const AvailableTruck = ({ vehicle, price, departure, status }: Props) => {
   const navigation = useNavigationParams();
-  const price = 500;
-  const departure = "3 days";
+
+  const location = useAppSelector((state) => state.locations);
+
+  const { vehicleType, vehicleNo } = vehicle;
 
   const handleGoToHaulDetails = () => {
     navigation.navigate("TabsStack", {
@@ -24,7 +31,12 @@ const AvailableTruck = ({ vehicleNo, vehicleType, ...rest }: vehicleProps) => {
         screen: "HaulInformation",
         //@ts-ignore
         params: {
-          vehicleDetails: { ...rest, vehicleNo, vehicleType, price, departure },
+          journey: {
+            location,
+            vehicle,
+            departure,
+            price,
+          },
         },
       },
     });
@@ -56,12 +68,8 @@ const AvailableTruck = ({ vehicleNo, vehicleType, ...rest }: vehicleProps) => {
         </View>
       </View>
       <View style={styles.item}>
-        <DriverBadge {...rest} />
-        <View>
-          <View style={styles.availableBtn}>
-            <Text style={styles.availableBtnText}>available</Text>
-          </View>
-        </View>
+        <DriverBadge driver={vehicle.driver} />
+        <StatusBtn status={status ?? "available"} />
       </View>
     </TouchableOpacity>
   );
@@ -94,16 +102,4 @@ const styles = StyleSheet.create({
   },
   haulDetails: { ...textStyles.xs.regular, color: DEFAULT_COLORS.gray[400] },
   haulDetailsPrimary: { color: DEFAULT_COLORS.gray[700] },
-  availableBtn: {
-    backgroundColor: DEFAULT_COLORS.teal[400],
-    ...centeringStyle,
-    borderRadius: 4,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-  },
-  availableBtnText: {
-    color: DEFAULT_COLORS.white,
-    ...textStyles.xs.medium,
-    textTransform: "capitalize",
-  },
 });

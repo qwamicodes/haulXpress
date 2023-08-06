@@ -29,16 +29,16 @@ const HaulInformation = ({ route }: props) => {
 
   const location = useAppSelector((state) => state.locations);
 
-  const { vehicleDetails } = route.params;
-  const { departure, driver, price, vehicleCapacity, vehicleNo, vehicleType } =
-    vehicleDetails;
+  const { journey } = route.params;
+  const { departure, price, vehicle } = journey;
+  const { driver, vehicleCapacity, vehicleNo, vehicleType } = vehicle;
 
   const handleConfirmHaul = () => {
     const journey: IJourney = {
       location,
       departure,
       price,
-      vehicle: { driver, vehicleCapacity, vehicleNo, vehicleType },
+      vehicle,
       status: "in-progress",
     };
 

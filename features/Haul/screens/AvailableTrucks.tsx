@@ -52,7 +52,13 @@ const AvailableTrucks = () => {
           contentContainerStyle={{ gap: 8 }}
         >
           {results.map((props, index) => (
-            <AvailableTruck {...props} key={index} />
+            <AvailableTruck
+              key={index}
+              vehicle={props}
+              price={500}
+              departure="3 days"
+              status="available"
+            />
           ))}
         </ScrollView>
       )}

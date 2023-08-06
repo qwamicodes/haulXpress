@@ -26,16 +26,13 @@ export type HomeParamList = {
   Start: undefined;
   AvailableTrucks: undefined;
   HaulInformation: {
-    vehicleDetails: vehicleProps & {
-      price: number;
-      departure: string;
-    };
+    journey: Omit<IJourney, "status" | "location">;
   };
   ConfirmHauling: {
-    journey: IJourney;
+    journey: Omit<IJourney, "status" | "location">;
   };
   ConfirmedHauling: {
-    journey: IJourney;
+    journey: Omit<IJourney, "status" | "location">;
   };
   MapView: undefined;
 };

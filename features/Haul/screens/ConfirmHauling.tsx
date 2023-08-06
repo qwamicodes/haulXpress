@@ -28,16 +28,21 @@ const ConfirmHauling = ({ route }: props) => {
   const dispatch = useAppDispatch();
 
   const navigation = useNavigationParams();
-  const { destination, distance, pickup } = useAppSelector(
-    (state) => state.locations
-  );
+  const location = useAppSelector((state) => state.locations);
   const { user } = useAppSelector((state) => state.auth);
 
   const { journey } = route.params;
+  const { destination, distance, pickup } = location;
   const { vehicle } = journey;
 
   const handleConfirmHaul = () => {
-    dispatch(createJourney(journey, user.userId, navigation));
+    dispatch(
+      createJourney(
+        { ...journey, location, status: "in-progress" },
+        user.userId,
+        navigation
+      )
+    );
   };
 
   return (
