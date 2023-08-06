@@ -1,7 +1,7 @@
 import { updateDoc, doc, arrayUnion } from "firebase/firestore";
 
 import { AppDispatch } from "../../../store";
-import { togglePending } from "../../../store/slices/authSlice";
+import { addUserJourney, togglePending } from "../../../store/slices/authSlice";
 import { IJourney, RootStackParamList } from "../../../types";
 import { db } from "../../../config/firebase";
 import { STRINGS } from "../../../constants";
@@ -21,6 +21,8 @@ const createJourney =
         journey: arrayUnion(journey),
       }).then(() => {
         alert(STRINGS.successJourneyCreated);
+
+        dispatch(addUserJourney(journey));
 
         navigation.navigate("TabsStack", {
           screen: "Haul",
