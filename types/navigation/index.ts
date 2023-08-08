@@ -1,5 +1,5 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
-import { IJourney, driversProps, vehicleProps } from "..";
+import { IJourney } from "..";
 
 //screen param lists
 export type RootStackParamList = {
@@ -39,7 +39,7 @@ export type HomeParamList = {
 
 export type JourneyParamList = {
   Journeys: undefined;
-  JourneyDetails: {};
+  JourneyDetails: { journey: IJourney };
 };
 
 export type HaulerParamList = {

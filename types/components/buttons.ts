@@ -1,7 +1,8 @@
 import { TouchableOpacityProps } from "react-native";
 import { iconType } from "./icon";
+import { journeyStatus } from "../features";
 
-type buttonTypes = "primary" | "secondary" | "success";
+export type buttonTypes = "primary" | "secondary" | journeyStatus;
 
 export interface IButton extends TouchableOpacityProps {
   buttonText: string;
@@ -9,5 +10,5 @@ export interface IButton extends TouchableOpacityProps {
   iconType?: iconType;
   lightIcon?: boolean;
   iconColor?: string;
-  type?: buttonTypes;
+  status?: buttonTypes;
 }
