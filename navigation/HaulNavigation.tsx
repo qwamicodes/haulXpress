@@ -40,7 +40,12 @@ const HaulNavigation = () => {
       />
       <Screen
         name="ConfirmedHauling"
-        options={{ headerTitle: "Hauling confirmed" }}
+        options={{
+          headerTitle: "Hauling confirmed",
+          header: (props) => (
+            <ScreenHeaderTitle showBackButton={false} {...props} />
+          ),
+        }}
         component={ConfirmedHauling}
       />
       <Screen

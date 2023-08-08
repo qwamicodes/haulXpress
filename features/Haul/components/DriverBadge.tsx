@@ -1,7 +1,13 @@
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
+
 import { vehicleProps } from "../../../types";
-import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../../constants";
+import {
+  DEFAULT_COLORS,
+  textStyles,
+  centeringStyle,
+  vertically,
+} from "../../../constants";
 
 interface Props extends Pick<vehicleProps, "driver"> {
   showButton?: boolean;
@@ -12,7 +18,7 @@ const DriverBadge = ({ driver, showButton = false }: Props) => {
 
   if (showButton) {
     return (
-      <View style={[styles.vertically]}>
+      <View style={[vertically]}>
         <View style={[centeringStyle, { gap: 8, flexDirection: "row" }]}>
           <View>
             <Image
@@ -58,12 +64,6 @@ const styles = StyleSheet.create({
   ratings: {
     color: DEFAULT_COLORS.gray[500],
     ...textStyles.xs.regular,
-  },
-  vertically: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
   },
   profileName: { color: DEFAULT_COLORS.gray[700], ...textStyles.base.medium },
   profileRating: { color: DEFAULT_COLORS.gray[500], ...textStyles.xs.regular },

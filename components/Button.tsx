@@ -3,6 +3,7 @@ import React from "react";
 
 import { IButton } from "../types";
 import { DEFAULT_COLORS, centeringStyle, textStyles } from "../constants";
+
 import IconRenderer from "./Icon";
 
 const Button = ({
@@ -12,22 +13,33 @@ const Button = ({
   iconColor,
   lightIcon,
   style,
-  type = "primary",
+  status = "primary",
   ...rest
 }: IButton) => {
-  const backgroundColor =
-    type === "secondary" ? DEFAULT_COLORS.gray[100] : DEFAULT_COLORS.green[100];
-  const color =
-    type === "secondary" ? DEFAULT_COLORS.gray[500] : DEFAULT_COLORS.green[500];
+  const backgroundColor = {
+    primary: DEFAULT_COLORS.gray[800],
+    secondary: DEFAULT_COLORS.gray[100],
+    "in-progress": DEFAULT_COLORS.gray[100],
+    arrived: DEFAULT_COLORS.green[100],
+    cancelled: DEFAULT_COLORS.red[100],
+  }[status];
 
-  if (type === "primary") {
+  const color = {
+    primary: DEFAULT_COLORS.white,
+    secondary: DEFAULT_COLORS.gray[500],
+    "in-progress": DEFAULT_COLORS.gray[500],
+    arrived: DEFAULT_COLORS.green[500],
+    cancelled: DEFAULT_COLORS.red[500],
+  }[status];
+
+  if (status === "primary") {
     return (
       <TouchableOpacity
         activeOpacity={1}
+        style={[styles.button, style, { backgroundColor }]}
         {...rest}
-        style={[styles.button, style]}
       >
-        <Text style={[styles.buttonText]}>{buttonText}</Text>
+        <Text style={[styles.buttonText, { color }]}>{buttonText}</Text>
         {icon && lightIcon && iconType ? (
           <IconRenderer
             iconType={iconType}
@@ -59,14 +71,12 @@ export default Button;
 const styles = StyleSheet.create({
   button: {
     width: "100%",
-    backgroundColor: DEFAULT_COLORS.gray[800],
     paddingVertical: 16,
     flexDirection: "row",
     gap: 16,
     ...centeringStyle,
   },
   buttonText: {
-    color: DEFAULT_COLORS.gray[50],
     textTransform: "capitalize",
     ...textStyles.lg.regular,
   },

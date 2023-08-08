@@ -63,24 +63,24 @@ const HaulDestination = ({
         style={{ flex: 1, width: "100%" }}
       >
         <HaulLocation setShowLocationComponent={setShowLocationComponent} />
-        <View style={{ width: "100%", marginTop: 16 }}>
-          <Button
-            activeOpacity={valid && distance ? 1 : 0.5}
-            style={{ opacity: valid && distance ? 1 : 0.5 }}
-            onPress={
-              valid && distance
-                ? () =>
-                    navigation.navigate("TabsStack", {
-                      screen: "Haul",
-                      params: { screen: "AvailableTrucks" },
-                    })
-                : undefined
-            }
-            buttonText={buttonText}
-            icon={false}
-          />
-        </View>
       </KeyboardAwareScrollView>
+      <View style={{ width: "100%" }}>
+        <Button
+          activeOpacity={valid && distance ? 1 : 0.5}
+          style={{ opacity: valid && distance ? 1 : 0.5 }}
+          onPress={
+            valid && distance
+              ? () =>
+                  navigation.navigate("TabsStack", {
+                    screen: "Haul",
+                    params: { screen: "AvailableTrucks" },
+                  })
+              : undefined
+          }
+          buttonText={buttonText}
+          icon={false}
+        />
+      </View>
       {showLocationComponent.show ? (
         <LocationSearchComponent
           locationComponent={showLocationComponent}

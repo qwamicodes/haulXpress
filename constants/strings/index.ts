@@ -11,6 +11,7 @@ export const STRINGS = {
   invalidEmailAndPassword: "Email and password are not valid",
   successLogin: "Login successful",
   successLogout: "Logout successful",
+  successJourneyCreated: "Journey created successfully",
   successRegister: "Registration successful",
   successResetPassword: "Reset password successful",
   successUpdatePassword: "Update password successful",

@@ -134,3 +134,28 @@ export const haulStyles: haulStylesProps = {
   },
   historyItem: { flex: 1, gap: -16, flexDirection: "row" },
 };
+
+export const vertically: ViewStyle = {
+  width: "100%",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+};
+
+export const verticalTopBorder: ViewStyle = {
+  width: "100%",
+  gap: 32,
+  borderTopColor: DEFAULT_COLORS.gray[200],
+  borderTopWidth: 1,
+  paddingVertical: 16,
+};
+
+export const verticalBottomBorder: ViewStyle = {
+  width: "100%",
+  gap: 32,
+  borderBottomColor: DEFAULT_COLORS.gray[200],
+  borderBottomWidth: 1,
+  paddingVertical: 16,
+};
+
+export const divider = { paddingVertical: 24, gap: 24 };

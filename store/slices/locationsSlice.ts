@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ILocationSlice, ILocations, locationType } from "../../types";
+import { ILocation, ILocations, locationType } from "../../types";
 
-const initialState: ILocationSlice = {
+const initialState: ILocation = {
   pickup: {
     name: "",
     description: "",

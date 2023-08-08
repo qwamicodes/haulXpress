@@ -1,4 +1,5 @@
 import { IAuthInput } from "./authInput";
+import { IJourney } from "./journeys";
 
 export type validationType = { message: string; valid: boolean };
 export interface IAuthentiation {
@@ -16,6 +17,7 @@ export type UserData = {
   emailVerified: boolean;
   userId: string;
   occupation: string | null;
+  journey: IJourney[];
 };
 
 export interface IAuth {

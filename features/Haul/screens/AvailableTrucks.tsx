@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View, Platform } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../../hooks";
@@ -14,6 +14,7 @@ const AvailableTrucks = () => {
   const dispatch = useAppDispatch();
   const haul = useAppSelector((state) => state.haul);
   const { results } = useAppSelector((state) => state.vehicles);
+  const location = useAppSelector((state) => state.locations);
 
   useEffect(() => {
     const vehicleTypes: vehicleType[] = haul.vehicleType.reduce(
@@ -52,7 +53,15 @@ const AvailableTrucks = () => {
           contentContainerStyle={{ gap: 8 }}
         >
           {results.map((props, index) => (
-            <AvailableTruck {...props} key={index} />
+            <AvailableTruck
+              type="available"
+              key={index}
+              vehicle={props}
+              price={500}
+              departure="3 days"
+              status="available"
+              location={location}
+            />
           ))}
         </ScrollView>
       )}

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { IAuth, UserData } from "../../types";
+import { IAuth, IJourney, UserData } from "../../types";
 
 const initialState: IAuth = {
   pending: false,
@@ -13,6 +13,7 @@ const initialState: IAuth = {
     userId: "",
     phoneNumber: "",
     occupation: "",
+    journey: [],
   },
 };
 
@@ -31,6 +32,11 @@ const authSlice = createSlice({
       state.user = initialState.user;
     },
     addSecureStore: (state, action) => {},
+    addUserJourney: (state, action: PayloadAction<IJourney>) => {
+      const { payload } = action;
+
+      state.user.journey = [...state.user.journey, payload];
+    },
     updateUserDataInState: (
       state,
       action: PayloadAction<Partial<UserData>>
@@ -54,6 +60,7 @@ export const {
   loginUserToState,
   logoutUserFromState,
   addSecureStore,
+  addUserJourney,
   renewStateToken,
   updateUserDataInState,
 } = authSlice.actions;
