@@ -1,45 +1,64 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 
-import { IJourney, journeyStatus, vehicleProps } from "../../../../types";
-import {
-  DEFAULT_COLORS,
-  textStyles,
-  centeringStyle,
-} from "../../../../constants";
+import { IJourney, journeyStatus } from "../../../../types";
+import { DEFAULT_COLORS, textStyles } from "../../../../constants";
 
 import DriverBadge from "../DriverBadge";
 import Trucks from "../Trucks";
-import { useAppSelector, useNavigationParams } from "../../../../hooks";
+import { useNavigationParams } from "../../../../hooks";
 import StatusBtn from "./StatusBtn";
 
-interface Props extends Omit<IJourney, "location" | "status"> {
+interface Props extends Omit<IJourney, "status"> {
+  type: "available" | "journey";
   status: "available" | journeyStatus;
 }
 
-const AvailableTruck = ({ vehicle, price, departure, status }: Props) => {
+const AvailableTruck = ({
+  type,
+  vehicle,
+  price,
+  departure,
+  status,
+  location,
+}: Props) => {
   const navigation = useNavigationParams();
-
-  const location = useAppSelector((state) => state.locations);
 
   const { vehicleType, vehicleNo } = vehicle;
 
   const handleGoToHaulDetails = () => {
-    navigation.navigate("TabsStack", {
-      screen: "Haul",
-      params: {
-        screen: "HaulInformation",
-        //@ts-ignore
-        params: {
-          journey: {
-            location,
-            vehicle,
-            departure,
-            price,
+    type === "available"
+      ? navigation.navigate("TabsStack", {
+          screen: "Haul",
+          params: {
+            screen: "HaulInformation",
+            //@ts-ignore
+            params: {
+              journey: {
+                location,
+                vehicle,
+                departure,
+                price,
+              },
+            },
           },
-        },
-      },
-    });
+        })
+      : navigation.navigate("TabsStack", {
+          screen: "Journey",
+          params: {
+            screen: "JourneyDetails",
+            //@ts-ignore
+            params: {
+              journey: {
+                location,
+                vehicle,
+                departure,
+                price,
+                status,
+              },
+            },
+          },
+        });
   };
 
   return (
