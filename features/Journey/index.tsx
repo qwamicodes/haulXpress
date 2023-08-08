@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 
 import { screenStyle } from "../../constants";
@@ -12,7 +12,7 @@ const Journey = () => {
   return (
     <View style={[screenStyle]}>
       {journey.map((props, index) => (
-        <AvailableTruck key={index} {...props} />
+        <AvailableTruck key={index} type="journey" {...props} />
       ))}
     </View>
   );
