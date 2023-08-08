@@ -5,6 +5,7 @@ import { JourneyParamList } from "../types/navigation";
 
 import ScreenHeaderTitle from "../components/header/ScreenHeaderTitle";
 import Journey from "../features/Journey";
+import JourneyDetails from "../features/Journey/screens/JourneyDetails";
 
 const JourneyNavigation = () => {
   const { Navigator, Screen } = createNativeStackNavigator<JourneyParamList>();
@@ -24,6 +25,13 @@ const JourneyNavigation = () => {
           ),
         }}
         component={Journey}
+      />
+      <Screen
+        name="JourneyDetails"
+        options={{
+          headerTitle: "Journey details",
+        }}
+        component={JourneyDetails}
       />
     </Navigator>
   );
