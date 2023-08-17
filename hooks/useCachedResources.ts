@@ -1,9 +1,11 @@
 import * as Font from "expo-font";
 import { useEffect, useState } from "react";
 import { getUserAuthenticated } from "../services";
+import { useAppDispatch } from "./store";
 
 const useCachedResources = (): boolean => {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     async function loadResourcesAndDataAsync() {
@@ -17,7 +19,7 @@ const useCachedResources = (): boolean => {
         });
 
         //get user logged in from the google session
-        getUserAuthenticated();
+        dispatch(getUserAuthenticated());
       } catch (e) {
         console.warn(e);
       } finally {
