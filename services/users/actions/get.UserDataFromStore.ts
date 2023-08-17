@@ -14,6 +14,8 @@ const getUserDataFromStore =
 
     const userDocSnapshot = await getDoc(doc(db, "users", userId));
 
+    dispatch(togglePending(false));
+
     if (userDocSnapshot.exists()) {
       const userData = userDocSnapshot.data();
       dispatch(updateUserDataInState(userData));
@@ -21,8 +23,6 @@ const getUserDataFromStore =
     } else {
       alert(STRINGS.userDataNotFound);
     }
-
-    dispatch(togglePending(false));
   };
 
 export default getUserDataFromStore;

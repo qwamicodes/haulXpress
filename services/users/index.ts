@@ -8,3 +8,4 @@ export { default as uploadPhoto } from "./actions/post.uploadPhoto";
 export { default as changePassword } from "./actions/post.changePassword";
 export { default as deleteUserAccount } from "./actions/post.deleteUser";
 export { default as logoutUser } from "./actions/post.logoutUser";
+export { default as getUserAuthenticated } from "./actions/get.userAuthenticated";
