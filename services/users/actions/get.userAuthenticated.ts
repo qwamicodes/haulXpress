@@ -30,6 +30,8 @@ const getUserAuthenticated =
           if (userData) {
             dispatch(loginUserToState({ ...user, ...userData }));
           }
+        } else {
+          setIsRequestCompleted(true);
         }
       });
     } catch (e) {
