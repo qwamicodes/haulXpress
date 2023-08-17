@@ -1,5 +1,6 @@
 import * as Font from "expo-font";
 import { useEffect, useState } from "react";
+import { getUserAuthenticated } from "../services";
 
 const useCachedResources = (): boolean => {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -14,6 +15,9 @@ const useCachedResources = (): boolean => {
           "NotoSans-Regular": require("../assets/fonts/NotoSans/NotoSans-Regular.ttf"),
           "NotoSans-Light": require("../assets/fonts/NotoSans/NotoSans-Light.ttf"),
         });
+
+        //get user logged in from the google session
+        getUserAuthenticated();
       } catch (e) {
         console.warn(e);
       } finally {
