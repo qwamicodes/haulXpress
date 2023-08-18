@@ -13,7 +13,9 @@ export const AppLoading = ({ children }: { children: ReactNode }) => {
     }
   }, [isLoadingComplete]);
 
-  if (!isLoadingComplete) return null;
+  if (!isLoadingComplete) {
+    return null;
+  }
 
   return <Fragment>{children}</Fragment>;
 };

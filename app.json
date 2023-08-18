@@ -8,13 +8,23 @@
     "icon": "./assets/app/icon.png",
     "userInterfaceStyle": "light",
     "assetBundlePatterns": ["**/*"],
-    "updates": {
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/2a691fc6-637a-43f5-aa75-d9ac3607c078"
-    },
     "splash": {
       "image": "./assets/app/splash.png",
       "backgroundColor": "#F9FAFB"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "HaulXpress app requires photo library access",
+          "cameraPermission": "HaulXpress app requires camera access",
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/2a691fc6-637a-43f5-aa75-d9ac3607c078"
     },
     "ios": {
       "supportsTablet": true,
@@ -28,6 +38,12 @@
         "foregroundImage": "./assets/app/adaptive-icon.png",
         "backgroundColor": "#F9FAFB"
       },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
+      ],
       "package": "com.qwamicodes.haulXpress"
     },
     "web": {
@@ -41,16 +57,6 @@
     "runtimeVersion": {
       "policy": "sdkVersion"
     },
-    "plugins": [
-      [
-        "expo-image-picker",
-        {
-          "photosPermission": "HaulXpress app requires photo library access",
-          "cameraPermission": "HaulXpress app requires camera access",
-          "microphonePermission": false
-        }
-      ]
-    ],
     "scheme": ["haulxpress"]
   }
 }

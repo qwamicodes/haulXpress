@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn add @types/react-native-geolocation
+  /usr/bin/node /usr/local/bin/yarn add expo-add-loading
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/qwamicodes/.local/share/JetBrains/Toolbox/scripts
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2freact-native-geolocation: Not found
+  Error: https://registry.yarnpkg.com/expo-add-loading: Not found
       at params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
       at self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (node:events:513:28)
@@ -70,13 +70,13 @@ npm manifest:
       "@reduxjs/toolkit": "^1.9.5",
       "expo": "^49.0.0",
       "expo-auth-session": "~5.0.2",
-      "expo-image-picker": "~14.3.1",
+      "expo-image-picker": "~14.3.2",
       "expo-linking": "~5.0.2",
       "expo-random": "~13.2.0",
-      "expo-splash-screen": "~0.20.4",
+      "expo-splash-screen": "~0.20.5",
       "expo-status-bar": "~1.6.0",
       "expo-system-ui": "^2.4.0",
-      "expo-updates": "~0.18.10",
+      "expo-updates": "~0.18.11",
       "expo-web-browser": "~12.3.2",
       "firebase": "^10.0.0",
       "lodash": "^4.17.21",
@@ -84,7 +84,6 @@ npm manifest:
       "react-native": "0.72.3",
       "react-native-app-intro-slider": "^4.0.4",
       "react-native-fast-image": "^8.6.3",
-      "react-native-geolocation": "^1.0.0",
       "react-native-gesture-handler": "~2.12.0",
       "react-native-google-places-autocomplete": "^2.5.1",
       "react-native-keyboard-aware-scroll-view": "^0.9.5",
@@ -4033,10 +4032,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-4.3.0.tgz#d897b4d4f1838faa8291c36f00b99c2b36a6ac5c"
     integrity sha512-2kqJIO+oYM8J3GbvTUHLqTSpt1dLpOn/X0eB4U4RTuzz/faj8l/TyQELsMBLlGAkweNUuG9LqznbaBz+WuSFEw==
   
-  expo-image-picker@~14.3.1:
-    version "14.3.1"
-    resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-14.3.1.tgz#96703f9b5ed4728922e05359baf394206eaaf9b7"
-    integrity sha512-05qyPqNtvvUt8fhgVQcsAdLX5iohKIR+Wr/a1JQ57DNWqcu9OucvjhSTKEDzx4wYqHI4ZuPJDwKx0W52r2GQbQ==
+  expo-image-picker@~14.3.2:
+    version "14.3.2"
+    resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-14.3.2.tgz#5ae2f36fe518a10c8fe82e5ff2ee735c14817cfc"
+    integrity sha512-xr/YeQMIYheXecWP033F2SPwpBlBR5xVCx7YSfSCTH8Y9pw7Z886agqKGbS9QBVGlzJ5qecJktZ6ASSzeslDVg==
     dependencies:
       expo-image-loader "~4.3.0"
   
@@ -4095,10 +4094,10 @@ Lockfile:
     dependencies:
       base64-js "^1.3.0"
   
-  expo-splash-screen@~0.20.4:
-    version "0.20.4"
-    resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-0.20.4.tgz#abe77d7a9612627f7048d885cfc5a696e3d3ee3d"
-    integrity sha512-JMfVqkb3Fbt9mdrWfSkTxaIkjd2RMJmQ19/JN+4Gk2MVEP4L1yzTQLomneH5+z/N5x48Tk3ZN+bFhtUXIlfjzg==
+  expo-splash-screen@~0.20.5:
+    version "0.20.5"
+    resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-0.20.5.tgz#ebeba3e3977606830f74f506ab2cc25042bb7efd"
+    integrity sha512-nTALYdjHpeEA30rdOWSguxn72ctv8WM8ptuUgpfRgsWyn4i6rwYds/rBXisX69XO5fg+XjHAQqijGx/b28+3tg==
     dependencies:
       "@expo/prebuild-config" "6.2.6"
   
@@ -4125,10 +4124,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/expo-updates-interface/-/expo-updates-interface-0.10.1.tgz#cab075641cd381718ccd9264bf133dc393430a44"
     integrity sha512-I6JMR7EgjXwckrydDmrkBEX/iw750dcqpzQVsjznYWfi0HTEOxajLHB90fBFqQkUV5i5s4Fd3hYQ1Cn0oMzUbA==
   
-  expo-updates@~0.18.10:
-    version "0.18.10"
-    resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.18.10.tgz#0e0118318815f7b8822211e731854b390b884668"
-    integrity sha512-gmzeaMmmkQqb4BQvLD8gKZ9Xd3EaVGyLjffhBe1AVGIFyQoZ4aWz2NY8bmC89cB4u2VGNxTKAGeS82kGSyMljQ==
+  expo-updates@~0.18.11:
+    version "0.18.11"
+    resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.18.11.tgz#25bb70fc2b6f6abaf509c842a4092c5f24bad05b"
+    integrity sha512-X7huYVAq7RhBUcoGQKk2P9K0LJdDr5EDBPQbHRM/zrQNXuW7DhCkQBVbhT6/L7pIqdVAsAxx0FqxcZcx44pDWA==
     dependencies:
       "@expo/code-signing-certificates" "0.0.5"
       "@expo/config" "~8.1.0"
@@ -6564,11 +6563,6 @@ Lockfile:
     version "8.6.3"
     resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.6.3.tgz#6edc3f9190092a909d636d93eecbcc54a8822255"
     integrity sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg==
-  
-  react-native-geolocation@^1.0.0:
-    version "1.0.0"
-    resolved "https://registry.yarnpkg.com/react-native-geolocation/-/react-native-geolocation-1.0.0.tgz#e7dce7c31f378e9d721a89ece5bbb093320e7c77"
-    integrity sha512-O8gJJeTqkJhj2hwzimc38wR1KjM02MSg/fCDgmKMM0akTSv3nsDBf5k8nIa9I5Mu5ncd+t86plQPapkVYy/ZSw==
   
   react-native-gesture-handler@~2.12.0:
     version "2.12.0"
