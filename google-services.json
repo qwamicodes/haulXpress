@@ -1,43 +1,26 @@
 {
   "project_info": {
-    "project_number": "977322094900",
-    "project_id": "haulxpress-c3ab7",
-    "storage_bucket": "haulxpress-c3ab7.appspot.com"
+    "project_number": "20454597335",
+    "project_id": "haulxpress-a5973",
+    "storage_bucket": "haulxpress-a5973.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:977322094900:android:3ea32a2960019272b3f561",
+        "mobilesdk_app_id": "1:20454597335:android:95909625c707ab167c0692",
         "android_client_info": {
-          "package_name": "haulXpress.Android"
+          "package_name": "fdf.hgh"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "977322094900-ef21a7ujhb1rm9cinc814p6i0n6rb4s5.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAWyocxudR3j59P0xdur1xuuFj17VUnOAs"
+          "current_key": "AIzaSyDXtVLiD8UD3VWlyMWZXd3FC2131V0XOe0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "977322094900-ef21a7ujhb1rm9cinc814p6i0n6rb4s5.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "977322094900-avdu5a1c42pmdsjfjn4a84oh2u9qko29.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "haulXpressIOS"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

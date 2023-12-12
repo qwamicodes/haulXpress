@@ -34,9 +34,9 @@ const MiniMap = ({
         }}
         style={styles.map}
       >
-        {locationMarkers.map(({ lat, lng, name }, index) => (
+        {locationMarkers.map(({ lat, lng, name }) => (
           <Marker
-            key={index}
+            key={name}
             coordinate={{ latitude: lat, longitude: lng }}
             title={name}
           />
