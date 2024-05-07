@@ -1,0 +1,222 @@
+[
+  {
+    "driverName": "John Smith",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.8,
+    "yearsOfExperience": 7,
+    "languageSpoken": ["English", "Spanish"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://example.com/ceritication.png"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "ABC1234567890",
+      "insuranceCompany": "Acme Insurance",
+      "validUntil": "2025-12-31T00:00:00.000Z"
+    },
+    "loadingAssistance": true,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+1 (555) 555-5555",
+      "email": "john.smith@example.com"
+    }
+  },
+  {
+    "driverName": "Jane Doe",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 5.0,
+    "yearsOfExperience": 10,
+    "languageSpoken": ["English", "French"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://placeimg.com/320/240/tech"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "DEF9876543210",
+      "insuranceCompany": "Reliable Insurance",
+      "validUntil": "2026-06-30T00:00:00.000Z"
+    },
+    "loadingAssistance": false,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+1 (123) 456-7890",
+      "email": "jane.doe@example.com"
+    }
+  },
+  {
+    "driverName": "Maria Garcia",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.9,
+    "yearsOfExperience": 8,
+    "languageSpoken": ["Spanish", "English", "Portuguese"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://example.com/ceritication.png"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "JKL3456789012",
+      "insuranceCompany": "Secure Drive",
+      "validUntil": "2024-08-31T00:00:00.000Z"
+    },
+    "loadingAssistance": true,
+    "trackingCapabilities": false,
+    "driversContact": {
+      "phoneNumber": "+52 55 1234 5678",
+      "email": "maria.garcia@example.com"
+    }
+  },
+  {
+    "driverName": "Michael Chen",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.6,
+    "yearsOfExperience": 3,
+    "languageSpoken": ["English", "Mandarin Chinese"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://placeimg.com/320/240/tech/grayscale"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "MNO4567890123",
+      "insuranceCompany": "Steady Drive",
+      "validUntil": "2027-03-31T00:00:00.000Z"
+    },
+    "loadingAssistance": false,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+86 158 9876 5432",
+      "email": "michael.chen@example.com"
+    }
+  },
+  {
+    "driverName": "Aisha Khan",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 5.0,
+    "yearsOfExperience": 12,
+    "languageSpoken": ["Hindi", "English"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://example.com/ceritication.png"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "PQR5678901234",
+      "insuranceCompany": "Global Insurance",
+      "validUntil": "2025-05-07T00:00:00.000Z"
+    },
+    "loadingAssistance": false,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+91 888 123 4567",
+      "email": "aisha.khan@example.com"
+    }
+  },
+  {
+    "driverName": "Peter Ivanov",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.2,
+    "yearsOfExperience": 2,
+    "languageSpoken": ["Russian", "English"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://example.com/ceritication.png"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "STU6789012345",
+      "insuranceCompany": "Navigator Insurance",
+      "validUntil": "2024-12-31T00:00:00.000Z"
+    },
+    "loadingAssistance": true,
+    "trackingCapabilities": false,
+    "driversContact": {
+      "phoneNumber": "+7 999 777 8899",
+      "email": "peter.ivanov@example.com"
+    }
+  },
+  {
+    "driverName": "Emmanuelle Dubois",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.7,
+    "yearsOfExperience": 4,
+    "languageSpoken": ["French", "English"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://placeimg.com/320/240/tech"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "VWX7890123456",
+      "insuranceCompany": "Voyage Insurance",
+      "validUntil": "2025-09-30T00:00:00.000Z"
+    },
+    "loadingAssistance": true,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+33 6 12 34 56 78",
+      "email": "emmanuelle.dubois@example.com"
+    }
+  },
+  {
+    "driverName": "Omar Hassan",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.9,
+    "yearsOfExperience": 9,
+    "languageSpoken": ["Arabic", "English"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://placeimg.com/320/240/tech"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "YZX8901234567",
+      "insuranceCompany": "Reliable Transit",
+      "validUntil": "2026-02-28T00:00:00.000Z"
+    },
+    "loadingAssistance": false,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+20 100 123 4567",
+      "email": "omar.hassan@example.com"
+    }
+  },
+  {
+    "driverName": "Sarah Miller",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1531123414780-f74242c2b052?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.5,
+    "yearsOfExperience": 6,
+    "languageSpoken": ["English", "German"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "invalid URL removed"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "ABC0123456789",
+      "insuranceCompany": "Acme Insurance",
+      "validUntil": "2028-01-01T00:00:00.000Z"
+    },
+    "loadingAssistance": true,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+1 (444) 444-4444",
+      "email": "email address removed"
+    }
+  },
+  {
+    "driverName": "Carlos Hernandez",
+    "driverPhotoUrl": "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
+    "driverRating": 4.8,
+    "yearsOfExperience": 7,
+    "languageSpoken": ["Spanish", "English"],
+    "driverLicense": {
+      "licensePhotoUrl": "https://placeimg.com/320/240/tech/grayscale",
+      "certificationPhotoUrl": "https://example.com/ceritication.png"
+    },
+    "vehicleInsurance": {
+      "insurancePolicyNumber": "DEF9876543210",
+      "insuranceCompany": "Reliable Insurance",
+      "validUntil": "2026-06-30T00:00:00.000Z"
+    },
+    "loadingAssistance": false,
+    "trackingCapabilities": true,
+    "driversContact": {
+      "phoneNumber": "+1 (123) 456-7890",
+      "email": "carlos.hers2@gmail.com"
+    }
+  }
+]

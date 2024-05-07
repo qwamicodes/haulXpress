@@ -1,0 +1,52 @@
+[
+  {
+    "vehicleType": "commercial",
+    "vehicleNo": "ABC1234",
+    "vehicleCapacity": 12
+  },
+  {
+    "vehicleType": "truck",
+    "vehicleNo": "DEF5678",
+    "vehicleCapacity": 3
+  },
+  {
+    "vehicleType": "container",
+    "vehicleNo": "GHI9012",
+    "vehicleCapacity": 40000
+  },
+  {
+    "vehicleType": "tow",
+    "vehicleNo": "JKL3456",
+    "vehicleCapacity": 5000
+  },
+  {
+    "vehicleType": "dump",
+    "vehicleNo": "MNO7890",
+    "vehicleCapacity": 20
+  },
+  {
+    "vehicleType": "construction",
+    "vehicleNo": "PQR1234",
+    "vehicleCapacity": 2
+  },
+  {
+    "vehicleType": "commercial",
+    "vehicleNo": "STU4567",
+    "vehicleCapacity": 8
+  },
+  {
+    "vehicleType": "tow",
+    "vehicleNo": "VWX7890",
+    "vehicleCapacity": 30000
+  },
+  {
+    "vehicleType": "construction",
+    "vehicleNo": "YZX0123",
+    "vehicleCapacity": 6
+  },
+  {
+    "vehicleType": "dump",
+    "vehicleNo": "MNB1234",
+    "vehicleCapacity": 10
+  }
+]

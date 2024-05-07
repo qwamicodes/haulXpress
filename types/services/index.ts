@@ -1,17 +1,18 @@
-import { vehicleType } from "../features/haul";
+import { vehicleType } from '../features/haul';
 
 export type vehicleProps = {
   vehicleType: vehicleType;
   vehicleNo: string;
   vehicleCapacity: number;
-  driver: Pick<driversProps, "driverName" | "driverPhotoUrl" | "driverRating">;
+  driver_id: string;
+  driver: Pick<driversProps, 'driverName' | 'driverPhotoUrl' | 'driverRating'>;
 };
 
 export type driversProps = {
   driverName: string;
   driverPhotoUrl: string;
   driverRating: number;
-  yearOfExperience: number;
+  yearsOfExperience: number;
   languageSpoken: string[];
   driverLicense?: {
     licensePhotoUrl: string;
