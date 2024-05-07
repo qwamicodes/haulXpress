@@ -16,6 +16,7 @@
     "test:final": "jest",
     "updateSnapshots": "jest -u --coverage=false",
     "fix": "npx expo install --check",
+    "doctor": "npx expo-doctor",
     "publish": "eas update",
     "login": "eas login",
     "logout": "eas logout",
