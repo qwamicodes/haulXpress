@@ -12,7 +12,7 @@ import {
 import { STRINGS } from "../../../constants";
 
 import ErrorHandler from "../../../features/ErrorHandler";
-import getUserDataFromStore from "./get.UserDataFromStore";
+import getUserDataFromStore from "./get.userDataFromStore";
 
 const signinUser =
   (

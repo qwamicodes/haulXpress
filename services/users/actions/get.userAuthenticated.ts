@@ -3,10 +3,10 @@ import { onAuthStateChanged } from "firebase/auth";
 import { AppDispatch } from "../../../store";
 import { auth } from "../../../config/firebase";
 import {
-  loginUserToState,
-  togglePending,
+    loginUserToState,
+    togglePending,
 } from "../../../store/slices/authSlice";
-import getUserDataFromStore from "./get.UserDataFromStore";
+import getUserDataFromStore from "./get.userDataFromStore";
 import { Dispatch, SetStateAction } from "react";
 
 const getUserAuthenticated =

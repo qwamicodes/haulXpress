@@ -1,0 +1,41 @@
+# Ignore all files in the node_modules directory
+node_modules/
+
+# Ignore all files in the build directory
+build/
+
+# Ignore all files in the android directory
+android/
+
+# Ignore all files in the ios directory
+ios/
+
+# Ignore all files in the .expo directory
+.expo/
+
+# Ignore all files in the .vscode directory
+.vscode/
+
+# Ignore all files in the .idea directory
+.idea/
+
+# Ignore all files in the .git directory
+.git/
+
+# Ignore all files with the .log extension
+*.log
+
+# Ignore all files with the .DS_Store extension
+.DS_Store
+
+# Ignore all files with the .env extension
+.env
+
+# Ignore all files with the .env.local extension
+.env.local
+
+# Ignore all files with the .env.development extension
+.env.development
+
+# Ignore all files with the .env.production extension
+.env.production

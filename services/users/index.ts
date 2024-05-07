@@ -3,7 +3,7 @@ export { default as createUser } from "./actions/post.createUser";
 export { default as setUserData } from "./actions/post.setUserData";
 export { default as updateUser } from "./actions/post.updateUser";
 export { default as getUserData } from "./actions/get.userData";
-export { default as getUserDataFromStore } from "./actions/get.UserDataFromStore";
+export { default as getUserDataFromStore } from "./actions/get.userDataFromStore";
 export { default as uploadPhoto } from "./actions/post.uploadPhoto";
 export { default as changePassword } from "./actions/post.changePassword";
 export { default as deleteUserAccount } from "./actions/post.deleteUser";
