@@ -1,16 +1,16 @@
-import { ScrollView, View } from "react-native";
-import React from "react";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ScrollView, View } from 'react-native';
+import React from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-import { screenStyle } from "../../../constants";
-import { JourneyParamList } from "../../../types";
-import VehicleDetails from "../../Haul/components/HaulInformation/VehicleDetails";
-import DriverBadge from "../../Haul/components/DriverBadge";
-import HaulDetails from "../../Haul/components/HaulInformation/HaulDetails";
-import MiniMap from "../../Haul/components/ConfirmHauling/MiniMap";
-import Button from "../../../components/Button";
+import { screenStyle } from '../../../constants';
+import { JourneyParamList } from '../../../types';
+import VehicleDetails from '../../Haul/components/HaulInformation/VehicleDetails';
+import DriverBadge from '../../Haul/components/DriverBadge';
+import HaulDetails from '../../Haul/components/HaulInformation/HaulDetails';
+import MiniMap from '../../Haul/components/ConfirmHauling/MiniMap';
+import Button from '../../../components/Button';
 
-type Props = NativeStackScreenProps<JourneyParamList, "JourneyDetails">;
+type Props = NativeStackScreenProps<JourneyParamList, 'JourneyDetails'>;
 
 const JourneyDetails = ({ route }: Props) => {
   const { journey } = route.params;
@@ -23,7 +23,7 @@ const JourneyDetails = ({ route }: Props) => {
       <ScrollView
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ gap: 32, alignItems: "center" }}
+        contentContainerStyle={{ gap: 32, alignItems: 'center' }}
         style={{ flex: 1 }}
       >
         <VehicleDetails {...vehicle} />

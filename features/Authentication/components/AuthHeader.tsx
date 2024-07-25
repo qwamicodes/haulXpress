@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
 
-import { IAuthentiation } from "../../../types";
+import { IAuthentiation } from '../../../types';
 
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
 
-type props = Omit<IAuthentiation, "inputs">;
+type props = Omit<IAuthentiation, 'inputs'>;
 
 const AuthHeader = ({ image, title, description }: props) => {
   return (
@@ -24,25 +24,25 @@ export default AuthHeader;
 
 const styles = StyleSheet.create({
   imageContainer: { flex: 0.8 },
-  image: { width: "100%", height: "100%", resizeMode: "cover" },
+  image: { width: '100%', height: '100%', resizeMode: 'cover' },
   imageCover: {
-    backgroundColor: "#47556940",
-    width: "100%",
-    height: "100%",
-    position: "absolute",
+    backgroundColor: '#47556940',
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
   },
   titlesContainer: {
-    position: "absolute",
+    position: 'absolute',
     left: 0,
-    bottom: "15%",
+    bottom: '15%',
     paddingLeft: 24,
     paddingRight: 64,
     gap: 8,
   },
-  title: { color: DEFAULT_COLORS.white, ...textStyles["3xl"].medium },
+  title: { color: DEFAULT_COLORS.white, ...textStyles['3xl'].medium },
   description: { color: DEFAULT_COLORS.gray[50], ...textStyles.xs.regular },
 });

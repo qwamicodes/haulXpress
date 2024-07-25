@@ -1,21 +1,21 @@
-import { StyleSheet, View } from "react-native";
-import React, { useState, useEffect } from "react";
+import { StyleSheet, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
 
-import { useAppSelector } from "../../hooks";
-import { haulSelectionData } from "../../constants";
-import { locationComponentProp } from "../../types";
+import { useAppSelector } from '../../hooks';
+import { haulSelectionData } from '../../constants';
+import { locationComponentProp } from '../../types';
 
-import ScreenTemplate from "../../screens/template/ScreenTemplate";
-import HaulHeader from "./components/HaulHeader";
-import HaulStart from "./components/HaulStart";
-import HaulDestination from "./components/HaulDestination";
+import ScreenTemplate from '../../screens/template/ScreenTemplate';
+import HaulHeader from './components/HaulHeader';
+import HaulStart from './components/HaulStart';
+import HaulDestination from './components/HaulDestination';
 
 const Haul = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showLocationComponent, setShowLocationComponent] =
-    useState<locationComponentProp>({ show: false, type: "pickup" });
+    useState<locationComponentProp>({ show: false, type: 'pickup' });
 
-  const haulState = useAppSelector((state) => state.haul);
+  const haulState = useAppSelector(state => state.haul);
   const { productType, vehicleType } = haulState;
 
   const handleCheckSelection = (): boolean => {
@@ -30,12 +30,12 @@ const Haul = () => {
     return false;
   };
 
-  const handleNavigateSelection = (type: "next" | "previous") => {
+  const handleNavigateSelection = (type: 'next' | 'previous') => {
     switch (type) {
-      case "next":
+      case 'next':
         setCurrentIndex(currentIndex + 1);
         break;
-      case "previous":
+      case 'previous':
         setCurrentIndex(currentIndex - 1);
         break;
     }
@@ -73,7 +73,7 @@ const Haul = () => {
             showLocationComponent={showLocationComponent}
             setShowLocationComponent={setShowLocationComponent}
             index={currentIndex}
-            buttonText="search for truck"
+            buttonText='search for truck'
             percentage={100}
             handleNavigateSelection={handleNavigateSelection}
             {...haulState}
@@ -89,5 +89,5 @@ const Haul = () => {
 export default Haul;
 
 const styles = StyleSheet.create({
-  startContainer: { flex: 1, position: "relative" },
+  startContainer: { flex: 1, position: 'relative' },
 });

@@ -1,15 +1,15 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
 
-import { IHaulerLink } from "../../../../types";
+import { IHaulerLink } from '../../../../types';
 import {
   centeringStyle,
   textStyles,
   DEFAULT_COLORS,
-} from "../../../../constants";
-import { useNavigationParams } from "../../../../hooks";
+} from '../../../../constants';
+import { useNavigationParams } from '../../../../hooks';
 
-import IconRenderer from "../../../../components/Icon";
+import IconRenderer from '../../../../components/Icon';
 
 const HaulerLink = ({ iconType, name, path, link }: IHaulerLink) => {
   const navigate = useNavigationParams();
@@ -33,7 +33,7 @@ const HaulerLink = ({ iconType, name, path, link }: IHaulerLink) => {
       </View>
       <View style={styles.rightContainer}>
         <IconRenderer
-          iconType={link ? "openLink" : "chevronRight"}
+          iconType={link ? 'openLink' : 'chevronRight'}
           light={false}
         />
       </View>
@@ -44,13 +44,13 @@ const HaulerLink = ({ iconType, name, path, link }: IHaulerLink) => {
 export default HaulerLink;
 
 const styles = StyleSheet.create({
-  container: { flexDirection: "row", alignItems: "center" },
+  container: { flexDirection: 'row', alignItems: 'center' },
   leftContainer: {
     flex: 1,
     gap: 12,
     paddingVertical: 4,
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   rightContainer: {},
   iconContainer: {

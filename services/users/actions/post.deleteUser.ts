@@ -1,14 +1,14 @@
-import { getAuth, deleteUser, User } from "firebase/auth";
-import { FirebaseError } from "firebase/app";
+import { getAuth, deleteUser, User } from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
 
-import { AppDispatch } from "../../../store";
+import { AppDispatch } from '../../../store';
 import {
   logoutUserFromState,
   togglePending,
-} from "../../../store/slices/authSlice";
-import { STRINGS } from "../../../constants";
-import ErrorHandler from "../../../features/ErrorHandler";
-import clearUserData from "./post.clearUserData";
+} from '../../../store/slices/authSlice';
+import { STRINGS } from '../../../constants';
+import ErrorHandler from '../../../features/ErrorHandler';
+import clearUserData from './post.clearUserData';
 
 const user = getAuth()?.currentUser;
 

@@ -1,19 +1,19 @@
-import { View } from "react-native";
-import React, { useReducer } from "react";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { View } from 'react-native';
+import React, { useReducer } from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { registerAuth, authInputContainer } from "../../constants";
-import { useAppDispatch, useNavigationParams } from "../../hooks";
-import { authReducer, initialAuthState } from "./reducer";
-import { checkAuthValues } from "../../utils/helpers";
-import { createUser } from "../../services";
+import { registerAuth, authInputContainer } from '../../constants';
+import { useAppDispatch, useNavigationParams } from '../../hooks';
+import { authReducer, initialAuthState } from './reducer';
+import { checkAuthValues } from '../../utils/helpers';
+import { createUser } from '../../services';
 
-import ScreenTemplate from "../../screens/template/ScreenTemplate";
-import AuthInput from "./components/AuthInput";
-import AuthHeader from "./components/AuthHeader";
-import Button from "../../components/Button";
-import AuthLink from "./components/AuthLink";
-import ThirdPartyButton from "./components/ThirdPartyButton";
+import ScreenTemplate from '../../screens/template/ScreenTemplate';
+import AuthInput from './components/AuthInput';
+import AuthHeader from './components/AuthHeader';
+import Button from '../../components/Button';
+import AuthLink from './components/AuthLink';
+import ThirdPartyButton from './components/ThirdPartyButton';
 
 const Register = () => {
   const [authValues, authDispatch] = useReducer(authReducer, initialAuthState);
@@ -43,9 +43,9 @@ const Register = () => {
               name={name}
               key={index}
               {...rest}
-              onChangeText={(text) => {
+              onChangeText={text => {
                 authDispatch({
-                  type: "SET_VALUES",
+                  type: 'SET_VALUES',
                   payload: {
                     [name]: text,
                   },
@@ -55,23 +55,23 @@ const Register = () => {
           ))}
           <View
             style={{
-              justifyContent: "space-between",
-              flexDirection: "row",
+              justifyContent: 'space-between',
+              flexDirection: 'row',
             }}
           >
             <AuthLink
               activeOpacity={0.8}
-              text="Have an account? Login"
-              onPress={() => navigate.navigate("Login")}
+              text='Have an account? Login'
+              onPress={() => navigate.navigate('Login')}
             />
           </View>
           <View>
-            <ThirdPartyButton buttonText="continue with google" />
+            <ThirdPartyButton buttonText='continue with google' />
           </View>
           <View>
             <Button
               icon={false}
-              buttonText="create account"
+              buttonText='create account'
               onPress={handleSubmitRegistration}
             />
           </View>

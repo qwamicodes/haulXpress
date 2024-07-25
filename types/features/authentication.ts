@@ -1,5 +1,5 @@
-import { IAuthInput } from "./authInput";
-import { IJourney } from "./journeys";
+import { IAuthInput } from './authInput';
+import { IJourney } from './journeys';
 
 export type validationType = { message: string; valid: boolean };
 export interface IAuthentiation {

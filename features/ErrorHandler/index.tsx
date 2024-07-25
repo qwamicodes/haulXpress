@@ -1,23 +1,23 @@
-import { STRINGS } from "../../constants";
+import { STRINGS } from '../../constants';
 
 const ErrorHandler = (code: string) => {
   switch (code) {
-    case "auth/user-not-found":
+    case 'auth/user-not-found':
       alert(STRINGS.userNotFound);
       break;
-    case "auth/wrong-password":
+    case 'auth/wrong-password':
       alert(STRINGS.wrongPassword);
       break;
-    case "auth/invalid-email":
+    case 'auth/invalid-email':
       alert(STRINGS.invalidEmail);
       break;
-    case "auth/invalid-password":
+    case 'auth/invalid-password':
       alert(STRINGS.invalidPassword);
       break;
-    case "auth/user-disabled":
+    case 'auth/user-disabled':
       alert(STRINGS.userDisabled);
       break;
-    case "auth/invalid-phone-number":
+    case 'auth/invalid-phone-number':
       alert(STRINGS.invalidPhoneNumber);
       break;
     default:

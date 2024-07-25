@@ -1,1 +1,1 @@
-export { default as useNavigationParams } from "./useNavigationParams";
+export { default as useNavigationParams } from './useNavigationParams';

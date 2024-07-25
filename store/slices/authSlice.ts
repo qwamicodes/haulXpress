@@ -1,24 +1,24 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { IAuth, IJourney, UserData } from "../../types";
+import { IAuth, IJourney, UserData } from '../../types';
 
 const initialState: IAuth = {
   pending: false,
   isAuthenticated: false,
   user: {
-    displayName: "",
-    email: "",
-    photoURL: "",
+    displayName: '',
+    email: '',
+    photoURL: '',
     emailVerified: false,
-    userId: "",
-    phoneNumber: "",
-    occupation: "",
+    userId: '',
+    phoneNumber: '',
+    occupation: '',
     journey: [],
   },
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     loginUserToState: (state, action: PayloadAction<Partial<UserData>>) => {
@@ -27,7 +27,7 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
       state.user = { ...state.user, ...payload };
     },
-    logoutUserFromState: (state) => {
+    logoutUserFromState: state => {
       state.isAuthenticated = initialState.isAuthenticated;
       state.user = initialState.user;
     },
@@ -39,7 +39,7 @@ const authSlice = createSlice({
     },
     updateUserDataInState: (
       state,
-      action: PayloadAction<Partial<UserData>>
+      action: PayloadAction<Partial<UserData>>,
     ) => {
       const { payload } = action;
 

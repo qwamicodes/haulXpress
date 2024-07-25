@@ -1,4 +1,4 @@
-import { iconType } from "..";
+import { iconType } from '..';
 
 export type IHaulerLink = {
   iconType: iconType;

@@ -1,13 +1,13 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 
-import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../../constants";
-import { IHaulType, haulSelection } from "../../../types";
-import { useAppDispatch } from "../../../hooks";
-import { addHaulingData } from "../../../store/slices/haulSlice";
-import { haulExistsInState } from "../../../utils/helpers";
+import { DEFAULT_COLORS, textStyles, centeringStyle } from '../../../constants';
+import { IHaulType, haulSelection } from '../../../types';
+import { useAppDispatch } from '../../../hooks';
+import { addHaulingData } from '../../../store/slices/haulSlice';
+import { haulExistsInState } from '../../../utils/helpers';
 
-interface Props extends Pick<haulSelection, "type"> {
+interface Props extends Pick<haulSelection, 'type'> {
   select: IHaulType;
   state: IHaulType[];
 }
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     ...textStyles.sm.regular,
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
   },
   buttonUnselected: {
     backgroundColor: DEFAULT_COLORS.teal[50],

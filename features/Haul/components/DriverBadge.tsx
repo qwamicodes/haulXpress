@@ -1,15 +1,15 @@
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React from "react";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
 
-import { vehicleProps } from "../../../types";
+import { vehicleProps } from '../../../types';
 import {
   DEFAULT_COLORS,
   textStyles,
   centeringStyle,
   vertically,
-} from "../../../constants";
+} from '../../../constants';
 
-interface Props extends Pick<vehicleProps, "driver"> {
+interface Props extends Pick<vehicleProps, 'driver'> {
   showButton?: boolean;
 }
 
@@ -19,7 +19,7 @@ const DriverBadge = ({ driver, showButton = false }: Props) => {
   if (showButton) {
     return (
       <View style={[vertically]}>
-        <View style={[centeringStyle, { gap: 8, flexDirection: "row" }]}>
+        <View style={[centeringStyle, { gap: 8, flexDirection: 'row' }]}>
           <View>
             <Image
               style={{ width: 50, height: 50, borderRadius: 100 }}
@@ -56,7 +56,7 @@ const DriverBadge = ({ driver, showButton = false }: Props) => {
 export default DriverBadge;
 
 const styles = StyleSheet.create({
-  badge: { flexDirection: "row", gap: 4, ...centeringStyle },
+  badge: { flexDirection: 'row', gap: 4, ...centeringStyle },
   leftContainer: {},
   rightContainer: { gap: 4 },
   image: { width: 35, height: 35, borderRadius: 100 },

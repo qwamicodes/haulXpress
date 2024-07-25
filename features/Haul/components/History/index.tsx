@@ -1,17 +1,17 @@
-import { StyleSheet, TouchableOpacity, View, ScrollView } from "react-native";
-import React from "react";
+import { StyleSheet, TouchableOpacity, View, ScrollView } from 'react-native';
+import React from 'react';
 
-import { IHaulType } from "../../../../types/features/haul";
-import { haulStyles } from "../../../../constants";
+import { IHaulType } from '../../../../types/features/haul';
+import { haulStyles } from '../../../../constants';
 
-import IconRenderer from "../../../../components/Icon";
-import HaulHistoryItem from "./HaulHistoryItem";
+import IconRenderer from '../../../../components/Icon';
+import HaulHistoryItem from './HaulHistoryItem';
 
 type Props = {
   index: number;
   productType: IHaulType[];
   vehicleType: IHaulType[];
-  handleNavigateSelection: (type: "previous" | "next") => void;
+  handleNavigateSelection: (type: 'previous' | 'next') => void;
 };
 
 const HaulHistory = ({
@@ -25,18 +25,18 @@ const HaulHistory = ({
       {index !== 0 ? (
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress={() => handleNavigateSelection("previous")}
+          onPress={() => handleNavigateSelection('previous')}
           style={haulStyles.backButton}
         >
-          <IconRenderer light={false} iconType="arrorBack" />
+          <IconRenderer light={false} iconType='arrorBack' />
         </TouchableOpacity>
       ) : (
         <View style={[haulStyles.backButton, { width: 24, height: 24 }]} />
       )}
       <ScrollView
         contentContainerStyle={{
-          alignItems: "center",
-          flexDirection: "row",
+          alignItems: 'center',
+          flexDirection: 'row',
         }}
         style={haulStyles.history}
       >

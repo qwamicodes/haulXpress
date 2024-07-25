@@ -4,19 +4,19 @@ type authProps = {
 };
 
 type actionsProps = {
-  type: "SET_VALUES";
+  type: 'SET_VALUES';
   payload: Partial<authProps>;
 };
 
 export const initialAuthState: authProps = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const authReducer = (state: authProps, action: actionsProps) => {
   const { payload, type } = action;
 
-  if (type === "SET_VALUES") {
+  if (type === 'SET_VALUES') {
     return { ...state, ...payload };
   } else {
     return { ...state };

@@ -1,25 +1,25 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ILocation, ILocations, locationType } from "../../types";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { ILocation, ILocations, locationType } from '../../types';
 
 const initialState: ILocation = {
   pickup: {
-    name: "",
-    description: "",
+    name: '',
+    description: '',
     lat: 0,
     lng: 0,
   },
   destination: {
-    name: "",
-    description: "",
+    name: '',
+    description: '',
     lat: 0,
     lng: 0,
   },
-  distance: "",
-  duration: "",
+  distance: '',
+  duration: '',
 };
 
 const locationSlice = createSlice({
-  name: "locations",
+  name: 'locations',
   initialState,
   reducers: {
     addLocation: (
@@ -27,12 +27,12 @@ const locationSlice = createSlice({
       action: PayloadAction<{
         type: locationType;
         location: Partial<ILocations>;
-      }>
+      }>,
     ) => {
       const { payload } = action;
       const { location, type } = payload;
 
-      if (type === "pickup") {
+      if (type === 'pickup') {
         state.pickup = { ...state.pickup, ...location };
       } else {
         state.destination = { ...state.destination, ...location };
@@ -46,7 +46,7 @@ const locationSlice = createSlice({
       const { payload } = action;
       state.duration = payload;
     },
-    resetLocation: (state) => {
+    resetLocation: state => {
       state.destination = initialState.destination;
       state.pickup = initialState.pickup;
       state.distance = initialState.distance;

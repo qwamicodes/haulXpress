@@ -1,18 +1,18 @@
-import { StyleSheet, Text, Image, View, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { DEFAULT_COLORS, centeringStyle, textStyles } from "../../../constants";
-import IconRenderer from "../../../components/Icon";
-import OccupationBadge from "./OccupationBadge";
-import { pickImage } from "../../../utils/helpers";
-import { uploadPhoto } from "../../../services";
+import { useAppDispatch, useAppSelector } from '../../../hooks';
+import { DEFAULT_COLORS, centeringStyle, textStyles } from '../../../constants';
+import IconRenderer from '../../../components/Icon';
+import OccupationBadge from './OccupationBadge';
+import { pickImage } from '../../../utils/helpers';
+import { uploadPhoto } from '../../../services';
 
 const HaulerHeader = () => {
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector(state => state.auth);
 
-  const [image, setImage] = useState<string>("");
+  const [image, setImage] = useState<string>('');
 
   const handleUploadProfileImage = (image: string) => {
     setImage(image);
@@ -33,7 +33,7 @@ const HaulerHeader = () => {
         ) : (
           <Image
             style={styles.image}
-            source={require("../../../assets/images/avatar.png")}
+            source={require('../../../assets/images/avatar.png')}
           />
         )}
         <TouchableOpacity
@@ -44,7 +44,7 @@ const HaulerHeader = () => {
           <View style={styles.edit}>
             <IconRenderer
               color={DEFAULT_COLORS.gray[500]}
-              iconType="edit"
+              iconType='edit'
               light={false}
             />
           </View>
@@ -70,10 +70,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1.5,
     borderBottomColor: DEFAULT_COLORS.gray[200],
   },
-  imageContainer: { position: "relative" },
-  image: { width: 100, height: 100, resizeMode: "cover", borderRadius: 100 },
+  imageContainer: { position: 'relative' },
+  image: { width: 100, height: 100, resizeMode: 'cover', borderRadius: 100 },
   editContainer: {
-    position: "absolute",
+    position: 'absolute',
     right: 0,
     bottom: 0,
     backgroundColor: DEFAULT_COLORS.white,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     height: 35,
     zIndex: 10,
     borderRadius: 10,
-    overflow: "hidden",
+    overflow: 'hidden',
     shadowColor: DEFAULT_COLORS.gray[200],
     shadowRadius: 10,
     shadowOffset: {
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
   namesContainer: { gap: 4, ...centeringStyle },
   displayName: {
     color: DEFAULT_COLORS.gray[700],
-    ...textStyles["2xl"].medium,
-    textTransform: "capitalize",
+    ...textStyles['2xl'].medium,
+    textTransform: 'capitalize',
   },
   text: { color: DEFAULT_COLORS.gray[500], ...textStyles.base.regular },
 });

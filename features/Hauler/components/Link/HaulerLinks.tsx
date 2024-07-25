@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
-import { IHaulerLinks } from "../../../../types";
-import { textStyles, DEFAULT_COLORS } from "../../../../constants";
+import { IHaulerLinks } from '../../../../types';
+import { textStyles, DEFAULT_COLORS } from '../../../../constants';
 
-import HaulerLink from "./HaulerLink";
+import HaulerLink from './HaulerLink';
 
 const HaulerLinks = ({ header, links }: IHaulerLinks) => {
   return (
@@ -22,7 +22,7 @@ const HaulerLinks = ({ header, links }: IHaulerLinks) => {
 export default HaulerLinks;
 
 const styles = StyleSheet.create({
-  container: { width: "100%", gap: 16, marginTop: 16 },
+  container: { width: '100%', gap: 16, marginTop: 16 },
   linksText: { ...textStyles.xs.regular, color: DEFAULT_COLORS.gray[600] },
   linksContainer: { gap: 16 },
 });

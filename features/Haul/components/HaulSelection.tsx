@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
-import { IHaulType, haulSelection } from "../../../types";
+import { IHaulType, haulSelection } from '../../../types';
 
-import HaulSelect from "./HaulSelect";
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
+import HaulSelect from './HaulSelect';
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
 
-interface Props extends Pick<haulSelection, "subHeaderText" | "type"> {
+interface Props extends Pick<haulSelection, 'subHeaderText' | 'type'> {
   data: IHaulType[];
   state: IHaulType[];
 }
@@ -39,10 +39,10 @@ export default HaulSelection;
 
 const styles = StyleSheet.create({
   container: { flex: 1, gap: 32 },
-  selectionHeader: { width: "75%" },
+  selectionHeader: { width: '75%' },
   selectionHeaderText: {
     color: DEFAULT_COLORS.gray[700],
-    ...textStyles["2xl"].medium,
+    ...textStyles['2xl'].medium,
   },
   selectionContainer: {},
   selectionContainerHeader: { gap: 16 },
@@ -51,10 +51,10 @@ const styles = StyleSheet.create({
     ...textStyles.sm.regular,
   },
   selection: {
-    justifyContent: "flex-start",
-    alignItems: "center",
-    flexWrap: "wrap",
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexWrap: 'wrap',
     gap: 8,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
 });

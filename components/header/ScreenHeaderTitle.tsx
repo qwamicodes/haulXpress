@@ -4,14 +4,14 @@ import {
   View,
   TouchableOpacity,
   Dimensions,
-} from "react-native";
-import React from "react";
-import { NativeStackHeaderProps } from "@react-navigation/native-stack";
-import { getHeaderTitle } from "@react-navigation/elements";
+} from 'react-native';
+import React from 'react';
+import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { getHeaderTitle } from '@react-navigation/elements';
 
-import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../constants";
-import { SafeAreaView } from "react-native-safe-area-context";
-import IconRenderer from "../Icon";
+import { DEFAULT_COLORS, textStyles, centeringStyle } from '../../constants';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import IconRenderer from '../Icon';
 
 interface Props extends NativeStackHeaderProps {
   showBackButton?: boolean;
@@ -34,7 +34,7 @@ const ScreenHeaderTitle = ({
             onPress={() => navigation.goBack()}
             style={styles.buttonBack}
           >
-            <IconRenderer iconType="arrorBack" light={false} />
+            <IconRenderer iconType='arrorBack' light={false} />
           </TouchableOpacity>
         </View>
       ) : (
@@ -47,13 +47,13 @@ const ScreenHeaderTitle = ({
 
 export default ScreenHeaderTitle;
 
-const { width } = Dimensions.get("screen");
+const { width } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
   container: {
     width,
     height: 180,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
     backgroundColor: DEFAULT_COLORS.gray[50],
     paddingHorizontal: 24,
     gap: 16,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     ...centeringStyle,
     borderRadius: 12,
     backgroundColor: DEFAULT_COLORS.white,
-    shadowColor: "#4B556310",
+    shadowColor: '#4B556310',
     shadowOpacity: 0.5,
     shadowRadius: 10,
     elevation: 10,
@@ -75,6 +75,6 @@ const styles = StyleSheet.create({
   titleContainer: {},
   title: {
     color: DEFAULT_COLORS.gray[700],
-    ...textStyles["3xl"].medium,
+    ...textStyles['3xl'].medium,
   },
 });

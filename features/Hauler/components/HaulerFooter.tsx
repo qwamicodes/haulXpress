@@ -4,19 +4,19 @@ import {
   View,
   TouchableOpacity,
   Text,
-} from "react-native";
-import React from "react";
+} from 'react-native';
+import React from 'react';
 
 import {
   haulerLinks,
   DEFAULT_COLORS,
   centeringStyle,
   textStyles,
-} from "../../../constants";
-import { useAppDispatch } from "../../../hooks";
-import { deleteUserAccount } from "../../../services";
+} from '../../../constants';
+import { useAppDispatch } from '../../../hooks';
+import { deleteUserAccount } from '../../../services';
 
-import HaulerLinks from "./Link/HaulerLinks";
+import HaulerLinks from './Link/HaulerLinks';
 
 const HaulerFooter = () => {
   const dispatch = useAppDispatch();
@@ -28,8 +28,8 @@ const HaulerFooter = () => {
   return (
     <ScrollView
       contentContainerStyle={{
-        justifyContent: "space-evenly",
-        alignItems: "center",
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
         gap: 24,
       }}
       showsVerticalScrollIndicator={false}
@@ -39,7 +39,7 @@ const HaulerFooter = () => {
       {haulerLinks.map((links, index) => (
         <HaulerLinks key={index} {...links} />
       ))}
-      <View style={{ width: "100%" }}>
+      <View style={{ width: '100%' }}>
         <TouchableOpacity
           style={styles.deleteButton}
           activeOpacity={0.8}
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   deleteButtonText: {
     color: DEFAULT_COLORS.red[500],
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     ...textStyles.sm.medium,
   },
 });

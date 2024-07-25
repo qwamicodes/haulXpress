@@ -1,8 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import React, { Dispatch, SetStateAction } from "react";
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React, { Dispatch, SetStateAction } from 'react';
 
-import { paymentMethod, paymentType } from "../../../types";
-import { DEFAULT_COLORS, textStyles, centeringStyle } from "../../../constants";
+import { paymentMethod, paymentType } from '../../../types';
+import { DEFAULT_COLORS, textStyles, centeringStyle } from '../../../constants';
 
 interface Props extends paymentMethod {
   selected: boolean;
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: DEFAULT_COLORS.gray[700],
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     ...textStyles.base.regular,
   },
   selectedText: { color: DEFAULT_COLORS.white },

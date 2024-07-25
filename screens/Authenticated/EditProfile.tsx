@@ -1,31 +1,31 @@
-import { View } from "react-native";
-import React, { useReducer } from "react";
-import { isMatch } from "lodash";
+import { View } from 'react-native';
+import React, { useReducer } from 'react';
+import { isMatch } from 'lodash';
 
 import {
   useAppDispatch,
   useAppSelector,
   useNavigationParams,
-} from "../../hooks";
-import { onboardingReducer } from "../../features/Authentication/reducer";
-import { onboardingAuth, screenStyle } from "../../constants";
-import AuthInput from "../../features/Authentication/components/AuthInput";
-import Button from "../../components/Button";
-import { checkOnboardingValues } from "../../utils/helpers";
-import { updateUser } from "../../services";
+} from '../../hooks';
+import { onboardingReducer } from '../../features/Authentication/reducer';
+import { onboardingAuth, screenStyle } from '../../constants';
+import AuthInput from '../../features/Authentication/components/AuthInput';
+import Button from '../../components/Button';
+import { checkOnboardingValues } from '../../utils/helpers';
+import { updateUser } from '../../services';
 
 const EditProfile = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigationParams();
-  const { user } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector(state => state.auth);
   const onboardInitialState = {
-    displayName: user.displayName ?? "",
-    phoneNumber: user.phoneNumber ?? "",
-    occupation: user.occupation ?? "",
+    displayName: user.displayName ?? '',
+    phoneNumber: user.phoneNumber ?? '',
+    occupation: user.occupation ?? '',
   };
   const [profileValues, profileDispatch] = useReducer(
     onboardingReducer,
-    onboardInitialState
+    onboardInitialState,
   );
 
   const { inputs } = onboardingAuth;
@@ -45,7 +45,7 @@ const EditProfile = () => {
 
   return (
     <View style={[screenStyle]}>
-      <View style={{ flex: 1, justifyContent: "space-between" }}>
+      <View style={{ flex: 1, justifyContent: 'space-between' }}>
         <View style={{ gap: 16 }}>
           {inputs.map(({ name, ...rest }, index) => {
             return (
@@ -55,9 +55,9 @@ const EditProfile = () => {
                 defaultValue={profileValues[name]}
                 name={name}
                 {...rest}
-                onChangeText={(text) => {
+                onChangeText={text => {
                   profileDispatch({
-                    type: "SET_VALUES",
+                    type: 'SET_VALUES',
                     payload: {
                       [name]: text,
                     },
@@ -70,7 +70,7 @@ const EditProfile = () => {
         <View>
           <Button
             icon={false}
-            buttonText="save changes"
+            buttonText='save changes'
             style={{ opacity: sameProfileData ? 0.5 : 1 }}
             onPress={sameProfileData ? undefined : handleEditProfile}
           />

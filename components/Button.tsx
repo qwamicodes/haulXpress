@@ -1,10 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 
-import { IButton } from "../types";
-import { DEFAULT_COLORS, centeringStyle, textStyles } from "../constants";
+import { IButton } from '../types';
+import { DEFAULT_COLORS, centeringStyle, textStyles } from '../constants';
 
-import IconRenderer from "./Icon";
+import IconRenderer from './Icon';
 
 const Button = ({
   buttonText,
@@ -13,13 +13,13 @@ const Button = ({
   iconColor,
   lightIcon,
   style,
-  status = "primary",
+  status = 'primary',
   ...rest
 }: IButton) => {
   const backgroundColor = {
     primary: DEFAULT_COLORS.gray[800],
     secondary: DEFAULT_COLORS.gray[100],
-    "in-progress": DEFAULT_COLORS.gray[100],
+    'in-progress': DEFAULT_COLORS.gray[100],
     arrived: DEFAULT_COLORS.green[100],
     cancelled: DEFAULT_COLORS.red[100],
   }[status];
@@ -27,12 +27,12 @@ const Button = ({
   const color = {
     primary: DEFAULT_COLORS.white,
     secondary: DEFAULT_COLORS.gray[500],
-    "in-progress": DEFAULT_COLORS.gray[500],
+    'in-progress': DEFAULT_COLORS.gray[500],
     arrived: DEFAULT_COLORS.green[500],
     cancelled: DEFAULT_COLORS.red[500],
   }[status];
 
-  if (status === "primary") {
+  if (status === 'primary') {
     return (
       <TouchableOpacity
         activeOpacity={1}
@@ -70,14 +70,14 @@ export default Button;
 
 const styles = StyleSheet.create({
   button: {
-    width: "100%",
+    width: '100%',
     paddingVertical: 16,
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 16,
     ...centeringStyle,
   },
   buttonText: {
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     ...textStyles.lg.regular,
   },
 });

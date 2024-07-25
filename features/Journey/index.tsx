@@ -1,18 +1,18 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
 
-import { screenStyle } from "../../constants";
-import { useAppSelector } from "../../hooks";
-import AvailableTruck from "../Haul/components/AvailableTrucks";
+import { screenStyle } from '../../constants';
+import { useAppSelector } from '../../hooks';
+import AvailableTruck from '../Haul/components/AvailableTrucks';
 
 const Journey = () => {
-  const { user } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector(state => state.auth);
   const { journey } = user;
 
   return (
     <View style={[screenStyle]}>
       {journey.map((props, index) => (
-        <AvailableTruck key={index} type="journey" {...props} />
+        <AvailableTruck key={index} type='journey' {...props} />
       ))}
     </View>
   );

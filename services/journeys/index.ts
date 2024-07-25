@@ -1,1 +1,1 @@
-export { default as createJourney } from "./actions/post.createJourney";
+export { default as createJourney } from './actions/post.createJourney';

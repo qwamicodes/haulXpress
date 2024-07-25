@@ -1,29 +1,29 @@
-import { View } from "react-native";
-import React, { useReducer } from "react";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { View } from 'react-native';
+import React, { useReducer } from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import {
   useAppDispatch,
   useAppSelector,
   useNavigationParams,
-} from "../../hooks";
-import { setUserData } from "../../services";
-import { authInputContainer, onboardingAuth } from "../../constants";
-import { initialOnboardState, onboardingReducer } from "./reducer";
+} from '../../hooks';
+import { setUserData } from '../../services';
+import { authInputContainer, onboardingAuth } from '../../constants';
+import { initialOnboardState, onboardingReducer } from './reducer';
 
-import ScreenTemplate from "../../screens/template/ScreenTemplate";
-import AuthHeader from "./components/AuthHeader";
-import Button from "../../components/Button";
-import AuthInput from "./components/AuthInput";
-import { checkOnboardingValues } from "../../utils/helpers";
+import ScreenTemplate from '../../screens/template/ScreenTemplate';
+import AuthHeader from './components/AuthHeader';
+import Button from '../../components/Button';
+import AuthInput from './components/AuthInput';
+import { checkOnboardingValues } from '../../utils/helpers';
 
 const Onboarding = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigationParams();
-  const { user } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector(state => state.auth);
   const [onboardValues, onboardDispatch] = useReducer(
     onboardingReducer,
-    initialOnboardState
+    initialOnboardState,
   );
 
   const { inputs, ...rest } = onboardingAuth;
@@ -49,9 +49,9 @@ const Onboarding = () => {
               name={name}
               key={index}
               {...rest}
-              onChangeText={(text) => {
+              onChangeText={text => {
                 onboardDispatch({
-                  type: "SET_VALUES",
+                  type: 'SET_VALUES',
                   payload: {
                     [name]: text,
                   },
@@ -62,7 +62,7 @@ const Onboarding = () => {
           <View>
             <Button
               icon={false}
-              buttonText="save changes"
+              buttonText='save changes'
               onPress={handleOnboardUser}
             />
           </View>

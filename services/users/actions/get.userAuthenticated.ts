@@ -1,13 +1,13 @@
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from 'firebase/auth';
 
-import { AppDispatch } from "../../../store";
-import { auth } from "../../../config/firebase";
+import { AppDispatch } from '../../../store';
+import { auth } from '../../../config/firebase';
 import {
-    loginUserToState,
-    togglePending,
-} from "../../../store/slices/authSlice";
-import getUserDataFromStore from "./get.userDataFromStore";
-import { Dispatch, SetStateAction } from "react";
+  loginUserToState,
+  togglePending,
+} from '../../../store/slices/authSlice';
+import getUserDataFromStore from './get.userDataFromStore';
+import { Dispatch, SetStateAction } from 'react';
 
 const getUserAuthenticated =
   (setIsRequestCompleted: Dispatch<SetStateAction<boolean>>) =>
@@ -15,7 +15,7 @@ const getUserAuthenticated =
     dispatch(togglePending(true));
 
     try {
-      onAuthStateChanged(auth, async (userCredential) => {
+      onAuthStateChanged(auth, async userCredential => {
         if (userCredential) {
           const user = {
             email: userCredential.email as string,
@@ -24,7 +24,7 @@ const getUserAuthenticated =
           };
 
           const userData = await dispatch(
-            getUserDataFromStore(user.userId)
+            getUserDataFromStore(user.userId),
           ).finally(() => setIsRequestCompleted(true));
 
           if (userData) {

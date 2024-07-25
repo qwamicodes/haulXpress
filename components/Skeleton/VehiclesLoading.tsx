@@ -1,11 +1,11 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
 import {
   Fade,
   Placeholder,
   PlaceholderLine,
   PlaceholderMedia,
-} from "rn-placeholder";
+} from 'rn-placeholder';
 
 const VehiclesLoading = () => {
   return (
@@ -26,7 +26,7 @@ const VehiclesLoading = () => {
 export default VehiclesLoading;
 
 const styles = StyleSheet.create({
-  container: { width: 350, marginVertical: 16, overflow: "hidden" },
+  container: { width: 350, marginVertical: 16, overflow: 'hidden' },
   upper: {
     // flexDirection: "row",
     width: 350,

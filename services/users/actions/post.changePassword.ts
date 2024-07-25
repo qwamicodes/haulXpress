@@ -1,10 +1,10 @@
-import { getAuth, updatePassword, User } from "firebase/auth";
+import { getAuth, updatePassword, User } from 'firebase/auth';
 
-import { AppDispatch } from "../../../store";
-import { togglePending } from "../../../store/slices/authSlice";
-import { STRINGS } from "../../../constants";
+import { AppDispatch } from '../../../store';
+import { togglePending } from '../../../store/slices/authSlice';
+import { STRINGS } from '../../../constants';
 
-import ErrorHandler from "../../../features/ErrorHandler";
+import ErrorHandler from '../../../features/ErrorHandler';
 
 const auth = getAuth();
 

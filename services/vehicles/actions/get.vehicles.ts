@@ -1,14 +1,14 @@
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from 'firebase/firestore';
 
-import { AppDispatch } from "../../../store";
-import { db } from "../../../config/firebase";
-import { togglePending } from "../../../store/slices/authSlice";
-import { addVehicles } from "../../../store/slices/vehiclesSlice";
+import { AppDispatch } from '../../../store';
+import { db } from '../../../config/firebase';
+import { togglePending } from '../../../store/slices/authSlice';
+import { addVehicles } from '../../../store/slices/vehiclesSlice';
 
 const getVehicles = () => async (dispatch: AppDispatch) => {
   dispatch(togglePending(true));
 
-  const docRef = doc(db, "vehicles");
+  const docRef = doc(db, 'vehicles');
   try {
     const docSnap = await getDoc(docRef);
 

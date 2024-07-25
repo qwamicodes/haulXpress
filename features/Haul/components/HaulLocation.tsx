@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { Dispatch, SetStateAction, useEffect } from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
-import LocatonSearchInput from "./LocatonSearchInput";
-import { locationComponentProp } from "../../../types";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { getMapDistance } from "../../../services";
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
+import LocatonSearchInput from './LocatonSearchInput';
+import { locationComponentProp } from '../../../types';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
+import { getMapDistance } from '../../../services';
 
 type props = {
   setShowLocationComponent: Dispatch<SetStateAction<locationComponentProp>>;
@@ -14,7 +14,7 @@ type props = {
 const HaulLocation = ({ ...rest }: props) => {
   const dispatch = useAppDispatch();
   const { destination, pickup, distance } = useAppSelector(
-    (state) => state.locations
+    state => state.locations,
   );
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const HaulLocation = ({ ...rest }: props) => {
           </Text>
           <LocatonSearchInput
             value={pickup.name}
-            type="pickup"
-            placeholder="Pickup address"
+            type='pickup'
+            placeholder='Pickup address'
             {...rest}
           />
         </View>
@@ -48,15 +48,15 @@ const HaulLocation = ({ ...rest }: props) => {
           </Text>
           <LocatonSearchInput
             value={destination.name}
-            type="destination"
-            placeholder="Destination address"
+            type='destination'
+            placeholder='Destination address'
             {...rest}
           />
         </View>
 
         {distance ? (
           <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
+            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >
             <Text style={styles.selectionContainerHeaderText}>Distance</Text>
             <Text style={styles.distanceText}>{distance}</Text>
@@ -73,10 +73,10 @@ export default HaulLocation;
 
 const styles = StyleSheet.create({
   container: { flex: 1, gap: 32 },
-  selectionHeader: { width: "75%" },
+  selectionHeader: { width: '75%' },
   selectionHeaderText: {
     color: DEFAULT_COLORS.gray[700],
-    ...textStyles["2xl"].medium,
+    ...textStyles['2xl'].medium,
   },
   selectionContainer: {},
   selectionContainerHeader: { gap: 16 },
@@ -85,5 +85,5 @@ const styles = StyleSheet.create({
     ...textStyles.sm.regular,
   },
   inputHolder: { gap: 16 },
-  distanceText: { color: DEFAULT_COLORS.gray[700], ...textStyles["xl"].medium },
+  distanceText: { color: DEFAULT_COLORS.gray[700], ...textStyles['xl'].medium },
 });

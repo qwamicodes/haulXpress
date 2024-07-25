@@ -1,54 +1,53 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { RootStackParamList } from "../types";
-import { useAppSelector } from "../hooks";
+import { RootStackParamList } from '../types';
+import { useAppSelector } from '../hooks';
 
-import TabsNavigator from "./TabsNavigator";
-import Walkthrough from "../features/Walkthrough";
-import Login from "../features/Authentication/Login";
-import Register from "../features/Authentication/Register";
-import Onboarding from "../features/Authentication/Onboarding";
-import ScreenHeaderTitle from "../components/header/ScreenHeaderTitle";
+import TabsNavigator from './TabsNavigator';
+import Walkthrough from '../features/Walkthrough';
+import Login from '../features/Authentication/Login';
+import Register from '../features/Authentication/Register';
+import Onboarding from '../features/Authentication/Onboarding';
+import ScreenHeaderTitle from '../components/header/ScreenHeaderTitle';
 
 const RootNavigator = () => {
-  const { isAuthenticated } = useAppSelector((state) => state.auth);
+  const { isAuthenticated } = useAppSelector(state => state.auth);
 
   const { Navigator, Group, Screen } =
     createNativeStackNavigator<RootStackParamList>();
 
   return (
     <Navigator
-      initialRouteName={isAuthenticated ? "TabsStack" : "Walkthrough"}
+      initialRouteName={isAuthenticated ? 'TabsStack' : 'Walkthrough'}
       screenOptions={{
-        header: (props) => <ScreenHeaderTitle {...props} />,
+        header: props => <ScreenHeaderTitle {...props} />,
         headerShown: false,
       }}
     >
       {isAuthenticated ? (
-        <Group key="authenticated">
-          <Screen name="TabsStack" component={TabsNavigator} />
-          <Screen name="Onboarding" component={Onboarding} />
+        <Group key='authenticated'>
+          <Screen name='TabsStack' component={TabsNavigator} />
+          <Screen name='Onboarding' component={Onboarding} />
         </Group>
       ) : (
         <Group
-          key="unathenticated"
+          key='unathenticated'
           screenOptions={{
             headerShown: false,
           }}
         >
-          <Screen name="Login" component={Login} />
-          <Screen name="Register" component={Register} />
+          <Screen name='Login' component={Login} />
+          <Screen name='Register' component={Register} />
         </Group>
       )}
       {!isAuthenticated && (
         <Group
-          key="others"
+          key='others'
           screenOptions={{
             headerShown: false,
           }}
         >
-          <Screen name="Walkthrough" component={Walkthrough} />
+          <Screen name='Walkthrough' component={Walkthrough} />
         </Group>
       )}
     </Navigator>

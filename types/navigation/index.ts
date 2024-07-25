@@ -1,5 +1,5 @@
-import { NavigatorScreenParams } from "@react-navigation/native";
-import { IJourney } from "..";
+import { NavigatorScreenParams } from '@react-navigation/native';
+import { IJourney } from '..';
 
 //screen param lists
 export type RootStackParamList = {
@@ -26,13 +26,13 @@ export type HomeParamList = {
   Start: undefined;
   AvailableTrucks: undefined;
   HaulInformation: {
-    journey: Omit<IJourney, "status" | "location">;
+    journey: Omit<IJourney, 'status' | 'location'>;
   };
   ConfirmHauling: {
-    journey: Omit<IJourney, "status" | "location">;
+    journey: Omit<IJourney, 'status' | 'location'>;
   };
   ConfirmedHauling: {
-    journey: Omit<IJourney, "status" | "location">;
+    journey: Omit<IJourney, 'status' | 'location'>;
   };
   MapView: undefined;
 };

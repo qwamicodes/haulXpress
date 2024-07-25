@@ -1,9 +1,9 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
-import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
-import Tab from "./component/Tab";
-import { DEFAULT_COLORS } from "../../constants";
+import Tab from './component/Tab';
+import { DEFAULT_COLORS } from '../../constants';
 
 const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
@@ -15,7 +15,7 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps) => {
 
         const onPress = () => {
           const event = navigation.emit({
-            type: "tabPress",
+            type: 'tabPress',
             target: route.key,
             canPreventDefault: true,
           });
@@ -29,7 +29,7 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps) => {
 
         const onLongPress = () => {
           navigation.emit({
-            type: "tabLongPress",
+            type: 'tabLongPress',
             target: route.key,
           });
         };
@@ -55,6 +55,6 @@ const styles = StyleSheet.create({
   tabBar: {
     height: 90,
     backgroundColor: DEFAULT_COLORS.white,
-    flexDirection: "row",
+    flexDirection: 'row',
   },
 });

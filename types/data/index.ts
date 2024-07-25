@@ -4,7 +4,7 @@ export interface IWalkThroughItem {
   description: string;
 }
 
-export type paymentType = "momo" | "cash";
+export type paymentType = 'momo' | 'cash';
 
 export type paymentMethod = {
   name: string;

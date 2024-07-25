@@ -1,8 +1,8 @@
-import { GOOGLE_MAP_API_KEY } from "@env";
+import { GOOGLE_MAP_API_KEY } from '@env';
 
-import { AppDispatch } from "../../../store";
-import { addDistance, addDuration } from "../../../store/slices/locationsSlice";
-import { kmToMiles, secondsToDuration } from "../../../utils/helpers";
+import { AppDispatch } from '../../../store';
+import { addDistance, addDuration } from '../../../store/slices/locationsSlice';
+import { kmToMiles, secondsToDuration } from '../../../utils/helpers';
 
 const getMapDistance =
   (origins: string, destinations: string) => async (dispatch: AppDispatch) => {

@@ -1,7 +1,7 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { haulingStateProps, IHaulType } from "../../types";
-import { haulExistsInState } from "../../utils/helpers";
+import { haulingStateProps, IHaulType } from '../../types';
+import { haulExistsInState } from '../../utils/helpers';
 
 const initialState: haulingStateProps = {
   productType: [],
@@ -9,23 +9,23 @@ const initialState: haulingStateProps = {
 };
 
 const haulSlice = createSlice({
-  name: "haul",
+  name: 'haul',
   initialState,
   reducers: {
     addHaulingData: (
       state,
-      action: PayloadAction<{ select: IHaulType; type: "product" | "vehicle" }>
+      action: PayloadAction<{ select: IHaulType; type: 'product' | 'vehicle' }>,
     ) => {
       const { payload } = action;
 
-      if (payload.type === "vehicle") {
+      if (payload.type === 'vehicle') {
         const exists = haulExistsInState(state.vehicleType, payload.select);
 
         if (!exists) {
           state.vehicleType = [...state.vehicleType, payload.select];
         } else {
           const filteredState = state.vehicleType.filter(
-            ({ value }) => value !== payload.select.value
+            ({ value }) => value !== payload.select.value,
           );
           state.vehicleType = filteredState;
         }
@@ -33,7 +33,7 @@ const haulSlice = createSlice({
         state.productType = [payload.select];
       }
     },
-    resetSelection: (state) => {
+    resetSelection: state => {
       state.vehicleType.length = 0;
       state.productType.length = 0;
     },

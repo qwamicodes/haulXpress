@@ -1,14 +1,14 @@
-import { User, getAuth, signOut } from "firebase/auth";
-import { FirebaseError } from "firebase/app";
+import { User, getAuth, signOut } from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
 
-import { AppDispatch } from "../../../store";
-import { STRINGS } from "../../../constants";
+import { AppDispatch } from '../../../store';
+import { STRINGS } from '../../../constants';
 import {
   logoutUserFromState,
   togglePending,
-} from "../../../store/slices/authSlice";
+} from '../../../store/slices/authSlice';
 
-import ErrorHandler from "../../../features/ErrorHandler";
+import ErrorHandler from '../../../features/ErrorHandler';
 
 const auth = getAuth();
 

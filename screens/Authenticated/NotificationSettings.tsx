@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
-import { DEFAULT_COLORS, screenStyle, textStyles } from "../../constants";
+import { DEFAULT_COLORS, screenStyle, textStyles } from '../../constants';
 
 const NotificationSettings = () => {
   const notificationSettings = [
-    { title: "New truck listing" },
-    { title: "Journey updates" },
-    { title: "Promotions" },
+    { title: 'New truck listing' },
+    { title: 'Journey updates' },
+    { title: 'Promotions' },
   ];
 
   return (

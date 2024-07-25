@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
-import { useAppSelector } from "../../../hooks";
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
+import { useAppSelector } from '../../../hooks';
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
 
 const OccupationBadge = ({}) => {
-  const { user } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector(state => state.auth);
 
   return (
     <View style={styles.badge}>

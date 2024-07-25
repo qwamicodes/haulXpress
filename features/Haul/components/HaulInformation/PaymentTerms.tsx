@@ -1,7 +1,7 @@
-import { Text, View } from "react-native";
-import React from "react";
+import { Text, View } from 'react-native';
+import React from 'react';
 
-import { DEFAULT_COLORS, textStyles } from "../../../../constants";
+import { DEFAULT_COLORS, textStyles } from '../../../../constants';
 
 const PaymentTerms = () => {
   return (

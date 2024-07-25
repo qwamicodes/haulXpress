@@ -1,8 +1,8 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React from 'react';
 
-import { IAuthInput } from "../../../types";
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
+import { IAuthInput } from '../../../types';
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
 
 const AuthInput = ({ label, ...rest }: IAuthInput) => {
   return (
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   container: { gap: 8 },
   labelText: {
     ...textStyles.base.regular,
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     color: DEFAULT_COLORS.gray[800],
   },
   inputContainer: {},

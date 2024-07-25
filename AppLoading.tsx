@@ -1,6 +1,6 @@
-import * as SplashScreen from "expo-splash-screen";
-import { Fragment, ReactNode, useEffect } from "react";
-import { useCachedResources } from "./hooks";
+import * as SplashScreen from 'expo-splash-screen';
+import { ReactNode, useEffect } from 'react';
+import { useCachedResources } from './hooks';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -15,5 +15,5 @@ export const AppLoading = ({ children }: { children: ReactNode }) => {
 
   if (!isLoadingComplete) return null;
 
-  return <Fragment>{children}</Fragment>;
+  return <>{children}</>;
 };

@@ -1,12 +1,12 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-import { AppDispatch } from "../../../store";
-import { updateUserDataInState } from "../../../store/slices/authSlice";
+import { AppDispatch } from '../../../store';
+import { updateUserDataInState } from '../../../store/slices/authSlice';
 
 const auth = getAuth();
 
 const getUserData = () => (dispatch: AppDispatch) => {
-  onAuthStateChanged(auth, (userCredential) => {
+  onAuthStateChanged(auth, userCredential => {
     if (userCredential) {
       const user = {
         email: userCredential.email as string,

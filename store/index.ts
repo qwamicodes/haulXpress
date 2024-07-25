@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import authSlice from "./slices/authSlice";
-import haulSlice from "./slices/haulSlice";
-import locationsSlice from "./slices/locationsSlice";
-import vehiclesSlice from "./slices/vehiclesSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import authSlice from './slices/authSlice';
+import haulSlice from './slices/haulSlice';
+import locationsSlice from './slices/locationsSlice';
+import vehiclesSlice from './slices/vehiclesSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ const store = configureStore({
     locations: locationsSlice,
     vehicles: vehiclesSlice,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: false,
     }),

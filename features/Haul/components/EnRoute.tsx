@@ -1,9 +1,9 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
 
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
 
-import IconRenderer from "../../../components/Icon";
+import IconRenderer from '../../../components/Icon';
 
 const EnRoute = () => {
   return (
@@ -11,7 +11,7 @@ const EnRoute = () => {
       <View>
         <IconRenderer
           light
-          iconType="truck"
+          iconType='truck'
           color={DEFAULT_COLORS.green[600]}
         />
       </View>
@@ -26,12 +26,12 @@ export default EnRoute;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingVertical: 8,
     paddingHorizontal: 8,
     gap: 8,
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: DEFAULT_COLORS.gray[800],
     borderRadius: 100,
   },

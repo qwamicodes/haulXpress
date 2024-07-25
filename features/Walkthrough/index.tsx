@@ -56,9 +56,9 @@ const Walkthrough = () => {
               <View style={styles.paginationContainer}>
                 <View style={styles.dotsContainer}>
                   {walkthroughItems.length > 1 &&
-                    walkthroughItems.map((_, i) => (
+                    walkthroughItems.map(({ title }, i) => (
                       <TouchableOpacity
-                        key={i}
+                        key={title}
                         activeOpacity={0.8}
                         style={[
                           styles.dots,

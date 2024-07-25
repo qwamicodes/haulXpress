@@ -1,13 +1,13 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 
 import {
   DEFAULT_COLORS,
   textStyles,
   centeringStyle,
-} from "../../../../constants";
+} from '../../../../constants';
 
-import { IHaulType } from "../../../../types/features/haul";
+import { IHaulType } from '../../../../types/features/haul';
 
 const HaulHistoryItem = ({ name }: IHaulType) => {
   return (
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
   text: {
     color: DEFAULT_COLORS.gray[500],
     ...textStyles.xs.regular,
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
   },
 });

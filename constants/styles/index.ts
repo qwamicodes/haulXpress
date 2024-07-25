@@ -1,6 +1,6 @@
-import { Platform, ViewStyle } from "react-native";
-import { omit } from "lodash";
-import { DEFAULT_COLORS } from "../colors";
+import { Platform, ViewStyle } from 'react-native';
+import { omit } from 'lodash';
+import { DEFAULT_COLORS } from '../colors';
 
 type haulStylesProps = {
   container: ViewStyle;
@@ -12,10 +12,10 @@ type haulStylesProps = {
   historyItem: ViewStyle;
 };
 
-const notoSansRegular = "NotoSans-Regular";
-const notoSansMedium = "NotoSans-Medium";
-const notoSansSemiBold = "NotoSans-SemiBold";
-const notoSansBold = "NotoSans-Bold";
+const notoSansRegular = 'NotoSans-Regular';
+const notoSansMedium = 'NotoSans-Medium';
+const notoSansSemiBold = 'NotoSans-SemiBold';
+const notoSansBold = 'NotoSans-Bold';
 
 //typography styles
 export const textStyles = {
@@ -49,49 +49,49 @@ export const textStyles = {
     semibold: { lineHeight: 28, fontSize: 20, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 28, fontSize: 20, fontFamily: notoSansBold },
   },
-  "2xl": {
+  '2xl': {
     regular: { lineHeight: 32, fontSize: 24, fontFamily: notoSansRegular },
     medium: { lineHeight: 32, fontSize: 24, fontFamily: notoSansMedium },
     semibold: { lineHeight: 32, fontSize: 24, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 32, fontSize: 24, fontFamily: notoSansBold },
   },
-  "3xl": {
+  '3xl': {
     regular: { lineHeight: 36, fontSize: 30, fontFamily: notoSansRegular },
     medium: { lineHeight: 36, fontSize: 30, fontFamily: notoSansMedium },
     semibold: { lineHeight: 36, fontSize: 30, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 36, fontSize: 30, fontFamily: notoSansBold },
   },
-  "4xl": {
+  '4xl': {
     regular: { lineHeight: 40, fontSize: 36, fontFamily: notoSansRegular },
     medium: { lineHeight: 40, fontSize: 36, fontFamily: notoSansMedium },
     semibold: { lineHeight: 40, fontSize: 36, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 40, fontSize: 36, fontFamily: notoSansBold },
   },
-  "5xl": {
+  '5xl': {
     regular: { lineHeight: 48, fontSize: 48, fontFamily: notoSansRegular },
     medium: { lineHeight: 48, fontSize: 48, fontFamily: notoSansMedium },
     semibold: { lineHeight: 48, fontSize: 48, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 48, fontSize: 48, fontFamily: notoSansBold },
   },
-  "6xl": {
+  '6xl': {
     regular: { lineHeight: 60, fontSize: 60, fontFamily: notoSansRegular },
     medium: { lineHeight: 60, fontSize: 60, fontFamily: notoSansMedium },
     semibold: { lineHeight: 60, fontSize: 60, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 60, fontSize: 60, fontFamily: notoSansBold },
   },
-  "7xl": {
+  '7xl': {
     regular: { lineHeight: 72, fontSize: 72, fontFamily: notoSansRegular },
     medium: { lineHeight: 72, fontSize: 72, fontFamily: notoSansMedium },
     semibold: { lineHeight: 72, fontSize: 72, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 72, fontSize: 72, fontFamily: notoSansBold },
   },
-  "8xl": {
+  '8xl': {
     regular: { lineHeight: 96, fontSize: 96, fontFamily: notoSansRegular },
     medium: { lineHeight: 96, fontSize: 96, fontFamily: notoSansMedium },
     semibold: { lineHeight: 96, fontSize: 96, fontFamily: notoSansSemiBold },
     bold: { lineHeight: 96, fontSize: 96, fontFamily: notoSansBold },
   },
-  "9xl": {
+  '9xl': {
     regular: { lineHeight: 128, fontSize: 128, fontFamily: notoSansRegular },
     medium: { lineHeight: 128, fontSize: 128, fontFamily: notoSansMedium },
     semibold: { lineHeight: 128, fontSize: 128, fontFamily: notoSansSemiBold },
@@ -103,16 +103,16 @@ export const screenStyle: ViewStyle = {
   flex: 1,
   paddingHorizontal: 24,
   backgroundColor: DEFAULT_COLORS.gray[50],
-  paddingTop: Platform.OS === "android" ? 24 : undefined,
+  paddingTop: Platform.OS === 'android' ? 24 : undefined,
 };
 
 export const centeringStyle: ViewStyle = {
-  justifyContent: "center",
-  alignItems: "center",
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 export const authInputContainer: ViewStyle = {
-  ...omit(screenStyle, "backgroundColor"),
+  ...omit(screenStyle, 'backgroundColor'),
   paddingHorizontal: 24,
   gap: 24,
   paddingTop: 24,
@@ -121,29 +121,29 @@ export const authInputContainer: ViewStyle = {
 export const haulStyles: haulStylesProps = {
   container: {
     flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
     gap: 32,
   },
-  progress: { flexBasis: "5%", ...centeringStyle },
+  progress: { flexBasis: '5%', ...centeringStyle },
   backButton: { paddingVertical: 8 },
-  holder: { flex: 1, gap: 32, width: "100%" },
-  historyContainer: { flexDirection: "row", gap: 16, overflow: "hidden" },
+  holder: { flex: 1, gap: 32, width: '100%' },
+  historyContainer: { flexDirection: 'row', gap: 16, overflow: 'hidden' },
   history: {
     flex: 1,
   },
-  historyItem: { flex: 1, gap: -16, flexDirection: "row" },
+  historyItem: { flex: 1, gap: -16, flexDirection: 'row' },
 };
 
 export const vertically: ViewStyle = {
-  width: "100%",
-  flexDirection: "row",
-  justifyContent: "space-between",
-  alignItems: "center",
+  width: '100%',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
 };
 
 export const verticalTopBorder: ViewStyle = {
-  width: "100%",
+  width: '100%',
   gap: 32,
   borderTopColor: DEFAULT_COLORS.gray[200],
   borderTopWidth: 1,
@@ -151,7 +151,7 @@ export const verticalTopBorder: ViewStyle = {
 };
 
 export const verticalBottomBorder: ViewStyle = {
-  width: "100%",
+  width: '100%',
   gap: 32,
   borderBottomColor: DEFAULT_COLORS.gray[200],
   borderBottomWidth: 1,

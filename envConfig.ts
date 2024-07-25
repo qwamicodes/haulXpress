@@ -10,7 +10,7 @@ import {
   PROJECT_ID,
   STORAGE_BUCKET,
   GOOGLE_MAP_API_KEY,
-} from "@env";
+} from '@env';
 
 interface Config {
   ANDROID_ID: string;

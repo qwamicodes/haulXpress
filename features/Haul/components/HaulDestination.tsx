@@ -1,16 +1,16 @@
-import { View } from "react-native";
-import React, { Dispatch, SetStateAction } from "react";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { View } from 'react-native';
+import React, { Dispatch, SetStateAction } from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { haulStyles } from "../../../constants";
-import { IHaulType, locationComponentProp } from "../../../types";
+import { haulStyles } from '../../../constants';
+import { IHaulType, locationComponentProp } from '../../../types';
 
-import ProgressBar from "./ProgressBar";
-import HaulHistory from "./History";
-import Button from "../../../components/Button";
-import HaulLocation from "./HaulLocation";
-import LocationSearchComponent from "./LocationSearchComponent";
-import { useAppSelector, useNavigationParams } from "../../../hooks";
+import ProgressBar from './ProgressBar';
+import HaulHistory from './History';
+import Button from '../../../components/Button';
+import HaulLocation from './HaulLocation';
+import LocationSearchComponent from './LocationSearchComponent';
+import { useAppSelector, useNavigationParams } from '../../../hooks';
 
 interface Props {
   index: number;
@@ -20,7 +20,7 @@ interface Props {
   vehicleType: IHaulType[];
   showLocationComponent: locationComponentProp;
   setShowLocationComponent: Dispatch<SetStateAction<locationComponentProp>>;
-  handleNavigateSelection: (type: "next" | "previous") => void;
+  handleNavigateSelection: (type: 'next' | 'previous') => void;
 }
 
 const HaulDestination = ({
@@ -35,7 +35,7 @@ const HaulDestination = ({
 }: Props) => {
   const navigation = useNavigationParams();
   const { destination, pickup, distance } = useAppSelector(
-    (state) => state.locations
+    state => state.locations,
   );
 
   const valid = pickup.name && destination.name;
@@ -60,20 +60,20 @@ const HaulDestination = ({
       <KeyboardAwareScrollView
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        style={{ flex: 1, width: "100%" }}
+        style={{ flex: 1, width: '100%' }}
       >
         <HaulLocation setShowLocationComponent={setShowLocationComponent} />
       </KeyboardAwareScrollView>
-      <View style={{ width: "100%" }}>
+      <View style={{ width: '100%' }}>
         <Button
           activeOpacity={valid && distance ? 1 : 0.5}
           style={{ opacity: valid && distance ? 1 : 0.5 }}
           onPress={
             valid && distance
               ? () =>
-                  navigation.navigate("TabsStack", {
-                    screen: "Haul",
-                    params: { screen: "AvailableTrucks" },
+                  navigation.navigate('TabsStack', {
+                    screen: 'Haul',
+                    params: { screen: 'AvailableTrucks' },
                   })
               : undefined
           }

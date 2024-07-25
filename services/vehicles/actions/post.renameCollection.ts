@@ -5,10 +5,10 @@ import {
   deleteDoc,
   DocumentData,
   doc,
-} from "firebase/firestore";
-import { db } from "../../../config/firebase";
-import { AppDispatch } from "../../../store";
-import { togglePending } from "../../../store/slices/authSlice";
+} from 'firebase/firestore';
+import { db } from '../../../config/firebase';
+import { AppDispatch } from '../../../store';
+import { togglePending } from '../../../store/slices/authSlice';
 
 const renameCollection =
   (originalCollection: string, newCollection: string) =>
@@ -24,7 +24,7 @@ const renameCollection =
       const newCollectionRef = collection(db, newCollection);
 
       // Iterate through the documents and move them to the new collection
-      querySnapshot.forEach(async (docu) => {
+      querySnapshot.forEach(async docu => {
         const documentData = docu.data() as DocumentData;
 
         // Create a new document in the new collection

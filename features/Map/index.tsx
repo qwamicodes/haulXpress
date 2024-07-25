@@ -1,29 +1,29 @@
-import { StyleSheet, Dimensions, View, TouchableOpacity } from "react-native";
-import React from "react";
-import MapView, { Marker } from "react-native-maps";
+import { StyleSheet, Dimensions, View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import MapView, { Marker } from 'react-native-maps';
 
-import { useAppSelector, useNavigationParams } from "../../hooks";
-import { DEFAULT_COLORS, screenStyle, centeringStyle } from "../../constants";
-import { omit } from "lodash";
-import IconRenderer from "../../components/Icon";
+import { useAppSelector, useNavigationParams } from '../../hooks';
+import { DEFAULT_COLORS, screenStyle, centeringStyle } from '../../constants';
+import { omit } from 'lodash';
+import IconRenderer from '../../components/Icon';
 
 const MapViewComponent = () => {
   const navigation = useNavigationParams();
 
-  const { destination, pickup } = useAppSelector((state) => state.locations);
+  const { destination, pickup } = useAppSelector(state => state.locations);
   const locationMarkers = [pickup, destination];
 
   return (
-    <View style={[omit(screenStyle, "paddingHorizontal")]}>
+    <View style={[omit(screenStyle, 'paddingHorizontal')]}>
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         activeOpacity={0.8}
         style={styles.buttonContainer}
       >
-        <IconRenderer iconType="arrorBack" light={false} />
+        <IconRenderer iconType='arrorBack' light={false} />
       </TouchableOpacity>
       <MapView
-        provider="google"
+        provider='google'
         region={{
           latitude: pickup.lat,
           longitude: destination.lng,
@@ -46,7 +46,7 @@ const MapViewComponent = () => {
 
 export default MapViewComponent;
 
-const { width, height } = Dimensions.get("screen");
+const { width, height } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
   mapContainer: {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     zIndex: 50,
   },
   buttonContainer: {
-    position: "absolute",
+    position: 'absolute',
     top: 50,
     left: 24,
     height: 40,

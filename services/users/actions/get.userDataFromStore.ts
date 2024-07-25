@@ -1,18 +1,18 @@
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, doc } from 'firebase/firestore';
 
-import { AppDispatch } from "../../../store";
+import { AppDispatch } from '../../../store';
 import {
   togglePending,
   updateUserDataInState,
-} from "../../../store/slices/authSlice";
-import { db } from "../../../config/firebase";
-import { STRINGS } from "../../../constants";
+} from '../../../store/slices/authSlice';
+import { db } from '../../../config/firebase';
+import { STRINGS } from '../../../constants';
 
 const getUserDataFromStore =
   (userId: string) => async (dispatch: AppDispatch) => {
     dispatch(togglePending(true));
 
-    const userDocSnapshot = await getDoc(doc(db, "users", userId));
+    const userDocSnapshot = await getDoc(doc(db, 'users', userId));
 
     dispatch(togglePending(false));
 

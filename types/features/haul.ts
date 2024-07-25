@@ -1,19 +1,19 @@
-type others = "others";
+type others = 'others';
 
 type productType =
-  | "agriculture"
-  | "logistics"
-  | "construction"
-  | "waste-management";
+  | 'agriculture'
+  | 'logistics'
+  | 'construction'
+  | 'waste-management';
 // | others;
 
 export type vehicleType =
-  | "commercial"
-  | "truck"
-  | "container"
-  | "tow"
-  | "dump"
-  | "construction";
+  | 'commercial'
+  | 'truck'
+  | 'container'
+  | 'tow'
+  | 'dump'
+  | 'construction';
 // | others;
 
 export type IHaulType = {
@@ -30,11 +30,11 @@ export type haulSelection = {
   percentage: number;
   subHeaderText: string;
   buttonText: string;
-  type: "product" | "vehicle";
+  type: 'product' | 'vehicle';
   data: IHaulType[];
 };
 
-export type locationType = "pickup" | "destination";
+export type locationType = 'pickup' | 'destination';
 
 export type ILocations = {
   name: string;

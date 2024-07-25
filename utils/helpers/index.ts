@@ -1,17 +1,17 @@
-import * as ImagePicker from "expo-image-picker";
+import * as ImagePicker from 'expo-image-picker';
 
 import {
   STRINGS,
   authPasswordLength,
   emailRegex,
   phoneNumberRegex,
-} from "../../constants";
-import { UserData, validationType } from "../../types";
-import { IHaulType } from "../../types/features/haul";
+} from '../../constants';
+import { UserData, validationType } from '../../types';
+import { IHaulType } from '../../types/features/haul';
 
 export const checkAuthValues = ({
   email,
-  password = "password",
+  password = 'password',
 }: {
   email: string;
   password?: string;
@@ -28,7 +28,7 @@ export const checkAuthValues = ({
   if (password.length <= authPasswordLength)
     return { valid: false, message: STRINGS.invalidPasswordLength };
 
-  return { message: "", valid: true };
+  return { message: '', valid: true };
 };
 
 export const checkOnboardingValues = ({
@@ -37,7 +37,7 @@ export const checkOnboardingValues = ({
   phoneNumber,
 }: Pick<
   UserData,
-  "displayName" | "phoneNumber" | "occupation"
+  'displayName' | 'phoneNumber' | 'occupation'
 >): validationType => {
   //check if form fields are valid
   if (!(displayName && occupation && phoneNumber))
@@ -47,13 +47,13 @@ export const checkOnboardingValues = ({
   if (!phoneNumberRegex.test(phoneNumber))
     return { valid: false, message: STRINGS.invalidPhoneNumber };
 
-  return { message: "", valid: true };
+  return { message: '', valid: true };
 };
 
 export const pickImage = async (setImage: (image: string) => void) => {
   let galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-  if (galleryStatus.status === "granted") {
+  if (galleryStatus.status === 'granted') {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
@@ -71,7 +71,7 @@ export const pickImage = async (setImage: (image: string) => void) => {
 
 export const checkPassword = (
   password: string,
-  confirmPassword: string
+  confirmPassword: string,
 ): validationType => {
   if (!(password && confirmPassword))
     return { valid: false, message: STRINGS.fillfields };
@@ -82,7 +82,7 @@ export const checkPassword = (
   if (password.length <= authPasswordLength)
     return { valid: false, message: STRINGS.invalidPasswordLength };
 
-  return { valid: true, message: "" };
+  return { valid: true, message: '' };
 };
 
 export const haulExistsInState = (collection: IHaulType[], item: IHaulType) => {
@@ -98,7 +98,7 @@ export const haulExistsInState = (collection: IHaulType[], item: IHaulType) => {
 };
 
 export const convertMetresToKm = (meters: string | number) => {
-  if (typeof meters === "string") {
+  if (typeof meters === 'string') {
     meters = parseInt(meters);
   }
 

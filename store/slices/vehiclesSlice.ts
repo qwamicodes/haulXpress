@@ -1,19 +1,19 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { vehicleProps, vehiclesProps } from "../../types";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { vehicleProps, vehiclesProps } from '../../types';
 
 const initialState: vehiclesProps = {
   results: [],
 };
 
 const vehiclesSlice = createSlice({
-  name: "vehicles",
+  name: 'vehicles',
   initialState,
   reducers: {
     addVehicles: (state, action) => {
       const { payload } = action;
       state.results = payload;
     },
-    resetVehicles: (state) => {
+    resetVehicles: state => {
       state.results.length = 0;
     },
   },

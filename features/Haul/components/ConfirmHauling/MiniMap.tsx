@@ -1,14 +1,14 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
-import MapView, { Marker } from "react-native-maps";
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
+import MapView, { Marker } from 'react-native-maps';
 
-import { useNavigationParams } from "../../../../hooks";
-import { ILocation } from "../../../../types";
+import { useNavigationParams } from '../../../../hooks';
+import { ILocation } from '../../../../types';
 
 const MiniMap = ({
   destination,
   pickup,
-}: Pick<ILocation, "destination" | "pickup">) => {
+}: Pick<ILocation, 'destination' | 'pickup'>) => {
   const navigation = useNavigationParams();
 
   const locationMarkers = [pickup, destination];
@@ -16,16 +16,16 @@ const MiniMap = ({
   return (
     <TouchableOpacity
       onPress={() =>
-        navigation.navigate("TabsStack", {
-          screen: "Haul",
-          params: { screen: "MapView" },
+        navigation.navigate('TabsStack', {
+          screen: 'Haul',
+          params: { screen: 'MapView' },
         })
       }
       activeOpacity={0.8}
       style={styles.mapContainer}
     >
       <MapView
-        provider="google"
+        provider='google'
         region={{
           latitude: pickup.lat,
           longitude: destination.lng,
@@ -50,10 +50,10 @@ export default MiniMap;
 
 const styles = StyleSheet.create({
   mapContainer: {
-    width: "100%",
+    width: '100%',
     height: 200,
-    overflow: "hidden",
+    overflow: 'hidden',
     borderRadius: 24,
   },
-  map: { width: "100%", height: "100%" },
+  map: { width: '100%', height: '100%' },
 });

@@ -1,22 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
 import {
   DEFAULT_COLORS,
   centeringStyle,
   textStyles,
-} from "../../../../constants";
-import { journeyStatus } from "../../../../types";
+} from '../../../../constants';
+import { journeyStatus } from '../../../../types';
 
 type props = {
-  status: "available" | journeyStatus;
+  status: 'available' | journeyStatus;
 };
 
 const StatusBtn = ({ status }: props) => {
   const btnType = {
     available: styles.availableBtn,
     arrived: styles.successBtn,
-    "in-progress": styles.pendingBtn,
+    'in-progress': styles.pendingBtn,
     cancelled: styles.cancelledBtn,
   }[status];
 
@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
   text: {
     color: DEFAULT_COLORS.white,
     ...textStyles.xs.medium,
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
   },
 });

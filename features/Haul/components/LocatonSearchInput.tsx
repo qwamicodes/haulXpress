@@ -1,9 +1,9 @@
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import React, { Dispatch, SetStateAction } from "react";
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import React, { Dispatch, SetStateAction } from 'react';
 
-import IconRenderer from "../../../components/Icon";
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
-import { locationComponentProp, locationType } from "../../../types";
+import IconRenderer from '../../../components/Icon';
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
+import { locationComponentProp, locationType } from '../../../types';
 
 type props = {
   type: locationType;
@@ -25,7 +25,7 @@ const LocatonSearchInput = ({
   return (
     <View style={styles.inputContainer}>
       <IconRenderer
-        iconType="location"
+        iconType='location'
         color={DEFAULT_COLORS.gray[500]}
         light={false}
       />
@@ -50,17 +50,17 @@ export default LocatonSearchInput;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 12,
     padding: 12,
     borderRadius: 32,
     backgroundColor: DEFAULT_COLORS.white,
     shadowColor: DEFAULT_COLORS.gray[100],
     shadowOffset: { width: 0, height: 5 },
-    alignItems: "center",
+    alignItems: 'center',
   },
   input: {
-    width: "100%",
+    width: '100%',
     ...textStyles.xs.regular,
     color: DEFAULT_COLORS.gray[600],
   },

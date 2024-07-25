@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { DEFAULT_COLORS } from "../../../constants";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { DEFAULT_COLORS } from '../../../constants';
 
 const ProgressBar = ({ percentage }: { percentage: number }) => {
   return (
@@ -18,10 +18,10 @@ const styles = StyleSheet.create({
     width: 250,
     backgroundColor: DEFAULT_COLORS.teal[100],
     borderRadius: 16,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   progress: {
     backgroundColor: DEFAULT_COLORS.teal[400],
-    height: "100%",
+    height: '100%',
   },
 });

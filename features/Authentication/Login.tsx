@@ -1,24 +1,24 @@
-import { View } from "react-native";
-import React, { useReducer } from "react";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { omit } from "lodash";
+import { View } from 'react-native';
+import React, { useReducer } from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { omit } from 'lodash';
 
 import {
   useAppDispatch,
   useNavigationParams,
   useOauthentication,
-} from "../../hooks";
-import { DEFAULT_COLORS, loginAuth, authInputContainer } from "../../constants";
-import { authReducer, initialAuthState } from "./reducer";
+} from '../../hooks';
+import { DEFAULT_COLORS, loginAuth, authInputContainer } from '../../constants';
+import { authReducer, initialAuthState } from './reducer';
 
-import ScreenTemplate from "../../screens/template/ScreenTemplate";
-import AuthInput from "./components/AuthInput";
-import AuthHeader from "./components/AuthHeader";
-import Button from "../../components/Button";
-import AuthLink from "./components/AuthLink";
-import ThirdPartyButton from "./components/ThirdPartyButton";
-import { checkAuthValues } from "../../utils/helpers";
-import signinUser from "../../services/users/actions/post.signinUser";
+import ScreenTemplate from '../../screens/template/ScreenTemplate';
+import AuthInput from './components/AuthInput';
+import AuthHeader from './components/AuthHeader';
+import Button from '../../components/Button';
+import AuthLink from './components/AuthLink';
+import ThirdPartyButton from './components/ThirdPartyButton';
+import { checkAuthValues } from '../../utils/helpers';
+import signinUser from '../../services/users/actions/post.signinUser';
 
 const Login = () => {
   const navigate = useNavigationParams();
@@ -30,7 +30,7 @@ const Login = () => {
 
   const handleSubmitLogin = () => {
     const { email, password } = authValues;
-    const { message, valid } = checkAuthValues(omit(authValues, "password"));
+    const { message, valid } = checkAuthValues(omit(authValues, 'password'));
 
     if (valid) {
       dispatch(signinUser(email, password, navigate));
@@ -57,9 +57,9 @@ const Login = () => {
               name={name}
               key={index}
               {...rest}
-              onChangeText={(text) => {
+              onChangeText={text => {
                 authDispatch({
-                  type: "SET_VALUES",
+                  type: 'SET_VALUES',
                   payload: {
                     [name]: text,
                   },
@@ -69,31 +69,31 @@ const Login = () => {
           ))}
           <View
             style={{
-              justifyContent: "space-between",
-              flexDirection: "row",
+              justifyContent: 'space-between',
+              flexDirection: 'row',
             }}
           >
             <AuthLink
               activeOpacity={0.8}
-              onPress={() => navigate.navigate("Register")}
-              text="Don’t have an account? Create one"
+              onPress={() => navigate.navigate('Register')}
+              text='Don’t have an account? Create one'
             />
             <AuthLink
               activeOpacity={0.8}
               textColor={DEFAULT_COLORS.gray[500]}
-              text="Forgot password?"
+              text='Forgot password?'
             />
           </View>
           <View>
             <ThirdPartyButton
               onPress={() => promptAsync()}
-              buttonText="continue with google"
+              buttonText='continue with google'
             />
           </View>
           <View>
             <Button
               icon={false}
-              buttonText="sign in"
+              buttonText='sign in'
               onPress={handleSubmitLogin}
             />
           </View>

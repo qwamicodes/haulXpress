@@ -1,12 +1,12 @@
-import React from "react";
-import { View } from "react-native";
+import React from 'react';
+import { View } from 'react-native';
 
-import ScreenTemplate from "../../screens/template/ScreenTemplate";
-import HaulerHeader from "./components/HaulerHeader";
-import HaulerFooter from "./components/HaulerFooter";
-import Button from "../../components/Button";
-import { useAppDispatch } from "../../hooks";
-import { logoutUser } from "../../services";
+import ScreenTemplate from '../../screens/template/ScreenTemplate';
+import HaulerHeader from './components/HaulerHeader';
+import HaulerFooter from './components/HaulerFooter';
+import Button from '../../components/Button';
+import { useAppDispatch } from '../../hooks';
+import { logoutUser } from '../../services';
 
 const Hauler = () => {
   const dispatch = useAppDispatch();
@@ -20,13 +20,13 @@ const Hauler = () => {
       <HaulerHeader />
       <HaulerFooter />
       <View
-        style={{ flex: 0.2, justifyContent: "flex-end", alignItems: "center" }}
+        style={{ flex: 0.2, justifyContent: 'flex-end', alignItems: 'center' }}
       >
         <Button
-          buttonText="logout"
+          buttonText='logout'
           icon
           lightIcon
-          iconType="logout"
+          iconType='logout'
           onPress={handleLogoutUser}
         />
       </View>

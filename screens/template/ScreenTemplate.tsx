@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
-import { ViewStyle } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, { ReactNode } from 'react';
+import { ViewStyle } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { screenStyle } from "../../constants";
+import { screenStyle } from '../../constants';
 
 const ScreenTemplate = ({
   children,

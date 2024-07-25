@@ -1,17 +1,17 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React from 'react';
 
-import { IJourney, journeyStatus } from "../../../../types";
-import { DEFAULT_COLORS, textStyles } from "../../../../constants";
+import { IJourney, journeyStatus } from '../../../../types';
+import { DEFAULT_COLORS, textStyles } from '../../../../constants';
 
-import DriverBadge from "../DriverBadge";
-import Trucks from "../Trucks";
-import { useNavigationParams } from "../../../../hooks";
-import StatusBtn from "./StatusBtn";
+import DriverBadge from '../DriverBadge';
+import Trucks from '../Trucks';
+import { useNavigationParams } from '../../../../hooks';
+import StatusBtn from './StatusBtn';
 
-interface Props extends Omit<IJourney, "status"> {
-  type: "available" | "journey";
-  status: "available" | journeyStatus;
+interface Props extends Omit<IJourney, 'status'> {
+  type: 'available' | 'journey';
+  status: 'available' | journeyStatus;
 }
 
 const AvailableTruck = ({
@@ -27,11 +27,11 @@ const AvailableTruck = ({
   const { vehicleType, vehicleNo } = vehicle;
 
   const handleGoToHaulDetails = () => {
-    type === "available"
-      ? navigation.navigate("TabsStack", {
-          screen: "Haul",
+    type === 'available'
+      ? navigation.navigate('TabsStack', {
+          screen: 'Haul',
           params: {
-            screen: "HaulInformation",
+            screen: 'HaulInformation',
             //@ts-ignore
             params: {
               journey: {
@@ -43,10 +43,10 @@ const AvailableTruck = ({
             },
           },
         })
-      : navigation.navigate("TabsStack", {
-          screen: "Journey",
+      : navigation.navigate('TabsStack', {
+          screen: 'Journey',
           params: {
-            screen: "JourneyDetails",
+            screen: 'JourneyDetails',
             //@ts-ignore
             params: {
               journey: {
@@ -88,7 +88,7 @@ const AvailableTruck = ({
       </View>
       <View style={styles.item}>
         <DriverBadge driver={vehicle.driver} />
-        <StatusBtn status={status ?? "available"} />
+        <StatusBtn status={status ?? 'available'} />
       </View>
     </TouchableOpacity>
   );
@@ -104,19 +104,19 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   item: {
-    width: "100%",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
+    width: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   truckName: {
     color: DEFAULT_COLORS.gray[700],
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     ...textStyles.sm.regular,
   },
   truckNo: {
     color: DEFAULT_COLORS.gray[500],
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
     ...textStyles.xs.regular,
   },
   haulDetails: { ...textStyles.xs.regular, color: DEFAULT_COLORS.gray[400] },

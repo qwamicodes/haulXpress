@@ -1,24 +1,24 @@
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { FirebaseError } from "firebase/app";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
 
-import { auth } from "../../../config/firebase";
-import { RootStackParamList } from "../../../types";
-import { AppDispatch } from "../../../store";
+import { auth } from '../../../config/firebase';
+import { RootStackParamList } from '../../../types';
+import { AppDispatch } from '../../../store';
 import {
   loginUserToState,
   togglePending,
-} from "../../../store/slices/authSlice";
-import { STRINGS } from "../../../constants";
+} from '../../../store/slices/authSlice';
+import { STRINGS } from '../../../constants';
 
-import ErrorHandler from "../../../features/ErrorHandler";
-import getUserDataFromStore from "./get.userDataFromStore";
+import ErrorHandler from '../../../features/ErrorHandler';
+import getUserDataFromStore from './get.userDataFromStore';
 
 const signinUser =
   (
     email: string,
     password: string,
-    navigate: NativeStackNavigationProp<RootStackParamList>
+    navigate: NativeStackNavigationProp<RootStackParamList>,
   ) =>
   async (dispatch: AppDispatch) => {
     try {
@@ -27,7 +27,7 @@ const signinUser =
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
 
       alert(STRINGS.successLogin);
@@ -43,12 +43,12 @@ const signinUser =
       if (userData) {
         dispatch(loginUserToState({ ...user, ...userData }));
 
-        navigate.navigate("TabsStack", {
-          screen: "Haul",
-          params: { screen: "Start" },
+        navigate.navigate('TabsStack', {
+          screen: 'Haul',
+          params: { screen: 'Start' },
         });
       } else {
-        navigate.navigate("Onboarding");
+        navigate.navigate('Onboarding');
       }
     } catch (error) {
       if (error instanceof FirebaseError) {

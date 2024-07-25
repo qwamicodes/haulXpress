@@ -1,10 +1,10 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
 
-import { DEFAULT_COLORS } from "../../../constants";
+import { DEFAULT_COLORS } from '../../../constants';
 
-import ProfileBadge from "./ProfileBadge";
-import EnRoute from "./EnRoute";
+import ProfileBadge from './ProfileBadge';
+import EnRoute from './EnRoute';
 
 const HaulHeader = () => {
   const journeyEnRoute = false;
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderBottomColor: DEFAULT_COLORS.gray[200],
     borderBottomWidth: 1.5,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

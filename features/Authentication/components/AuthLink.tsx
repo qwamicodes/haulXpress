@@ -3,10 +3,10 @@ import {
   Text,
   TouchableOpacity,
   TouchableOpacityProps,
-} from "react-native";
-import React from "react";
+} from 'react-native';
+import React from 'react';
 
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
 
 const AuthLink = ({
   text,

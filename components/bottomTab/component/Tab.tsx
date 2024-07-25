@@ -1,9 +1,9 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 
-import { DEFAULT_COLORS, textStyles } from "../../../constants";
-import IconRenderer from "../../Icon";
+import { DEFAULT_COLORS, textStyles } from '../../../constants';
+import IconRenderer from '../../Icon';
 
 type props = {
   isFocused: boolean;
@@ -17,45 +17,45 @@ const Tab = ({ isFocused, options, onPress, onLongPress, name }: props) => {
   const renderIcon = () => {
     if (isFocused) {
       switch (name.toLocaleLowerCase()) {
-        case "haul":
+        case 'haul':
           return (
             <View>
-              <IconRenderer iconType="mapBold" light={false} />
+              <IconRenderer iconType='mapBold' light={false} />
             </View>
           );
-        case "journey":
+        case 'journey':
           return (
             <View>
-              <IconRenderer iconType="journeyBold" light={false} />
+              <IconRenderer iconType='journeyBold' light={false} />
             </View>
           );
 
-        case "hauler":
+        case 'hauler':
           return (
             <View>
-              <IconRenderer iconType="haulerBold" light={false} />
+              <IconRenderer iconType='haulerBold' light={false} />
             </View>
           );
       }
     } else {
       switch (name.toLocaleLowerCase()) {
-        case "haul":
+        case 'haul':
           return (
             <View>
-              <IconRenderer iconType="map" light={false} />
+              <IconRenderer iconType='map' light={false} />
             </View>
           );
-        case "journey":
+        case 'journey':
           return (
             <View>
-              <IconRenderer iconType="journey" light={false} />
+              <IconRenderer iconType='journey' light={false} />
             </View>
           );
 
-        case "hauler":
+        case 'hauler':
           return (
             <View>
-              <IconRenderer iconType="hauler" light={false} />
+              <IconRenderer iconType='hauler' light={false} />
             </View>
           );
       }
@@ -65,7 +65,7 @@ const Tab = ({ isFocused, options, onPress, onLongPress, name }: props) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      accessibilityRole="button"
+      accessibilityRole='button'
       accessibilityState={isFocused ? { selected: true } : {}}
       accessibilityLabel={options.tabBarAccessibilityLabel}
       testID={options.tabBarTestID}
@@ -96,8 +96,8 @@ export default Tab;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-around",
-    alignItems: "center",
+    justifyContent: 'space-around',
+    alignItems: 'center',
     marginBottom: 25,
     marginTop: 10,
   },

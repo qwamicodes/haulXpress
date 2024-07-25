@@ -1,24 +1,24 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { TabsParamList } from "../types/navigation";
+import { TabsParamList } from '../types/navigation';
 
-import BottomTab from "../components/bottomTab";
-import HaulerNavigation from "./HaulerNavigation";
-import HaulNavigation from "./HaulNavigation";
-import JourneyNavigation from "./JourneyNavigation";
+import BottomTab from '../components/bottomTab';
+import HaulerNavigation from './HaulerNavigation';
+import HaulNavigation from './HaulNavigation';
+import JourneyNavigation from './JourneyNavigation';
 
 const TabsNavigator = () => {
   const { Navigator, Screen } = createBottomTabNavigator<TabsParamList>();
   return (
     <Navigator
-      initialRouteName="Haul"
-      tabBar={(props) => <BottomTab {...props} />}
+      initialRouteName='Haul'
+      tabBar={props => <BottomTab {...props} />}
       screenOptions={{ headerShown: false, tabBarHideOnKeyboard: true }}
     >
-      <Screen name="Haul" component={HaulNavigation} />
-      <Screen name="Journey" component={JourneyNavigation} />
+      <Screen name='Haul' component={HaulNavigation} />
+      <Screen name='Journey' component={JourneyNavigation} />
       <Screen
-        name="Hauler"
+        name='Hauler'
         component={HaulerNavigation}
         options={{ headerShown: false }}
       />
