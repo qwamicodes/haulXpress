@@ -3,6 +3,16 @@
     "version": ">= 3.15.0"
   },
   "build": {
+    "development:simulator": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      },
+      "android": {
+        "simulator": true
+      }
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal",
@@ -12,31 +22,17 @@
       "distribution": "internal",
       "channel": "preview",
       "env": {
-        "API_KEY": "AIzaSyCAGzhDdRI9-o68u77rF8Yx9imaUsBFYa4",
-        "AUTH_DOMAIN": "haulxpress-a5973.firebaseapp.com",
-        "PROJECT_ID": "haulxpress-a5973",
-        "STORAGE_BUCKET": "haulxpress-c3ab7.appspot.com",
-        "MESSAGING_SENDER_ID": "20454597335",
-        "APP_ID": "1:20454597335:web:e88559f030f9a4937c0692",
-        "MEASUREMENT_ID": "G-QX6E072YHS",
+        "API_KEY": "AIzaSyB3HwQ96JNWIL_BqdT26rETBzpbzFiYVTE",
+        "AUTH_DOMAIN": "haulxpress-6e5e5.firebaseapp.com",
+        "PROJECT_ID": "haulxpress-6e5e5",
+        "STORAGE_BUCKET": "haulxpress-6e5e5.appspot.com",
+        "MESSAGING_SENDER_ID": "461173029864",
+        "APP_ID": "1:461173029864:web:9ad7923fd685b838d1425d",
+        "MEASUREMENT_ID": "G-1S8P8SX69E",
         "IOS_ID": "356837936491-u4m6vl8fpddridmedf3mfrfrochnnq7j.apps.googleusercontent.com",
         "ANDROID_ID": "356837936491-rsii54othd90cqt3ip5tcuii3ndjolu4.apps.googleusercontent.com",
-        "CLIENT_ID": "20454597335-9cmpoal50q6hvjm81kssb1m7ds4eq4a5.apps.googleusercontent.com"
-      }
-    },
-    "production": {
-      "channel": "production",
-      "env": {
-        "API_KEY": "AIzaSyCAGzhDdRI9-o68u77rF8Yx9imaUsBFYa4",
-        "AUTH_DOMAIN": "haulxpress-a5973.firebaseapp.com",
-        "PROJECT_ID": "haulxpress-a5973",
-        "STORAGE_BUCKET": "haulxpress-c3ab7.appspot.com",
-        "MESSAGING_SENDER_ID": "20454597335",
-        "APP_ID": "1:20454597335:web:e88559f030f9a4937c0692",
-        "MEASUREMENT_ID": "G-QX6E072YHS",
-        "IOS_ID": "356837936491-u4m6vl8fpddridmedf3mfrfrochnnq7j.apps.googleusercontent.com",
-        "ANDROID_ID": "356837936491-rsii54othd90cqt3ip5tcuii3ndjolu4.apps.googleusercontent.com",
-        "CLIENT_ID": "20454597335-9cmpoal50q6hvjm81kssb1m7ds4eq4a5.apps.googleusercontent.com"
+        "CLIENT_ID": "20454597335-9cmpoal50q6hvjm81kssb1m7ds4eq4a5.apps.googleusercontent.com",
+        "GOOGLE_MAP_API_KEY": "AIzaSyBKFRXEEBiGV65UiPtpXUxw4EigHkaR-UA"
       }
     }
   },

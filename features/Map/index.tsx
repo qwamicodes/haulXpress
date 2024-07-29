@@ -1,6 +1,5 @@
 import { StyleSheet, Dimensions, View, TouchableOpacity } from 'react-native';
-import React from 'react';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import { useAppSelector, useNavigationParams } from '../../hooks';
 import { DEFAULT_COLORS, screenStyle, centeringStyle } from '../../constants';
@@ -23,7 +22,7 @@ const MapViewComponent = () => {
         <IconRenderer iconType='arrowBack' light={false} />
       </TouchableOpacity>
       <MapView
-        provider='google'
+        provider={PROVIDER_GOOGLE}
         region={{
           latitude: pickup.lat,
           longitude: destination.lng,
