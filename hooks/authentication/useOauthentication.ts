@@ -2,11 +2,7 @@ import { useEffect } from 'react';
 import * as Google from 'expo-auth-session/providers/google';
 import { makeRedirectUri } from 'expo-auth-session';
 import * as WebBrowser from 'expo-web-browser';
-import {
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithCredential,
-} from 'firebase/auth';
+import { GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import { IOS_ID, ANDROID_ID, CLIENT_ID } from '@env';
 
@@ -17,7 +13,8 @@ const useOauthentication = () => {
     {
       iosClientId: IOS_ID,
       androidClientId: ANDROID_ID,
-      expoClientId: CLIENT_ID,
+      // expoClientId: CLIENT_ID,
+      clientId: CLIENT_ID,
       redirectUri: makeRedirectUri({
         scheme: 'haulXpress',
       }),
