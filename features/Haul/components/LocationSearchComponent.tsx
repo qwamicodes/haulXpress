@@ -1,12 +1,12 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import { GOOGLE_MAP_API_KEY } from '@env';
 import { pick } from 'lodash';
 import {
-  GooglePlaceData,
-  GooglePlaceDetail,
+  type GooglePlaceData,
+  type GooglePlaceDetail,
+  type GooglePlacesAutocompleteRef,
   GooglePlacesAutocomplete,
-  GooglePlacesAutocompleteRef,
 } from 'react-native-google-places-autocomplete';
 
 import { DEFAULT_COLORS, textStyles } from '../../../constants';
@@ -32,6 +32,7 @@ const LocationSearchComponent = ({
     data: GooglePlaceData,
     details: GooglePlaceDetail | null,
   ) => {
+    console.log('🚀 ~ details:', details);
     //add location to the store
     const location: Pick<ILocations, 'description' | 'name'> = {
       name: data.structured_formatting.main_text,
@@ -60,7 +61,7 @@ const LocationSearchComponent = ({
         }
         style={styles.button}
       >
-        <IconRenderer iconType='arrorBack' light={false} />
+        <IconRenderer iconType='arrowBack' light={false} />
       </TouchableOpacity>
       <GooglePlacesAutocomplete
         ref={searchElement}
@@ -71,6 +72,7 @@ const LocationSearchComponent = ({
         }}
         onPress={(data, details) => handleSelectedLocation(data, details)}
         textInputProps={styles.input}
+        debounce={1000}
       />
     </View>
   );

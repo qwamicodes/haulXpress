@@ -1,6 +1,5 @@
-import React from 'react';
-import { Image, View, ViewProps } from 'react-native';
-import Svg, { SvgProps, Path, Defs, Circle, Rect } from 'react-native-svg';
+import { Image } from 'react-native';
+import Svg, { Path, Circle, Rect } from 'react-native-svg';
 
 import { iconType } from '../../types';
 import { DEFAULT_COLORS } from '../../constants';
@@ -20,11 +19,8 @@ const IconRenderer = ({
   height = 24,
   width = 24,
 }: props) => {
-  const svgColor = color
-    ? color
-    : light
-      ? DEFAULT_COLORS.white
-      : DEFAULT_COLORS.gray[700];
+  const svgColor =
+    color ?? light ? DEFAULT_COLORS.white : DEFAULT_COLORS.gray[700];
 
   switch (iconType) {
     case 'map':
@@ -151,7 +147,7 @@ const IconRenderer = ({
           />
         </Svg>
       );
-    case 'arrorBack':
+    case 'arrowBack':
       return (
         <Svg fill='none' width={width} height={height}>
           <Path
@@ -163,7 +159,7 @@ const IconRenderer = ({
           />
         </Svg>
       );
-    case 'arrorUp':
+    case 'arrowUp':
       return (
         <Svg fill='none' width={width} height={height}>
           <Path
@@ -175,7 +171,7 @@ const IconRenderer = ({
           />
         </Svg>
       );
-    case 'arrorDown':
+    case 'arrowDown':
       return (
         <Svg fill='none' width={width} height={height}>
           <Path

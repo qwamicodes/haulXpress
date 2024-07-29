@@ -20,7 +20,7 @@ const MapViewComponent = () => {
         activeOpacity={0.8}
         style={styles.buttonContainer}
       >
-        <IconRenderer iconType='arrorBack' light={false} />
+        <IconRenderer iconType='arrowBack' light={false} />
       </TouchableOpacity>
       <MapView
         provider='google'

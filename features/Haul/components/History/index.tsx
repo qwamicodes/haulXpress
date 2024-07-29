@@ -28,7 +28,7 @@ const HaulHistory = ({
           onPress={() => handleNavigateSelection('previous')}
           style={haulStyles.backButton}
         >
-          <IconRenderer light={false} iconType='arrorBack' />
+          <IconRenderer light={false} iconType='arrowBack' />
         </TouchableOpacity>
       ) : (
         <View style={[haulStyles.backButton, { width: 24, height: 24 }]} />

@@ -34,7 +34,7 @@ const ScreenHeaderTitle = ({
             onPress={() => navigation.goBack()}
             style={styles.buttonBack}
           >
-            <IconRenderer iconType='arrorBack' light={false} />
+            <IconRenderer iconType='arrowBack' light={false} />
           </TouchableOpacity>
         </View>
       ) : (

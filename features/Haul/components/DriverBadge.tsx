@@ -1,5 +1,4 @@
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import React from 'react';
 
 import { vehicleProps } from '../../../types';
 import {
@@ -18,7 +17,7 @@ const DriverBadge = ({ driver, showButton = false }: Props) => {
 
   if (showButton) {
     return (
-      <View style={[vertically]}>
+      <View style={vertically}>
         <View style={[centeringStyle, { gap: 8, flexDirection: 'row' }]}>
           <View>
             <Image

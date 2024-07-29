@@ -1,13 +1,11 @@
-import { StyleSheet, View } from 'react-native';
-import React from 'react';
+import { View } from 'react-native';
 
 import { screenStyle } from '../../constants';
 import { useAppSelector } from '../../hooks';
 import AvailableTruck from '../Haul/components/AvailableTrucks';
 
 const Journey = () => {
-  const { user } = useAppSelector(state => state.auth);
-  const { journey } = user;
+  const { journey } = useAppSelector(state => state.auth.user);
 
   return (
     <View style={[screenStyle]}>
@@ -19,5 +17,3 @@ const Journey = () => {
 };
 
 export default Journey;
-
-const styles = StyleSheet.create({});

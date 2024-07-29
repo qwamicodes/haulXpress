@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import React from 'react';
 
 import { IJourney, journeyStatus } from '../../../../types';
 import { DEFAULT_COLORS, textStyles } from '../../../../constants';

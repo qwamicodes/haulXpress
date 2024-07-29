@@ -23,6 +23,9 @@
         "usesNonExemptEncryption": false
       }
     },
+    "favicon": {
+      "image": "./assets/app/adaptive-icon.png"
+    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/app/adaptive-icon.png",
