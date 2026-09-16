@@ -4,6 +4,7 @@
     "slug": "haulXpress",
     "owner": "qwamicodes",
     "version": "1.0.0",
+    "runtimeVersion": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/app/icon.png",
     "userInterfaceStyle": "light",
@@ -41,9 +42,6 @@
         "projectId": "2a691fc6-637a-43f5-aa75-d9ac3607c078"
       }
     },
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    },
     "plugins": [
       [
         "expo-image-picker",
@@ -52,7 +50,8 @@
           "cameraPermission": "HaulXpress app requires camera access",
           "microphonePermission": false
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
     "scheme": ["haulxpress"]
   }

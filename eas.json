@@ -1,6 +1,7 @@
 {
   "cli": {
-    "version": ">= 3.15.0"
+    "version": ">= 16.6.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
@@ -22,7 +23,7 @@
         "IOS_ID": "356837936491-u4m6vl8fpddridmedf3mfrfrochnnq7j.apps.googleusercontent.com",
         "ANDROID_ID": "356837936491-rsii54othd90cqt3ip5tcuii3ndjolu4.apps.googleusercontent.com",
         "CLIENT_ID": "20454597335-9cmpoal50q6hvjm81kssb1m7ds4eq4a5.apps.googleusercontent.com",
-        "GOOGLE_MAP_API_KEY": "AIzaSyBKFRXEEBiGV65UiPtpXUxw4EigHkaR-UA"
+        "GOOGLE_MAP_API_KEY": "AIzaSyBVJnVoBFLD3eY1DL56CthvTBbOmNrBb5Q"
       }
     }
   },
@@ -30,4 +31,3 @@
     "production": {}
   }
 }
-
